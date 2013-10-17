@@ -2,7 +2,7 @@ Ronde::Application.routes.draw do
   get "static/about"
 
   get "static/tour"
-  devise_for :users, :controllers => { "omniauth_callbacks" =>  "/" }
+  devise_for :users, :controllers => { :omniauth_callbacks =>  "omniauth_callbacks" }
   # replace "/" with the path of the controller that will handle the callbacks and provide the
   # view and/or perform the redirect. Also delete the google method from application_controller.rb
   root to: 'static#home'

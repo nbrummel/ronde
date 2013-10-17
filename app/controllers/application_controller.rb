@@ -11,8 +11,4 @@ class ApplicationController < ActionController::Base
   	redirect_to "/"
   end
 
-  def facebook
-  	auth = request.env['omniauth.auth']
-  	redirect_to "/"
-  end
 end
