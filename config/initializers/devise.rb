@@ -143,7 +143,8 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  config.email_regexp = /\A[^@]+@[^@]+\z/
+  # config.email_regexp = /\A[^@]+@[^@]+\z/
+  config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -233,7 +234,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :google, "1060997905460.apps.googleusercontent.com", "4A3109EKNY3v9VszTiVPe3ls", { access_type: "offline", approval_prompt: "" }
-  config.omniauth :facebook, "156369441241041", "99c029bd55f20f5db11ddb958d032497"
+  config.omniauth :facebook, "156369441241041", "99c029bd55f20f5db11ddb958d032497", :scope => "email, sms"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
