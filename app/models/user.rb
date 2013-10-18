@@ -13,16 +13,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :phone_number, :first_name, :last_name, :provider, :uid
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(:email => auth.info.email).first
     unless user
-      user = User.create!(first_name: auth.extra.raw_info.first_name,
-      									 last_name: auth.extra.raw_info.last_name,
-      									 phone_number: auth.extra.raw_info.sms.to_s,
-                         provider: auth.provider,
-                         uid: auth.uid,
-                         email: auth.info.email,
-                         password:Devise.friendly_token[8,20]
-                         )
+      user = User.create!(
+        first_name: auth.extra.raw_info.first_name,
+			  last_name: auth.extra.raw_info.last_name,
+				phone_number: auth.extra.raw_info.sms.to_s,
+        provider: auth.provider,
+        uid: auth.uid,
+        email: auth.info.email,
+        password:Devise.friendly_token[8,20])
     end
     user
   end
@@ -32,13 +32,13 @@ class User < ActiveRecord::Base
     user = User.where(:email => data["email"]).first
 
     unless user
-        user = User.create!(first_name: data["name"].split.first,
-        		 last_name: data["name"].split.last,
-	    		   email: data["email"],
-	    		   provider:access_token.provider,
-	    		   uid:access_token.uid,
-	    		   password: Devise.friendly_token[8,20]
-	    		  )
+      user = User.create!(
+        first_name: data["name"].split.first,
+    		last_name: data["name"].split.last,
+  		  email: data["email"],
+  		  provider:access_token.provider,
+  		  uid:access_token.uid,
+  		  password: Devise.friendly_token[8,20])
     end
     user
 	end
