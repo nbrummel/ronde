@@ -6,5 +6,10 @@ class StaticController < ApplicationController
   end
 
   def home
+  	if current_user && current_user.sign_in_count == 1
+  		current_user.sign_in_count += 1
+  		current_user.save
+  		redirect_to "/static/tour"
+  	end
   end
 end
