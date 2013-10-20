@@ -1,6 +1,7 @@
 Ronde::Application.routes.draw do
   get "static/about"
   get "static/tour"
+  get "static/home"
 
   devise_for :users, :controllers => { :omniauth_callbacks =>  "omniauth_callbacks" }
 
