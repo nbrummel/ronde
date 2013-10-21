@@ -11,6 +11,7 @@ gem 'haml-rails', '=0.3.4'
 gem 'omniauth'
 gem 'omniauth-google'
 gem 'omniauth-facebook'
+gem 'activerecord-sqlite3-adapter'
 
 group :test do
   gem 'cucumber-rails'
