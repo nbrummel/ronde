@@ -20,6 +20,8 @@ h1.title {
   line-height: 75px;
   border-radius: 75px;
   text-decoration: none;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 a.button:hover {
@@ -62,16 +64,20 @@ table#buttons th {
 }
 
 table#bottom_links {
-  margin-top: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 275px;
 }
 
 table#bottom_links th {
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-
+  width: 25%;
+  text-align: center;
 }
+
+/*div#bottom_div {
+	position: fixed;
+	bottom: 0;
+}*/
 
 
 
