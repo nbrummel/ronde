@@ -2,6 +2,12 @@ class StaticController < ApplicationController
   def about
   end
 
+  def contact
+  end
+
+  def terms_of_use
+  end
+
   def tour
   end
 
