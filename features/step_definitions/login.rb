@@ -1,6 +1,6 @@
 
-Given /the user exists with the following details:/ do |fields|
-  fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+Given /the following users exist/ do |users_table|
+  users_table.hashes.each do |user|
+    User.create!(user)
   end
 end
