@@ -7,13 +7,6 @@
 
   %body
     %h1.title rondé
-    #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-
-      = yield
 
   %table#buttons
     %th{:class => "button"}= link_to 'Sign In', new_user_session_path, :class => "button", :id => "sign_in_button"
