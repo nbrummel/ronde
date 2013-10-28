@@ -24,7 +24,7 @@ Scenario: Logging in by entering details
 
  When I press "Sign in"	
 
- Then I should see "Signed in successfully."
+ Then We should be on the tour page
 
 Scenario: Logging in with invalid password
 
