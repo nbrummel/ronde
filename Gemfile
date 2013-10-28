@@ -11,6 +11,8 @@ gem 'haml-rails', '=0.3.4'
 gem 'omniauth'
 gem 'omniauth-google'
 gem 'omniauth-facebook'
+gem 'capybara'
+gem 'database_cleaner'
 
 group :test do
   gem 'cucumber-rails'
@@ -18,7 +20,7 @@ group :test do
 end
 
 group :production do
-#  gem 'pg'
+ gem 'pg'
 end
 
 
