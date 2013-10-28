@@ -5,6 +5,7 @@ class AddUserIdToEvents < ActiveRecord::Migration
 			t.text :attending
 			t.string :location
 			t.text :description
+			t.string :event_type
 			t.boolean :public
 			t.datetime :start
 			t.datetime :end

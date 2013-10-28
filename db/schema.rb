@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20131027193800) do
     t.text     "attending"
     t.string   "location"
     t.text     "description"
+    t.string   "event_type"
     t.boolean  "public"
     t.datetime "start"
     t.datetime "end"
