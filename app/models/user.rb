@@ -3,15 +3,23 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   phone_regexp = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/
   
+  # To ensure certain fields arent blank or nonsense
   validates_presence_of :first_name, :last_name
   validates :phone_number, format: { with: phone_regexp }, :allow_blank => true
 
+  # Association with Events. Each User can have many events.
+  has_many :events
+
+  # Stuff for Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :phone_number, :first_name, :last_name, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, 
+                  :remember_me, :phone_number, :first_name, :last_name, 
+                  :provider, :uid, :attending
 
+  # Handles User creation for facebook login. Gets called from controller.
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:email => auth.info.email).first
     unless user
@@ -27,6 +35,7 @@ class User < ActiveRecord::Base
     user
   end
 
+  # Handles User creation for Google login. Gets called from controller.
   def self.find_for_google(access_token, signed_in_resource=nil)
     data = access_token.info
     user = User.where(:email => data["email"]).first
