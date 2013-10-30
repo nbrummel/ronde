@@ -1,15 +1,14 @@
 Ronde::Application.routes.draw do
-<<<<<<< HEAD
+
 
   devise_scope :user do 
     get "/logout", :to => "devise/sessions#destroy" # Add a custom sign in route for user sign in
     get "/register", :to => "devise/registrations#new" # Add a Custom Route for Registrations
     get "/profile/edit", :to => "devise/registrations#edit"
   end
-=======
+
   resources :friendships
 
->>>>>>> 9e82616bed2c83a54f2dc97864e362f9e6483211
 
   get "static/about"
   get "static/tour"
