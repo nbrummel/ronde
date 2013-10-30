@@ -16,6 +16,10 @@ class StaticController < ApplicationController
       current_user.sign_in_count += 1
       current_user.save
       redirect_to "/static/tour"
+    elsif current_user
+    	redirect_to "/dashboard"
+    else 
+      	
     end
   end
 end

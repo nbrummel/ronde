@@ -1,0 +1,17 @@
+//index.html.haml
+%html
+	%title
+		dashboard
+		= stylesheet_link_tag 'profile'
+		= javascript_include_tag 'profile'
+		= csrf_meta_tags
+	%body
+		%center
+			%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
+			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"
+			%th{:class => "button"}= link_to 'home', '/dashboard', :class => "button", :id => "logout_button"
+			- if flash[:alert]
+				=flash[:alert]
+			- elsif flash[:warning]
+				=flash[:warning]
+			=yield
