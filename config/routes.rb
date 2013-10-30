@@ -1,4 +1,7 @@
 Ronde::Application.routes.draw do
+  resources :friendships
+
+
   get "static/about"
   get "static/tour"
   get "static/home"

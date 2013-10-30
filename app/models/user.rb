@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 
   # Association with Events. Each User can have many events.
   has_many :events
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "confirmed = pending"
 
   # Stuff for Devise
   devise :database_authenticatable, :registerable,
