@@ -1,0 +1,15 @@
+%html
+  %head
+    %title rondé
+    = stylesheet_link_tag 'homepage'
+    = javascript_include_tag 'homepage'
+    = csrf_meta_tags
+
+  %body
+    %center
+      - if flash[:alert]
+        =flash[:alert]
+      - elsif flash[:warning]
+        =flash[:warning]
+    =yield
+
