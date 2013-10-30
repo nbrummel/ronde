@@ -1,5 +1,6 @@
 //index.html.haml
 %html
+	- user = current_user
 	%title
 		dashboard
 		= stylesheet_link_tag 'profile'
@@ -13,17 +14,21 @@
 		%center
 			%h3
 				Name:
-				
+				=user.first_name.capitalize+ " " + user.last_name.capitalize
 			%h3
 				Phone Number:
-				
+				=user.phone_number
 			%h3
 				Email:
-				
+				=user.email
 			%h3 
 				Groups:
 			%h3
 				Friends:
+				-user.friends.each do |friend|
+					%p 
+						=friend.first_name.capitalize + " " + friend.last_name.capitalize
+
 		%center
 			%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
 			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"

@@ -4,7 +4,6 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 gem 'devise'
 gem 'haml-rails', '=0.3.4'
@@ -19,6 +18,8 @@ gem 'hpricot'
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 group :production do

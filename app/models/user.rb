@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :phone_number, format: { with: phone_regexp }, :allow_blank => true
 
   # Association with Events. Each User can have many events.
+  has_one :profile
   has_many :events
   has_many :friendships
   has_many :friends, :through => :friendships
