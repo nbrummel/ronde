@@ -14,6 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the (Ronde )?home\s?page$/ then '/'
+    when /^the ronde homepage/ then '/'
     when /^the movies page$/ then '/'
 
     # Add more mappings here.
