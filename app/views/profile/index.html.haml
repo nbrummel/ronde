@@ -5,7 +5,25 @@
 		= stylesheet_link_tag 'profile'
 		= javascript_include_tag 'profile'
 		= csrf_meta_tags
+	%head
+		%center
+			%h1
+				Profile Page
 	%body
+		%center
+			%h3
+				Name:
+				
+			%h3
+				Phone Number:
+				
+			%h3
+				Email:
+				
+			%h3 
+				Groups:
+			%h3
+				Friends:
 		%center
 			%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
 			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"

@@ -13,6 +13,8 @@ gem 'omniauth-google'
 gem 'omniauth-facebook'
 gem 'capybara'
 gem 'database_cleaner'
+gem 'ruby_parser'
+gem 'hpricot'
 
 group :test do
   gem 'cucumber-rails'
