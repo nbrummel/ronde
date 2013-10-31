@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   validates :phone_number, format: { with: phone_regexp }, :allow_blank => true
 
   # Association with Events. Each User can have many events.
-  has_one :profile
   has_many :events
   has_many :friendships
   has_many :friends, :through => :friendships
+  has_many :attendees, :through => :events, :source => :invitations
   has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "confirmed = pending"
 
   # Stuff for Devise
