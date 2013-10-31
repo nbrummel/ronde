@@ -8,6 +8,7 @@ class Invitation < ActiveRecord::Base
 		unless user == friend or Invitation.find_by_user_id_and_friend_id_and_event_id(user.id, friend.id, event.id)
 			transaction do 
 				create(:user_id => user.id, :friend_id => friend.id, :status => 'pending', :event_id => event.id)
+				create(:user_id => friend.id, :friend_id => user.id, :status => 'pending', :event_id => event.id)
 			end
 		end
 	end
