@@ -17,6 +17,7 @@ class Invitation < ActiveRecord::Base
 		transaction do
 			accepted_at = Time.now
 			accept_one_side(user, friend, event, accepted_at)
+			accept_one_side(friend, user, event, accepted_at)
 		end
 	end
 
