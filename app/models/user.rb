@@ -14,8 +14,9 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :attendees, :through => :events, :source => :invitations
-  has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "confirmed = pending"
-
+  has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "status = 'pending'"
+  has_many :accepted_friends, :through => :friendships, :source => :friend, :conditions => "status = 'accepted'"
+  has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'"
   # Stuff for Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
