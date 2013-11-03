@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates :phone_number, format: { with: phone_regexp }, :allow_blank => true
 
   # Associations with Events.
-  # has_many :events # all events I am a part of
   has_many :invitations # invitations sent out by me
 
   # Associations with Friends (friend requests: accepted, pending, requested)
@@ -27,6 +26,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
                   :remember_me, :phone_number, :first_name, :last_name, 
                   :provider, :uid, :attending
+
+  # list all of the events i have ever created
+  def my_events
+    Event.find(:all, :conditions => ["created_by_id = ?", self.id])
+  end
 
   # list all of the events i have ever created or joined               
   def events
