@@ -1,5 +1,5 @@
 And /I am on the ronde "(.*)" page$/ do |page|
-	visit static_about_path
+	visit "/static/#{page}"
 end
 
 And /I click the "(.*)" link$/ do |link|

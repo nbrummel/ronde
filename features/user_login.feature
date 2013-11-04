@@ -11,7 +11,7 @@ Background: I am visiting the website for the first time this session
       | ronde@gmail.com | RondeFirst | Rondelast | 5105105101   | RondePassword | 
       | sonde@gmail.com | SondeFirst | SondeLast | 5105105102	| SondePassword |
 
- And I am on the Ronde home page
+ And I am on the ronde "home" page
 
 Scenario: Logging in by entering details
 
@@ -19,7 +19,7 @@ Scenario: Logging in by entering details
  When I fill in "ronde@gmail.com" for "Email"
  When I fill in "RondePassword" for "Password"
  When I press "Sign in"	
- Then We should be on the tour page
+ Then I should be on the ronde "tour" page
 
 Scenario: Logging in with invalid password
  When I follow "Sign In"
