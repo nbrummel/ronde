@@ -2,8 +2,13 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
+    
     @friendships = Friendship.all
+    self.func
 
+  end
+
+  def func
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @friendships }
@@ -13,12 +18,10 @@ class FriendshipsController < ApplicationController
   # GET /friendships/1
   # GET /friendships/1.json
   def show
+    
     @friendship = Friendship.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @friendship }
-    end
+    self.respond
+  
   end
 
   # GET /friendships/new
@@ -47,10 +50,14 @@ class FriendshipsController < ApplicationController
         format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
         format.json { render json: @friendship, status: :created, location: @friendship }
       else
-        format.html { render action: "new" }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
+        self.func2
       end
     end
+  end
+
+  def func2
+    format.html { render action: "new" }
+    format.json { render json: @friendship.errors, status: :unprocessable_entity } 
   end
 
   # PUT /friendships/1
@@ -63,8 +70,7 @@ class FriendshipsController < ApplicationController
         format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
+        self.func2
       end
     end
   end
