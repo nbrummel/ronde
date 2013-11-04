@@ -1,4 +1,4 @@
-Feature: Create an Event
+Feature: Events
 	As a user
 	So I can meet with friends
 	I want to be able to create an event
