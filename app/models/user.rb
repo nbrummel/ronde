@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   # list all of the events i have ever created or joined               
-  def events
+  def all_events
     [Event.find(:all, :conditions => ["created_by_id = ?", self.id]), self.joined_events].flatten.sort_by &:start
   end
 
