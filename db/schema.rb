@@ -15,15 +15,16 @@ ActiveRecord::Schema.define(:version => 20131031001556) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
+    t.text     "attending"
     t.string   "location"
     t.text     "description"
     t.string   "event_type"
     t.boolean  "public"
     t.datetime "start"
     t.datetime "end"
-    t.integer  "created_by_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "friendships", :force => true do |t|
@@ -43,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20131031001556) do
     t.datetime "accepted_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

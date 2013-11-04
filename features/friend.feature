@@ -29,90 +29,13 @@ Scenario: Sending a friend request to a friend that does not exist
 	And I press "Search"
 	Then I should see "Sorry, GondeFirst is not a Ronde user."
 
-Feature: Accept a friend request
-	As a user
-	I want to be able to accept a friend request
-	So that my friend can see my events
 
-Scenario: Accept a friend request from a list of pending friends
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
-	Then I should see "SondeFirst"
-	When I press "Accept Friend"
-	Then I should see "Congratulations, you and SondeFirst are now friends."
-	When I follow "Friends"
-	Then I should see "SondeFirst"
 
-Feature: Reject a friend request
 
-Scenario: Reject a friend request from a list of pending friends
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
-	Then I should see "SondeFirst"
-	When I press "Reject Friend"
-	Then I should see "You have rejected SondeFirst as a friend."
-	And I should not see "SondeFirst"
 
-Feature: See friend requests
-	
-Scenario: See a list of pending friends
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
-	Then I should see "SondeFirst"
-	
-Scenario: Should not see friend in pending friends if I have already accepted them
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	And I have accepted my friend request from "SondeFirst"
-	When I press "Friend Requests"
-	Then I should not see "SondeFirst"
 
-Feature: See friends
 
-Scenario: See a list of accepted friends
-	Given "SondeFirst" and "RondeFirst" are friends
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I follow "My Friends"
-	Then I should see "SondeFirst"
 
-Scenario: Should not see pending friend requests in my friends
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I follow "My Friends"
-	Then I should not see "SondeFirst"
-
-Scenario: Should not see rejected friend requests in my friends
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
-	Then I should see "SondeFirst"
-	When I press "Reject Friend"
-	Then I should see "You have rejected SondeFirst as a friend."
-	And I should not see "SondeFirst"
-	When I follow "Friends"
-	Then I should not see "SondeFirst"
-
-Feature: Unfriend someone
-
-Scenario: Unfriend an accepted friend
-	Given "SondeFirst" and "RondeFirst" are friends
-	And I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I am on the dashboard for user with id 1
-	When I follow "My Friends"
-	Then I should see "SondeFirst"
-	When I press "Remove Friend"
-	Then I should see "You have removed SondeFirst as a friend."
-	And I should not see "SondeFirst"
 	
 
 
