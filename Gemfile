@@ -20,6 +20,7 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
+  gem 'rspec-rails'
 end
 
 group :production do
