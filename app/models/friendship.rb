@@ -26,4 +26,32 @@ class Friendship < ActiveRecord::Base
 		request.accepted_at = accepted_at
 		request.save!
 	end
+
+	def self.remove(user, friend)
+		self.remove_one_side(user, friend)
+		self.remove_one_side(friend, user)
+	end
+
+	def self.remove_one_side(user, friend)
+		request = find_by_user_id_and_friend_id(user.id, friend.id)
+		request.destroy
+	end
+
+	def self.already_friends(user, friend)
+		request = find_by_user_id_and_friend_id(user.id, friend.id)
+		if (request && request.status == 'accepted') || user.id == friend.id
+			return true
+		else
+			return false
+		end
+	end
+
+	def self.already_sent_friend_request(user, friend)
+		request = find_by_user_id_and_friend_id(user.id, friend.id)
+		if request && request.status == 'pending'
+			return true
+		else
+			return false
+		end
+	end
 end
