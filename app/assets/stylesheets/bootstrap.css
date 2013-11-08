@@ -5236,6 +5236,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav > li {
   float: left;
+  text-align:center;
 }
 .navbar .nav > li > a {
   float: none;
