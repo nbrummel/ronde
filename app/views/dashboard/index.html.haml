@@ -1,17 +1,5 @@
-//index.html.haml
 %html
-	%title
-		dashboard
-		= stylesheet_link_tag 'dashboard'
-		= javascript_include_tag 'dashboard'
-		= csrf_meta_tags
-	%body
-		%center
-			%th{:class => "button"}= link_to 'Profile', '/profile', :class => "button", :id => "profile_button"
-			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"
-			
-			- if flash[:alert]
-				=flash[:alert]
-			- elsif flash[:warning]
-				=flash[:warning]
-			=yield
+  %head
+    = stylesheet_link_tag 'bootstrap'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
