@@ -1,0 +1,29 @@
+//index.html.haml
+%html
+	- user = current_user
+	%title
+		dashboard
+		= stylesheet_link_tag 'profile'
+		= javascript_include_tag 'profile'
+		= csrf_meta_tags
+	%head
+		%center
+			%h1
+				Profile Page
+	%body
+		%center
+			%h3
+				Friends:
+				-user.friends.each do |friend|
+					%p 
+						=friend.first_name.capitalize + " " + friend.last_name.capitalize
+
+		%center
+			%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
+			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"
+			%th{:class => "button"}= link_to 'home', '/dashboard', :class => "button", :id => "logout_button"
+			- if flash[:alert]
+				=flash[:alert]
+			- elsif flash[:warning]
+				=flash[:warning]
+			=yield
