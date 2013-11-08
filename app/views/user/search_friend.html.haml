@@ -1,0 +1,32 @@
+%html
+  %head
+    %title rondé
+    = stylesheet_link_tag 'friends'
+    = javascript_include_tag 'friends'
+    = csrf_meta_tags
+
+  %body
+    %h1.title rondé
+    = form_tag :action => "search_friend", :method => :post do
+      = text_field_tag 'searched_friend'
+      = submit_tag 'Search'
+    %table#search_results
+      %h2.title Search Results
+      -if @possible_friends.empty?
+        = flash[:search_result_msg]
+      -else
+        %thead
+          %tr
+            %th
+            %th
+        %tbody
+          - @possible_friends.each do |friend|
+            %tr
+              %td= friend.first_name + ' ' + friend.last_name
+              -if Friendship.already_sent_friend_request(@user, friend)
+                %td= 'Pending'
+              -elsif !Friendship.already_friends(@user, friend)
+                %td= button_to '+', "/user/#{@user.id}/add_friend/#{friend.id}"
+              -else
+                %td= '✓'
+    =link_to "Back to Friends", "/user/#{@user.id}/friends"

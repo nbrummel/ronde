@@ -1,15 +1,40 @@
 %html
   %head
-    %title rondé
-    = stylesheet_link_tag 'homepage'
-    = javascript_include_tag 'homepage'
+    = stylesheet_link_tag 'bootstrap'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
+    %title rondé
+    %body
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand{:href => "/"} rondé
+            .nav-collapse
+              %ul.nav.pull-right
+                =form_tag "/user/#{current_user.id}/friends", :class => "navbar-search", :method => :get do
+                  = text_field_tag :search, nil, :class => "search-query span5", :placeholder => "Search"
+                %li
+                  %a{:href => "/"} home
+                %li
+                  %a{:href => "/user/#{current_user.id}/friends"} friends
 
-  %body
-    %center
-      - if flash[:alert]
-        =flash[:alert]
-      - elsif flash[:warning]
-        =flash[:warning]
-    =yield
+                %li.dropdown
+                  %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} 
+                    The dropdown item
+                    %b.caret
+                  %ul.dropdown-menu{"role" => "menu"}
+                    %li
+                      %a{:href => "#link1"} 
+                        Dropdown #1
+                      %a{:href => "#link2"} 
+                        Dropdown #2
+                      %a{:href => "#link3"} 
+                        Dropdown #3
+                      %a{:href => "#link4"} 
+                        Dropdown #4
 
+      =yield

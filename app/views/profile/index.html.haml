@@ -25,7 +25,7 @@
 				Groups:
 			%h3
 				Friends:
-				-user.friends.each do |friend|
+				-user.accepted_friends.each do |friend|
 					%p 
 						=friend.first_name.capitalize + " " + friend.last_name.capitalize
 
