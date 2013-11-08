@@ -14,6 +14,9 @@ gem 'capybara'
 gem 'database_cleaner'
 gem 'ruby_parser'
 gem 'hpricot'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
 
 group :test do
   gem 'cucumber-rails'

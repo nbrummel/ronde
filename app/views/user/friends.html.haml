@@ -7,12 +7,9 @@
 
   %body
     %h1.title rondé
-    -if flash[:remove_friend_msg]
-      =flash[:remove_friend_msg]
-    -if flash[:accept_friend_msg]
-      =flash[:accept_friend_msg]
-    -if flash[:friend_request_msg]
-      =flash[:friend_request_msg]
+    =flash[:remove_friend_msg]
+    =flash[:accept_friend_msg]
+    =flash[:friend_request_msg]
     = form_tag :action => "search_friend", :method => :post do
       = text_field_tag 'searched_friend', nil, :placeholder => "Email Address"
       = submit_tag 'Search'
