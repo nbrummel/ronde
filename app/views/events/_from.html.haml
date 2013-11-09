@@ -1,0 +1,132 @@
+%html
+	%head
+		%title rondé
+		= stylesheet_link_tag 'events'
+		= javascript_include_tag 'application'
+		= csrf_meta_tags
+
+	%body
+		%h1.title Create New Event
+		= render 'form'
+//_from.html.haml
+		= form_for(@event, html: { class: 'form-horizontal' }) do |f|
+			- if @event.errors.any?
+				#error_explanation
+					%h2
+						= pluralize(@event.errors.count, "error")
+						prohibited this event from being saved:
+					%ul
+						- @event.errors.full_messages.each do |msg|
+							%li= msg
+			%fieldset
+				%legend
+				.field.control-group
+					= f.label :name
+					.controls
+						.input-group
+							= f.text_field :name
+							%span.add-on{ rel="tooltip", title="Required" }
+								%i.icon-asterisk
+				.field.control-group
+					= f.label :description
+					.controls
+						.input-group
+							= f.text_area :description, rows: 10
+							%span.add-on{ rel="tooltip", title="Required" }
+								%i.icon-asterisk
+						%p.help-block Provide a detailed description of the event here
+				.field.control-group
+					= f.label :event_type
+					.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
+				/ .field.control-group
+				/ 	= f.label :location_id
+				/ 	.controls
+				/ 		.input-group
+				/ 			= f.collection_select :location_id, @locations, :id, :name_with_address
+				/ 			%span.add-on{ rel="tooltip", title="Required" }
+				/ 				%i.icon-asterisk
+				/ 		%p.help-block Where is this happening event taking place? Hopefully somewhere cool...
+
+				%p 
+					- Time.zone
+				.field.control-group
+					= f.label :start_at
+					.controls.datetime
+		//= = w.select "day_of_the_week", [["Monday","day_label_1"], ["Tuesday","day_label_2"]]
+						=f.datetime_select :start_at,:discard_month, :discard_year, :ampm => true ,  minute_step: 15
+						%span.help-block Choose a start date
+				.field.control-group
+					= f.label :end_at
+					.controls.datetime
+						= f.datetime_select :end_at, minute_step: 15
+						%p.help-block When does the event end?
+				.field.control-group
+					= f.label :all_day
+					.controls
+						= f.check_box :all_day
+						%p.help-block Is the event an all day event? This will cause the times above to be ignored.
+			.actions.well
+				= f.submit class: 'btn btn-large btn-success'
+				- if @event.new_record?
+					= link_to "Cancel, and return to events", events_path, class: 'btn btn-large btn-danger'
+				- else
+					= link_to "Cancel, and return to event", @event, class: 'btn btn-large btn-danger'
+
+
+					
+		/ = form_for(Event.new, :remote => true) do |e|
+		/ 	%p
+		/ 		Name:
+		/ 		= f.text_field :name, nil, :placeholder => "Name"
+		/ 		%br
+		/ 		Event Type:
+		/ 		= f.check_box_tag "ratings[#{rating}]", false #unchecked
+		/ 		%br
+		/ 		Discription:
+		/ 		= f.text_area :discription, nil, :placeholder => "Enter discripton of event here."
+		/ 		%br
+		/ 		=label_tag "Day"
+		/ 		=date_select "patient", "dob", { start_year: Date.today.year, :discard_year, :discard_month, default: Date.today}
+		/ 		=
+		/   Last name : <%= f.text_field :last_name %><br />
+		/   Biography : <%= f.text_area :biography %><br />
+		/   Admin?    : <%= f.check_box :admin %><br />
+		/   <%= f.submit %> 
+		/ 	 :action => "create_event", :method => :post do
+		/ 	= text_field_tag 'name_event', nil, :placeholder => "Name"
+		/ 	= text_field_tag 'type_event', nil, :placeholder => "Food"
+		/ 	=	text_field_tag ''
+		/ 	= submit_tag 'Search'
+		/ %h2.title Friend Requests
+		/ -if @friend_requests
+		/ 	%table#friend_requests
+		/ 		%thead
+		/ 			%tr
+		/ 				%th 
+		/ 				%th
+		/ 				%th
+		/ 		%tbody
+		/ 			- @friend_requests.each do |pending_friend|
+		/ 				%tr
+		/ 					%td= pending_friend.first_name + ' ' + pending_friend.last_name
+		/ 					%td= button_to '✓', "/user/#{@user.id}/accept_friend/#{pending_friend.id}"
+		/ 					%td= button_to 'x', "/user/#{@user.id}/reject_friend/#{pending_friend.id}"
+		/ -else
+		/ 	= "You have no friend requests."
+		/ %h2.title Friends
+		/ -if @friends
+		/ 	%table#friends
+		/ 		%thead
+		/ 			%tr
+		/ 				%th
+		/ 				%th
+		/ 		%tbody
+		/ 			- @friends.each do |friend|
+		/ 				%tr
+		/ 					%td= friend.first_name + ' ' + friend.last_name
+		/ 					%td= button_to 'x', "/user/#{@user.id}/remove_friend/#{friend.id}", :confirm => "Are you sure you want to remove #{friend.first_name} #{friend.last_name} from your friends?", :method => :delete
+		/ -else 
+		/ 	= "You do not have any friends at this time. Add your friends to connect on rondé!"
+
+
+

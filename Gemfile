@@ -17,6 +17,7 @@ gem 'hpricot'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
+gem 'simple_form'
 
 group :test do
   gem 'cucumber-rails'

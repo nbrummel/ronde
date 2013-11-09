@@ -1,0 +1,48 @@
+%html
+	%head
+		%title rondé
+		= stylesheet_link_tag 'events'
+		= javascript_include_tag 'application'
+		= csrf_meta_tags
+
+	%body
+		%h1.title rondé
+		=flash[:remove_event_msg]
+		=flash[:accept_event_msg]
+		= form_tag :action => "create_event", :method => :post do
+			= text_field_tag 'name_event', nil, :placeholder => "Name"
+			= text_field_tag 'type_event', nil, :placeholder => "Food"
+			=	text_field_tag ''
+			= submit_tag 'Search'
+		%h2.title Friend Requests
+		-if @friend_requests
+			%table#friend_requests
+				%thead
+					%tr
+						%th 
+						%th
+						%th
+				%tbody
+					- @friend_requests.each do |pending_friend|
+						%tr
+							%td= pending_friend.first_name + ' ' + pending_friend.last_name
+							%td= button_to '✓', "/user/#{@user.id}/accept_friend/#{pending_friend.id}"
+							%td= button_to 'x', "/user/#{@user.id}/reject_friend/#{pending_friend.id}"
+		-else
+			= "You have no friend requests."
+		%h2.title Friends
+		-if @friends
+			%table#friends
+				%thead
+					%tr
+						%th
+						%th
+				%tbody
+					- @friends.each do |friend|
+						%tr
+							%td= friend.first_name + ' ' + friend.last_name
+							%td= button_to 'x', "/user/#{@user.id}/remove_friend/#{friend.id}", :confirm => "Are you sure you want to remove #{friend.first_name} #{friend.last_name} from your friends?", :method => :delete
+		-else 
+			= "You do not have any friends at this time. Add your friends to connect on rondé!"
+
+			:description, :end, :location, :name, :public, :start, :created_by, :event_type, :user_id
