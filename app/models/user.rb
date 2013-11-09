@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   has_many :accepted_friends, :through => :friendships, :source => :friend, :conditions => "status = 'accepted'"
   has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'"
 
-  
   # Stuff for Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable

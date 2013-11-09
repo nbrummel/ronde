@@ -14,8 +14,9 @@ module NavigationHelpers
     case page_name
 
     when /^the (Ronde )?home\s?page$/ then '/'
-    when /^the ronde homepage/ then '/'
-    when /^the movies page$/ then '/'
+    when /^the ronde (.*) page$/
+      page = $1.gsub(" ", "_")
+      "/static/" + page
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

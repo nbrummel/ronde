@@ -1,16 +1,15 @@
-=begin
-Given /I am on the ronde homepage/ do
-	visit path_to('the Ronde homepage')
-end
-=end
-And /I click the "(.*)" link$/ do |link|
-	click_link(link)
+And /I am on the ronde "(.*)" page$/ do |page|
+	visit "/static/#{page}"
 end
 
-Then /I should be on the ronde "(.*)" page$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
-  end
+And /I click the "(.*)" link$/ do |link|
+	link = link.gsub(" ", "_")
+	click_link("#{link}_link")
+end
+
+Then /I should be on the ronde "(.*)" page$/ do |page|
+  page = page.gsub(" ", "_")
+  current_path = URI.parse(current_url).path
+  desired_path = "/static/#{page}"
+  assert current_path == desired_path, "current_path = #{current_path}, desired_path = #{desired_path}"
 end
