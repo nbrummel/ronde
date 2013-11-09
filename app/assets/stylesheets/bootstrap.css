@@ -8,6 +8,10 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+a#edit_profile{
+  font-size:10px;
+}
+
 h1.title {
   color: #FF6633;
   font-family:"eight_one", arial;
@@ -4373,10 +4377,12 @@ input[type="button"].btn-block {
   color: rgba(255, 255, 255, 0.75);
 }
 .btn-primary {
-  color: #ffffff;
-  background-color: #006dcc;
-  border-color: #0044cc #0044cc #002a80;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #ff6633;
+  /*background-color: #006dcc;*/
+  background-color: #ffffff;
+  /*border-color: #0044cc #0044cc #002a80;*/
+  border-color: #ffffff;
+  /*border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*/
   *background-color: #0044cc;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
@@ -4389,7 +4395,8 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #0044cc;
+  border-color:#ff6633;
+  background-color: #ff6633;
   *background-color: #003bb3;
 }
 .btn-primary:active,
@@ -5104,9 +5111,9 @@ input[type="submit"].btn.btn-mini {
   font-family: "eight_one";
   float: left;
   display: block;
-  padding: 10px 20px 10px;
-  margin-left: -20px;
-  font-size: 20px;
+  padding: 10px 5px 10px 10px;
+  margin-left: 12px;
+  font-size: 22px;
   font-weight: 200;
   color: #ff6633;
 }
@@ -5184,13 +5191,16 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-search {
   position: relative;
-  left: -15%;
-  float: left;
+  overflow:hidden;
+  float:left;
+  margin-left:50px;
+  padding:1px 20px 1px 10px;
   margin-top: 7px;
-  margin-bottom: 0;
+  margin-bottom: 7px;
 }
 .navbar-search .search-query {
   padding: 12px 14px;
+  overflow:hidden;
   margin-bottom: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -5249,8 +5259,10 @@ input[type="submit"].btn.btn-mini {
   text-align:center;
 }
 .navbar .nav > li > a {
-  float: none;
-  padding: 10px 15px 10px;
+  position:relative;
+  float: right;
+  margin:auto;
+  padding: 10px 15px 10px 15px;
   color: #777777;
   text-decoration: none;
 }
@@ -5259,7 +5271,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  background-color: transparent;
+  background-color: #ffffff;
   color: #333333;
   text-decoration: none;
 }

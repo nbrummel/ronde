@@ -16,7 +16,7 @@ Ronde::Application.routes.draw do
   get "static/terms_of_use"
   get "static/contact"
   get "/dashboard", :to => "dashboard#index", :as => 'user_dashboard'
-  get "/profile", :to => "profile#index", :as => 'user_profile'
+  get "/user/:id/profile", :to => "profile#index", :as => 'user_profile'
   get "/user/:id/friends", :to => "user#friends", :as => 'user_friends'
   post "/user/:id/search_friend", :to => "user#search_friend"
   post "/user/:id/add_friend/:friend_id", :to => "user#add_friend"
