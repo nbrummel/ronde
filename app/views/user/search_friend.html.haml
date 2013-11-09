@@ -1,17 +1,12 @@
 %html
   %head
     %title rondé
-    = stylesheet_link_tag 'friends'
-    = javascript_include_tag 'friends'
+    = stylesheet_link_tag 'bootstrap'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
-    %h1.title rondé
-    = form_tag :action => "search_friend", :method => :post do
-      = text_field_tag 'searched_friend'
-      = submit_tag 'Search'
     %table#search_results
-      %h2.title Search Results
       -if @possible_friends.empty?
         = flash[:search_result_msg]
       -else
@@ -29,4 +24,3 @@
                 %td= button_to '+', "/user/#{@user.id}/add_friend/#{friend.id}"
               -else
                 %td= '✓'
-    =link_to "Back to Friends", "/user/#{@user.id}/friends"

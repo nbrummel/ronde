@@ -1,8 +1,8 @@
 %html
+  = stylesheet_link_tag 'bootstrap'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
   %head
-    = stylesheet_link_tag 'bootstrap'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
     %title rondé
     %body
       .navbar.navbar-fixed-top
@@ -14,27 +14,30 @@
               %span.icon-bar
             %a.brand{:href => "/"} rondé
             .nav-collapse
-              %ul.nav.pull-right
-                =form_tag "/user/#{current_user.id}/friends", :class => "navbar-search", :method => :get do
-                  = text_field_tag :search, nil, :class => "search-query span5", :placeholder => "Search"
-                %li
-                  %a{:href => "/"} home
-                %li
-                  %a{:href => "/user/#{current_user.id}/friends"} friends
-
-                %li.dropdown
-                  %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} 
-                    The dropdown item
-                    %b.caret
-                  %ul.dropdown-menu{"role" => "menu"}
-                    %li
-                      %a{:href => "#link1"} 
-                        Dropdown #1
-                      %a{:href => "#link2"} 
-                        Dropdown #2
-                      %a{:href => "#link3"} 
-                        Dropdown #3
-                      %a{:href => "#link4"} 
-                        Dropdown #4
-
+              -if current_user
+                %ul.nav.pull-right
+                  =form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
+                    = text_field_tag "searched_friend", nil, :class => "search-query span5", :placeholder => "Search"
+                  %li
+                    %a{:href => "/"} home
+                  %li
+                    %a{:href => "/user/1/friends"} friends
+                  %li.dropdown
+                    %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} 
+                      settings
+                    %ul.dropdown-menu{"role" => "menu"}
+                      %li
+                        %a{:href => "/profile"} 
+                          account
+                        %a{:href => "/users/sign_out"} 
+                          sign out
+                        
+              -else
+                %ul.nav.pull-right
+                  %li
+                    %a{:href => "/"} home
+                  %li
+                    %a{:href => "/users/sign_in"} sign in
+                  %li
+                    %a{:href => "/users/sign_up"} sign up
       =yield

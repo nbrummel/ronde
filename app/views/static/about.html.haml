@@ -1,12 +1,44 @@
 %html
-  %body
-  %h2 about
-
-  %p#about <br>rondé is the easiest way to get together with friends. <br>Whether you're going to lunch, heading to the gym, or grabbing a drink,<br>find friends who have the same plans and join them for a great time.<br><br>
-
-  %div#bottom_div
-    %table#bottom_links
-      %th{:class => "bottom_link"}= link_to 'Home', '/static/home', :class => "bottom_link", :id => "home_link"
-      %th{:class => "bottom_link"}= link_to 'About', '/static/about', :class => "bottom_link", :id => "about_link"
-      %th{:class => "bottom_link"}= link_to 'Terms of Use', '/static/terms_of_use', :class => "bottom_link", :id => "terms_of_use_link"
-      %th{:class => "bottom_link"}= link_to 'Contact', '/static/contact', :class => "bottom_link", :id => "contact_link"
+	= stylesheet_link_tag 'bootstrap'
+	= javascript_include_tag 'application'
+	= csrf_meta_tags
+	%head
+		%title rondé
+		%body
+			%br
+			%h1.title rondé
+			%br
+			.container
+				.hero-unit
+					%h4 rondé is the easiest way to get together with friends. Whether you're going to lunch, heading to the gym, or grabbing a drink, find friends who have the same plans and join them for a great time.
+					%p
+						%a.btn.btn-primary.btn-small{:href => '/users/sign_up'} Sign Up &raquo;
+				.row
+					.span4
+						%h2 Plans, now
+						%p No more waiting. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+						%p
+							%a.btn{:href => "/users/sign_up"} View details &raquo;
+					.span4
+						%h2 Be in the loop
+						%p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+						%p
+							%a.btn{:href => "/users/sign_up"} View details &raquo;
+					.span4
+						%h2 Share good times
+						%p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+						%p
+							%a.btn{:href => "/users/sign_up"} View details &raquo;
+				%hr/
+				.container
+					.navbar.navbar-fixed-bottom{:style => "padding-left:240px;"}
+						.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
+							%ul.nav
+								%li
+									%a{:href => "/", :style => "color:#ff6633;"} Home
+								%li
+									%a{:href => "/static/about", :style => "color:#ff6633;"} About
+								%li
+									%a{:href => "/static/terms_of_use", :style => "color:#ff6633;"} Terms of Use
+								%li
+									%a{:href => "/static/contact", :style => "color:#ff6633;"} Contact
