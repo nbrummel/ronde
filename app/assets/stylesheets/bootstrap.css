@@ -8,6 +8,13 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+h1.title {
+  color: #FF6633;
+  font-family:"eight_one", arial;
+  font-size: 500%;
+  text-align: center;
+}
+
  @font-face {
   font-family: 'eight_one';
   src: url(/assets/eight_one.ttf);
