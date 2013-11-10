@@ -1,13 +1,15 @@
+
 .container
 	=flash[:message]
 	=flash[:error]
-	%h2.title Create New Event
+	%h2.title{:style => "color:#ff6633;padding-left:50px;margin-right:auto;"}
+		Create New Event
 	.container{:style => "padding-left:50px;margin-right:auto;"}
 		= form_for(Event.new , validate: true, remote: true, html: {"data-type" => :json}) do |f|
 			%fieldset
 				.field.control-group
 					= f.label :name
-				.controls
+				.controlsqw	`
 					.input-group
 					= f.text_field :name,:placeholder => "What should we do?"
 				.field.control-group
