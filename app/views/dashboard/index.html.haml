@@ -11,10 +11,13 @@
 					%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
 				.table
 					.btn-group-vertical
-						%a.btn.btn-primary.btn-small{:href => '/events/new' } new event
+						%a.btn.btn-primary.btn-small{'href' => '#new-event-modal', 'data-toggle' => 'modal'} new event
 						%a.btn.btn-primary.btn-small{:href => '/events/show' } all events
 						.btn.btn-primary.btn-small messages
 						.btn.btn-primary.btn-small recent events
 						.btn.btn-primary.btn-small find friends
 		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
+
+	#new-event-modal{'class' => 'modal hide fade'}
+		= render 'form'
 

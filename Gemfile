@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'client_side_validations'
 gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
