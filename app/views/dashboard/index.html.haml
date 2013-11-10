@@ -1,41 +1,16 @@
-%html
-	%head
-		= stylesheet_link_tag 'bootstrap'
-		= javascript_include_tag 'application'
-		= csrf_meta_tags
-		%body
-			.container
-				.navbar.navbar-fixed-top
-					.navbar-inner
-						.container
-							%a.brand{:href => "/"} rondé
-							%ul.nav.pull-right
-								=	form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
-									= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
-								%li
-									%a{:href => "/"} home
-								%li
-									%a{:href => "/user/#{current_user.id}/friends"} friends
-								%li.dropdown
-									%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
-									%ul.dropdown-menu{"role" => "menu"}
-										%li
-											%a{:href => "/profile"} 
-												account
-											%a{:href => "/users/sign_out"} 
-												sign out
-			.container
-				%center
-					.panel.panel-default.pull-left
-						%p{:style => "font-weight:bold;color:#dd6633;"}
-							=current_user.first_name
-							=current_user.last_name
-							%br
-							%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
-						.table
-							.btn-group-vertical
-								.btn.btn-primary.btn-small new event
-								.btn.btn-primary.btn-small messages
-								.btn.btn-primary.btn-small recent events
-								.btn.btn-primary.btn-small find friends
-				%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
+%body
+	.container
+		%center
+			.panel.panel-default.pull-left
+				%p{:style => "font-weight:bold;color:#dd6633;"}
+					=current_user.first_name
+					=current_user.last_name
+					%br
+					%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
+				.table
+					.btn-group-vertical
+						.btn.btn-primary.btn-small new event
+						.btn.btn-primary.btn-small messages
+						.btn.btn-primary.btn-small recent events
+						.btn.btn-primary.btn-small find friends
+		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}

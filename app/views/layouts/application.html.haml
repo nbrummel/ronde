@@ -4,7 +4,6 @@
 	= csrf_meta_tags
 	%head
 		%title rondé
-	%body
 		- if current_user
 			.container
 				.navbar.navbar-fixed-top
@@ -38,4 +37,4 @@
 								%li
 									%a{:href => "/users/sign_in"} sign in	
 
-		=yield
+	=yield
