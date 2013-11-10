@@ -4,36 +4,26 @@
 	= csrf_meta_tags
 	%head
 		%title rondé
-		%body
+	%body
+		%center
+			%br
+			%h1.title rondé
+			%br
+			%h2 terms of use
+			%br
+
+			%p#about
+				all rights reserved
+
 			.container
-				.navbar.navbar-fixed-top
-					.navbar-inner
-						.container
-							%a.brand{:href => "/"} rondé
-							%ul.nav.pull-right
-								%li
-									%a{:href => "/users/sign_up"} sign up
-								%li
-									%a{:href => "/users/sign_in"} sign in	
-			%center
-				%br
-				%h1.title rondé
-				%br
-				%h2 terms of use
-				%br
-
-				%p#about
-					all rights reserved
-
-				.container
-					.navbar.navbar-fixed-bottom{:style => "padding-left:240px;"}
-						.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
-							%ul.nav
-								%li
-									%a{:href => "/", :style => "color:#ff6633;"} Home
-								%li
-									%a{:href => "/static/about", :style => "color:#ff6633;"} About
-								%li
-									%a{:href => "/static/terms_of_use", :style => "color:#ff6633;"} Terms of Use
-								%li
-									%a{:href => "/static/contact", :style => "color:#ff6633;"} Contact
+				.navbar.navbar-fixed-bottom{:style => "padding-left:240px;"}
+					.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
+						%ul.nav
+							%li
+								%a{:href => "/", :style => "color:#ff6633;"} Home
+							%li
+								%a{:href => "/static/about", :style => "color:#ff6633;"} About
+							%li
+								%a{:href => "/static/terms_of_use", :style => "color:#ff6633;"} Terms of Use
+							%li
+								%a{:href => "/static/contact", :style => "color:#ff6633;"} Contact
