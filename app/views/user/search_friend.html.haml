@@ -1,11 +1,8 @@
-%html
-  %head
-    %title rondé
-    = stylesheet_link_tag 'bootstrap'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-
-  %body
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+= csrf_meta_tags
+%body
+  .container
     %table#search_results
       -if @possible_friends.empty?
         = flash[:search_result_msg]

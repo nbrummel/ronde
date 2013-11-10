@@ -8,6 +8,9 @@ Ronde::Application.routes.draw do
   end
 
   resources :friendships
+  resources :events
+
+  get "/user/:id/event/new", :to => "events#new", :as => 'user_event'
 
 
   get "static/about"
