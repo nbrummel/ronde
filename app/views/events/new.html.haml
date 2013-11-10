@@ -1,77 +1,37 @@
-%html
-	%head
-		%title rondé
-		= stylesheet_link_tag 'bootstrap'
-		= javascript_include_tag 'application'
-		= csrf_meta_tags
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+%body	
+	.container
+		=flash[:message]
+		=flash[:error]
+		%h2.title Create New Event 
+		= form_for(Event.new, html: { class: 'form-vertical' }) do |f|
+			%fieldset
+				.field.control-group
+					= f.label :name
+				.controls
+					.input-group
+					= f.text_field :name,:placeholder => "What should we do?"
+				.field.control-group
+				= f.label :description
+				.controls
+					.input-group
+						= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
+				.field.control-group
+				= f.label :event_type
+				.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
+				.field.control-group
+					= f.label :location
+					.controls
+						.input-group
+							= f.text_field :location,:placeholder => "Where?"
+				.field.control-group
+					= f.label :start
+					.controls.datetime
+						= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
+				.field.control-group
+					= f.label :end
+					.controls.datetime
+						= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
+				= f.submit class: 'btn btn-large btn-success'
 
-	%body
-		.container
-			.navbar.navbar-fixed-top
-				.navbar-inner
-					.container
-						%a.brand{:href => "/"} rondé
-						%ul.nav.pull-right
-							=	form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
-								= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
-							%li
-								%a{:href => "/"} home
-							%li
-								%a{:href => "/user/#{current_user.id}/friends"} friends
-							%li.dropdown
-								%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
-								%ul.dropdown-menu{"role" => "menu"}
-									%li
-										%a{:href => "/profile"} 
-											account
-										%a{:href => "/users/sign_out"} 
-											sign out
-		.container
-			.row-fluid
-				.span12
-				
-					%h2.title Create New Event 
-			
-					= form_for(Event.new, html: { class: 'form-horizontal' }) do |f|
-						%fieldset
-							.row-fluid
-								.span6
-									.pull-left
-										.row-fluid
-											.field.control-group
-												%center
-													= f.label :name
-												.controls
-													.input-group
-														= f.text_field :name,:placeholder => "Name: 'John Smith'"
-											.field.control-group
-												%center
-													= f.label :event_type
-											.controls
-												= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
-											.field.control-group
-												%center
-													= f.label :location
-											.controls
-												.input-group
-													= f.text_field :location,:placeholder => "Location: 'The stix'"	
-								.span6	
-									.pull-left	
-										.field.control-group
-										%center.top
-											= f.label :description
-										.controls
-											.input-group
-												= f.text_area :description, rows: 6, :placeholder => "Provide a detailed description of the event here"
-										
-								.field.control-group
-									= f.label :start
-									.controls.datetime
-										= f.datetime_select :start, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
-								.field.control-group
-									= f.label :end
-									.controls.datetime
-										= f.datetime_select :end, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
-								= f.submit class: 'btn btn-large btn-success'
-				
-							

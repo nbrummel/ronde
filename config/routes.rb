@@ -10,7 +10,6 @@ Ronde::Application.routes.draw do
   resources :friendships
   resources :events
 
-
   get "static/about"
   get "static/tour"
   get "static/home"

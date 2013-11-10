@@ -1,11 +1,8 @@
-%html
-  %head
-    %title rondé
-    = stylesheet_link_tag 'friends'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-
-  %body
+= stylesheet_link_tag 'friends'
+= javascript_include_tag 'application'
+= csrf_meta_tags
+%body
+  .container
     %h1.title rondé
     =flash[:remove_friend_msg]
     =flash[:accept_friend_msg]

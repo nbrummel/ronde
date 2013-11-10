@@ -1,11 +1,6 @@
-
 = stylesheet_link_tag 'bootstrap'
 = javascript_include_tag 'application'
 %body
 	.container
-		%h1.title rondé
-		=flash[:message]
-		-@events.each do |event|
-			=event.name
-			%br
-
+	    %h1.title Create New Event
+	    = render 'form'
