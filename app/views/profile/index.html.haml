@@ -7,6 +7,26 @@
 		= javascript_include_tag 'profile'
 		= csrf_meta_tags
 	%head
+	.container
+		.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+					%a.brand{:href => "/"} rondé
+					%ul.nav.pull-right
+						=	form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
+							= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
+						%li
+							%a{:href => "/"} home
+						%li
+							%a{:href => "/user/#{current_user.id}/friends"} friends
+						%li.dropdown
+							%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
+							%ul.dropdown-menu{"role" => "menu"}
+								%li
+									%a{:href => "/profile"} 
+										account
+									%a{:href => "/users/sign_out"} 
+										sign out
 		%center
 			%h1
 				Profile Page

@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def new
+		#@event1 = params[:event]
 		self.create(:description, :end, :location, :name, :public, :start, :created_by, :event_type, :user_id)
 	end
 

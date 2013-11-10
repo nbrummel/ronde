@@ -34,7 +34,7 @@
 							%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
 						.table
 							.btn-group-vertical
-								.btn.btn-primary.btn-small new event
+								%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/events/new"}  new event 
 								.btn.btn-primary.btn-small messages
 								.btn.btn-primary.btn-small recent events
 								.btn.btn-primary.btn-small find friends
