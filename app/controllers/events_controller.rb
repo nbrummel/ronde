@@ -14,8 +14,18 @@ class EventsController < ApplicationController
 	end
 
 	def create
+		
 		if current_user
 			@event, @flag = Event.new_event(params[:event], current_user)
+			respond_to do |format|
+		    if @event.save
+		      format.html { redirect_to @event, notice: 'event was successfully created.' }
+		      format.json { render json: @event, status: :created, location: @event }
+		    else
+		      format.html { render action: "new" }
+		      format.json { render json: @event.errors, status: :unprocessable_entity }
+		    end
+		  end
 		end
 		if @flag.empty?
 			flash[:message] = "Event successfully created."

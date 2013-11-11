@@ -1,36 +1,35 @@
+/- @newEvent = Event.new_event(@event, current_user) 
+- @event = {}
+=flash[:message]
+=flash[:error]
+%h2.title{:style => "color:#ff6633;padding-left:50px;margin-right:auto;"}
+	Create New Event
+	
 
-.container
-	=flash[:message]
-	=flash[:error]
-	%h2.title{:style => "color:#ff6633;padding-left:50px;margin-right:auto;"}
-		Create New Event
-	.container{:style => "padding-left:50px;margin-right:auto;"}
-		= form_for(Event.new , validate: true, remote: true, html: {"data-type" => :json}) do |f|
-			%fieldset
-				.field.control-group
-					= f.label :name
-				.controlsqw	`
-					.input-group
-					= f.text_field :name,:placeholder => "What should we do?"
-				.field.control-group
-				= f.label :description
+.container{:style => "padding-left:50px;margin-right:auto;overflow: hidden"}
+	= form_for(Event.new , validate: true, remote: true, html: {"data-type" => :json}) do |f|
+		%fieldset
+			.control-group
+				%label.control-label{:for => 'event[name]'} Name
+				.controls
+					%input{ :type => :text, :name => 'event[name]', :placeholder => current_user.first_name + "'s event!"}
+				%label.control-label{:for => 'event[description]'} Description
 				.controls
 					.input-group
-						= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
-				.field.control-group
-				= f.label :event_type
-				.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
-				.field.control-group
-					= f.label :location
-					.controls
-						.input-group
-							= f.text_field :location,:placeholder => "Where?"
-				.field.control-group
-					= f.label :start
-					.controls.datetime
-						= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
-				.field.control-group
-					= f.label :end
-					.controls.datetime
-						= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
-				= f.submit class: 'btn btn-large btn-success'
+					= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
+				%label.control-label{:for => 'event[event_type]'} Event Type
+				.controls
+					.input-group
+						= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
+				%label.control-label{:for => 'event[location]'} Location
+				.controls
+					%input{ :type => :text, :name => 'event[location]', :placeholder => "Where?"}
+				%label.control-label{:for => 'event[start]'} Start Time
+				.controls.datetime
+					= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15		
+				%label.control-label{:for => 'event[end]'} End Time
+				.controls.datetime
+					= f.datetime_select :start, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
+
+		%a.btn.btn-primary.btn-small{:href => "/", :'data-dismiss' => 'modal'} cancel
+		%a{ :href => '/dashboard', :class => 'btn.btn-primary.btn-small', :'data-loading-text' => 'Creating New Event...', :onclick => Event.new(@event)} Create
