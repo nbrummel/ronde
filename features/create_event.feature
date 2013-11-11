@@ -66,20 +66,6 @@ Scenario: Invalid Location
 	And I press "Create Event"
 	Then I should see "Location can't be blank"
 
-Scenario: Invalid Start time
-	Given I am logged in as RondeFirst
-	Given I am on the ronde dashboard
-	And I click the "new_event" link
-	Then I should be on the new events page
-	And I fill in "Name" with "49ers Party"
-	And I fill in "Location" with "My house"
-	And I fill in the start time
-	And I select the event type
-	And I fill in "Description" with "Beat the Shehawks"
-	And I press "Create Event"
-	Then I should be on the all events page
-	And I should see "49ers Party"
-
 Scenario: Invited Events
 	Given I am on the ronde dashboard
 	And I click "Events I have been invited to"

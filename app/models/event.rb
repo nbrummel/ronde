@@ -31,8 +31,6 @@ class Event < ActiveRecord::Base
 		flag['location'] = true if details[:location] == nil or details[:location] == ""
 		flag['event_type'] = true if details[:event_type] == nil or details[:event_type] == ""
 		flag['description'] = true if details[:description] == nil or details[:description] == ""
-		t = Time.new(details['start(1i)'], details['start(2i)'], details['start(3i)'], details['start(4i)'], details['start(5i)'])
-		flag['start'] = true if t < Time.now
 		return flag 
 	end
 end
