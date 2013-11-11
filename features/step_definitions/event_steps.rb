@@ -30,6 +30,10 @@ And /I fill in the start time/ do
 	select('45', :from => 'event_start_5i')
 end
 
+And /I leave the "(.*)" field blank/ do |field|
+	# do nothing
+end
+
 And /I select the event type/ do
 	select('Other', :from => 'event_event_type')
 end

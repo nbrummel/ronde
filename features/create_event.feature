@@ -24,6 +24,62 @@ Scenario: Creating a new Event
 	Then I should be on the all events page
 	And I should see "49ers Party"
 
+Scenario: Invalid Name
+	Given I am logged in as RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	And I leave the "Name" field blank
+	And I press "Create Event"
+	Then I should see "Name can't be blank"
+
+Scenario: Invalid Description
+	Given I am logged in as RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	When I fill in "Name" with "49ers Party"
+	And I leave the "Description" field blank
+	And I press "Create Event"
+	Then I should see "Description can't be blank"
+
+Scenario: Invalid Event Type
+	Given I am logged in as RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	When I fill in "Name" with "49ers Party"
+	And I fill in "Description" with "Beat the Shehawks"
+	And I leave the "Event Type" field blank
+	And I press "Create Event"
+	Then I should see "Event type can't be blank"
+
+Scenario: Invalid Location
+	Given I am logged in as RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	When I fill in "Name" with "49ers Party"
+	And I fill in "Description" with "Beat the Shehawks"
+	And I select the event type
+	And I leave the "Location" field blank
+	And I press "Create Event"
+	Then I should see "Location can't be blank"
+
+Scenario: Invalid Start time
+	Given I am logged in as RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	And I fill in "Name" with "49ers Party"
+	And I fill in "Location" with "My house"
+	And I fill in the start time
+	And I select the event type
+	And I fill in "Description" with "Beat the Shehawks"
+	And I press "Create Event"
+	Then I should be on the all events page
+	And I should see "49ers Party"
+
 Scenario: Invited Events
 	Given I am on the ronde dashboard
 	And I click "Events I have been invited to"

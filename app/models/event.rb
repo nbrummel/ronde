@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
 
 	def self.validate(details)
 		flag = {}
-		flag['details'] = true if details[:name] == nil or details[:name] == "" 
+		flag['name'] = true if details[:name] == nil or details[:name] == "" 
 		flag['location'] = true if details[:location] == nil or details[:location] == ""
 		flag['event_type'] = true if details[:event_type] == nil or details[:event_type] == ""
 		flag['description'] = true if details[:description] == nil or details[:description] == ""

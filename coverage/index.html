@@ -21,21 +21,21 @@
       <img src="./assets/0.4.5/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-10T21:12:39-08:00">2013-11-10T21:12:39-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-10T22:24:08-08:00">2013-11-10T22:24:08-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="red">48.5%</span>)
+    (<span class="red">50.75%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>18</b> files in total.
     <b>266</b> relevant lines. 
-    <span class="green"><b>129</b> lines covered</span> and
-    <span class="red"><b>137</b> lines missed </span>
+    <span class="green"><b>135</b> lines covered</span> and
+    <span class="red"><b>131</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -70,11 +70,11 @@
       
       <tr>
         <td><a href="#3fbb1f0eeba8ef67597fa4b23bc9be06792ac577" class="src_link" title="./app/controllers/events_controller.rb">./app/controllers/events_controller.rb</a></td>
-        <td class="red">66.67 %</td>
+        <td class="green">91.67 %</td>
         <td>47</td>
         <td>24</td>
-        <td>16</td>
-        <td>8</td>
+        <td>22</td>
+        <td>2</td>
       </tr>
       
       <tr>
@@ -220,14 +220,14 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     Controllers
-    (<span class="red">40.29%</span>)
+    (<span class="red">44.6%</span>)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>8</b> files in total.
     <b>139</b> relevant lines. 
-    <span class="green"><b>56</b> lines covered</span> and
-    <span class="red"><b>83</b> lines missed </span>
+    <span class="green"><b>62</b> lines covered</span> and
+    <span class="red"><b>77</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -262,11 +262,11 @@
       
       <tr>
         <td><a href="#3fbb1f0eeba8ef67597fa4b23bc9be06792ac577" class="src_link" title="./app/controllers/events_controller.rb">./app/controllers/events_controller.rb</a></td>
-        <td class="red">66.67 %</td>
+        <td class="green">91.67 %</td>
         <td>47</td>
         <td>24</td>
-        <td>16</td>
-        <td>8</td>
+        <td>22</td>
+        <td>2</td>
       </tr>
       
       <tr>
@@ -638,7 +638,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>3</pre>
       </td>
@@ -646,7 +646,7 @@
         <pre>		unless current_user</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
@@ -725,7 +725,7 @@
     <tr>
       <td colspan="3">
         <h3>./app/controllers/events_controller.rb</h3>
-        <h4><span class="red">66.67 %</span> covered</h4>
+        <h4><span class="green">91.67 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -789,7 +789,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="15">
       <td class="line_number">
         <pre>5</pre>
       </td>
@@ -797,7 +797,7 @@
         <pre>		Time.zone</pre>
       </td>
       <td class="hits">
-        3
+        15
       </td>
     </tr>
   
@@ -932,7 +932,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>16</pre>
       </td>
@@ -940,12 +940,12 @@
         <pre>		if current_user</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>17</pre>
       </td>
@@ -953,7 +953,7 @@
         <pre>			@event, @flag = Event.new_event(params[:event], current_user)</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
@@ -971,7 +971,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>19</pre>
       </td>
@@ -979,7 +979,7 @@
         <pre>		if @flag.empty?</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
@@ -1023,7 +1023,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>23</pre>
       </td>
@@ -1031,12 +1031,12 @@
         <pre>			if @flag['name']</pre>
       </td>
       <td class="hits">
-        0
+        4
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>24</pre>
       </td>
@@ -1044,7 +1044,7 @@
         <pre>				flash[:error] = &quot;Name can't be blank&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -1062,7 +1062,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>26</pre>
       </td>
@@ -1070,7 +1070,7 @@
         <pre>				flash[:error] = &quot;Description can't be blank&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -1088,7 +1088,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>28</pre>
       </td>
@@ -1096,7 +1096,7 @@
         <pre>				flash[:error] = &quot;Event type can't be blank&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -1114,7 +1114,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>30</pre>
       </td>
@@ -1122,7 +1122,7 @@
         <pre>				flash[:error] = &quot;Location can't be blank&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -1145,7 +1145,7 @@
         <pre>32</pre>
       </td>
       <td>
-        <pre>				flash[:error] = &quot;The start time cant be before the current time&quot;</pre>
+        <pre>				flash[:error] = &quot;The start time can't be before the current time&quot;</pre>
       </td>
       <td class="hits">
         0
@@ -1166,7 +1166,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>34</pre>
       </td>
@@ -1174,7 +1174,7 @@
         <pre>			redirect_to '/events/new'</pre>
       </td>
       <td class="hits">
-        0
+        4
       </td>
     </tr>
   
@@ -3161,7 +3161,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="19">
+    <tr class="hit" data-hits="23">
       <td class="line_number">
         <pre>15</pre>
       </td>
@@ -3169,12 +3169,12 @@
         <pre>    if current_user &amp;&amp; current_user.sign_in_count == 1</pre>
       </td>
       <td class="hits">
-        19
+        23
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="10">
       <td class="line_number">
         <pre>16</pre>
       </td>
@@ -3182,12 +3182,12 @@
         <pre>      current_user.sign_in_count += 1</pre>
       </td>
       <td class="hits">
-        6
+        10
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="10">
       <td class="line_number">
         <pre>17</pre>
       </td>
@@ -3195,12 +3195,12 @@
         <pre>      current_user.save</pre>
       </td>
       <td class="hits">
-        6
+        10
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="10">
       <td class="line_number">
         <pre>18</pre>
       </td>
@@ -3208,7 +3208,7 @@
         <pre>      redirect_to &quot;/static/tour&quot;</pre>
       </td>
       <td class="hits">
-        6
+        10
       </td>
     </tr>
   
@@ -4460,7 +4460,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="15">
       <td class="line_number">
         <pre>14</pre>
       </td>
@@ -4468,7 +4468,7 @@
         <pre>		self.public ||= false</pre>
       </td>
       <td class="hits">
-        3
+        15
       </td>
     </tr>
   
@@ -4512,7 +4512,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>18</pre>
       </td>
@@ -4520,12 +4520,12 @@
         <pre>		@event = Event.new</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>19</pre>
       </td>
@@ -4533,12 +4533,12 @@
         <pre>		@event.created_by = user</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>20</pre>
       </td>
@@ -4546,12 +4546,12 @@
         <pre>		@flag = validate(details)</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>21</pre>
       </td>
@@ -4559,7 +4559,7 @@
         <pre>		if @flag.empty?</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
@@ -4603,7 +4603,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>25</pre>
       </td>
@@ -4611,7 +4611,7 @@
         <pre>		return @event, @flag</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
@@ -4655,7 +4655,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>29</pre>
       </td>
@@ -4663,25 +4663,25 @@
         <pre>		flag = {}</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>30</pre>
       </td>
       <td>
-        <pre>		flag['details'] = true if details[:name] == nil or details[:name] == &quot;&quot; </pre>
+        <pre>		flag['name'] = true if details[:name] == nil or details[:name] == &quot;&quot; </pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>31</pre>
       </td>
@@ -4689,12 +4689,12 @@
         <pre>		flag['location'] = true if details[:location] == nil or details[:location] == &quot;&quot;</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>32</pre>
       </td>
@@ -4702,12 +4702,12 @@
         <pre>		flag['event_type'] = true if details[:event_type] == nil or details[:event_type] == &quot;&quot;</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>33</pre>
       </td>
@@ -4715,12 +4715,12 @@
         <pre>		flag['description'] = true if details[:description] == nil or details[:description] == &quot;&quot;</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>34</pre>
       </td>
@@ -4728,12 +4728,12 @@
         <pre>		t = Time.new(details['start(1i)'], details['start(2i)'], details['start(3i)'], details['start(4i)'], details['start(5i)'])</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>35</pre>
       </td>
@@ -4741,12 +4741,12 @@
         <pre>		flag['start'] = true if t &lt; Time.now</pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="5">
       <td class="line_number">
         <pre>36</pre>
       </td>
@@ -4754,7 +4754,7 @@
         <pre>		return flag </pre>
       </td>
       <td class="hits">
-        1
+        5
       </td>
     </tr>
   
@@ -7123,7 +7123,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="26">
+    <tr class="hit" data-hits="34">
       <td class="line_number">
         <pre>89</pre>
       </td>
@@ -7131,12 +7131,12 @@
         <pre>    super.tap do |user|</pre>
       </td>
       <td class="hits">
-        26
+        34
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="26">
+    <tr class="hit" data-hits="34">
       <td class="line_number">
         <pre>90</pre>
       </td>
@@ -7144,7 +7144,7 @@
         <pre>      if data = session[&quot;devise.facebook_data&quot;] &amp;&amp; session[&quot;devise.facebook_data&quot;][&quot;extra&quot;][&quot;raw_info&quot;]</pre>
       </td>
       <td class="hits">
-        26
+        34
       </td>
     </tr>
   

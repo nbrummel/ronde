@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 			elsif @flag['location']
 				flash[:error] = "Location can't be blank"
 			elsif @flag['start']
-				flash[:error] = "The start time cant be before the current time"
+				flash[:error] = "The start time can't be before the current time"
 			end
 			redirect_to '/events/new'
 		end
