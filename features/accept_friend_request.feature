@@ -14,9 +14,9 @@ Scenario: Accept a friend request from a list of pending friends
 	Given "SondeFirst" has sent a friend request to "RondeFirst"
 	And I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
+	When I follow "friends"
 	Then I should see "SondeFirst"
-	When I press "Accept Friend"
+	When I press "✓"
 	Then I should see "Congratulations, you and SondeFirst are now friends."
 	When I follow "Friends"
 	Then I should see "SondeFirst"

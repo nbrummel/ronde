@@ -11,13 +11,12 @@ Scenario: See a list of pending friends
 	Given "SondeFirst" has sent a friend request to "RondeFirst"
 	And I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
+	When I follow "friends"
 	Then I should see "SondeFirst"
 	
 Scenario: Should not see friend in pending friends if I have already accepted them
-	Given "SondeFirst" has sent a friend request to "RondeFirst"
+	Given "SondeFirst" and "RondeFirst" are friends
 	And I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the dashboard for user with id 1
-	And I have accepted my friend request from "SondeFirst"
-	When I press "Friend Requests"
-	Then I should not see "SondeFirst"
+	When I follow "friends"
+	Then In "Friend Requests" I should not see "SondeFirst"
