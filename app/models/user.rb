@@ -27,30 +27,30 @@ class User < ActiveRecord::Base
                   :provider, :uid, :attending
 
   # list all of the events i have ever created
-  def my_events
-    Event.find(:all, :conditions => ["created_by_id = ?", self.id])
-  end
+  # def my_events
+  #   Event.find(:all, :conditions => ["created_by_id = ?", self.id])
+  # end
 
-  # list all of the events i have ever created or joined               
-  def all_events
-    [Event.find(:all, :conditions => ["created_by_id = ?", self.id]), self.joined_events].flatten.sort_by &:start
-  end
+  # # list all of the events i have ever created or joined               
+  # def all_events
+  #   [Event.find(:all, :conditions => ["created_by_id = ?", self.id]), self.joined_events].flatten.sort_by &:start
+  # end
 
-  # list all of the events ive ever confirmed
-  def joined_events
-    events = []
-    invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
-    invites.each { |invite| events << invite.event unless invite.event == events.last}
-    events
-  end
+  # # list all of the events ive ever confirmed
+  # def joined_events
+  #   events = []
+  #   invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
+  #   invites.each { |invite| events << invite.event unless invite.event == events.last}
+  #   events
+  # end
 
-  # list all of the events Ive been invited to ever
-  def invited_events
-    events = []
-    invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "invited"', self.id])
-    invites.each { |invite| events << invite.event}
-    events
-  end
+  # # list all of the events Ive been invited to ever
+  # def invited_events
+  #   events = []
+  #   invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "invited"', self.id])
+  #   invites.each { |invite| events << invite.event}
+  #   events
+  # end
 
   # Handles User creation for facebook login. Gets called from controller.
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

@@ -66,31 +66,31 @@ Scenario: Invalid Location
 	And I press "Create Event"
 	Then I should see "Location can't be blank"
 
-Scenario: Invited Events
-	Given I am on the ronde dashboard
-	And I click "Events I have been invited to"
-	Then I should see all of the events I have been invited to
+#Scenario: Invited Events
+#	Given I am on the ronde dashboard
+#	And I click "Events I have been invited to"
+#	Then I should see all of the events I have been invited to
 
-Scenario: Created Events
-	Given I am on the ronde dashboard
-	And I click "Events I have created"
-	Then I should see all of the events I have created
+#Scenario: Created Events
+#	Given I am on the ronde dashboard
+#	And I click "Events I have created"
+#	Then I should see all of the events I have created
 
-Scenario: Joined Events
-	Given I am on the ronde dashboard
-	And I click "Events I have joined"
-	Then I should see all of the events I have joined
+#Scenario: Joined Events
+#	Given I am on the ronde dashboard
+#	And I click "Events I have joined"
+#	Then I should see all of the events I have joined
 
-Scenario: Invite Friend to an Event
-	Given I am logged in as RondeFirst
-	Given I have created an event
-	Given I am on the page for that event
-	And I click "Invite Friends"
-	And I choose SondeFirst
-	And I click "Invite"
-	Then I should bee on the page for that event
-	When I click "Invited"
-	Then I should see "SondeFirst"
+#Scenario: Invite Friend to an Event
+#	Given I am logged in as RondeFirst
+#	Given I have created an event
+#	Given I am on the page for that event
+#	And I click "Invite Friends"
+#	And I choose SondeFirst
+#	And I click "Invite"
+#	Then I should bee on the page for that event
+#	When I click "Invited"
+#	Then I should see "SondeFirst"
 
 
 
