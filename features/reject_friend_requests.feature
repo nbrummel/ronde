@@ -14,5 +14,5 @@ Scenario: Reject a friend request from a list of pending friends
 	When I follow "friends"
 	Then I should see "SondeFirst"
 	When I press "x"
-	Then I should see "You have rejected SondeFirst as a friend."
+	Then I should see "You have no friend requests."
 	And I should not see "SondeFirst"

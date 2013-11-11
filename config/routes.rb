@@ -23,7 +23,7 @@ Ronde::Application.routes.draw do
   get "/user/:id/friends", :to => "user#friends", :as => 'user_friends'
   post "/user/:id/search_friend", :to => "user#search_friend"
   post "/user/:id/add_friend/:friend_id", :to => "user#add_friend"
-  get "/user/:id/reject_friend/:friend_id", :to => "user#reject_friend"
+  post "/user/:id/reject_friend/:friend_id", :to => "user#reject_friend"
   post "user/:id/accept_friend/:friend_id", :to => "user#accept_friend"
   delete "/user/:id/remove_friend/:friend_id", :to => "user#remove_friend"
 

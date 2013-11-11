@@ -14,4 +14,4 @@ Scenario: Unfriend an accepted friend
 	When I follow "friends"
 	Then I should see "SondeFirst"
 	When I click on "x"
-	Then I should not see "SondeFirst"
+	Then I should see "You have removed SondeFirst SondeLast from your friends."

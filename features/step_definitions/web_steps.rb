@@ -31,6 +31,15 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+# Confirm and reject dialogue
+When /^I confirm popup$/ do
+  page.driver.browser.switch_to.alert.accept
+end
+
+When /^I dismiss popup$/ do
+  page.driver.switch_to.alert.dismiss
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }

@@ -28,7 +28,5 @@ Scenario: Should not see rejected friend requests in my friends
 	When I follow "friends"
 	Then I should see "SondeFirst"
 	When I press "x"
-	Then I should see "You have rejected SondeFirst as a friend."
+	Then I should see "You have no friend requests."
 	And I should not see "SondeFirst"
-	When I follow "Friends"
-	Then I should not see "SondeFirst"

@@ -17,6 +17,4 @@ Scenario: Accept a friend request from a list of pending friends
 	When I follow "friends"
 	Then I should see "SondeFirst"
 	When I press "✓"
-	Then I should see "Congratulations, you and SondeFirst are now friends."
-	When I follow "Friends"
-	Then I should see "SondeFirst"
+	Then I should see "You and SondeFirst SondeLast are now friends."
