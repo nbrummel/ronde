@@ -26,13 +26,13 @@ Scenario: Logging in with invalid password
  When I fill in "ronde@gmail.com" for "Email"
  When I fill in "electricboogaloo" for "Password"
  When I press "Sign in"
- Then I should see "Invalid email or password."
+ Then I should see "sign up"
 
 Scenario: Logging in with invalid email
  When I follow "Sign In"
  When I fill in "electricboogaloo@gmail.com" for "Email"
  When I fill in "RondePassword" for "Password"
  When I press "Sign in"
- Then I should see "Invalid email or password."
+ Then I should see "sign up"
 
  

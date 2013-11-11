@@ -3,8 +3,7 @@ And /I am on the ronde "(.*)" page$/ do |page|
 end
 
 And /I click the "(.*)" link$/ do |link|
-	link = link.gsub(" ", "_")
-	click_link("#{link}_link")
+	click_link link
 end
 
 Then /I should be on the ronde "(.*)" page$/ do |page|
