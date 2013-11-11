@@ -18,6 +18,8 @@ gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'simplecov', :require => false, :group => :test
+gem "factory_girl_rails", "~> 4.0"
+
 
 group :test do
   gem 'cucumber-rails'

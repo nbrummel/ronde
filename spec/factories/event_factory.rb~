@@ -1,0 +1,15 @@
+FactoryGirl.define do
+
+  sequence (:uid, 50) do |n|
+    n
+  end
+
+  factory :event do
+    uid { FactoryGirl.generate(:uid) }
+    first_name "First_#{uid}"
+    last_name  "Last_#{uid}"
+    email "ronde_#{uid}@gmail.com"
+    password "password"
+    phone_number "510-555-5555"
+  end
+end
