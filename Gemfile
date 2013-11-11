@@ -21,7 +21,8 @@ gem 'hpricot'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
-gem 'simple_form'
+
+gem 'simplecov', :require => false, :group => :test
 
 
 group :test do
