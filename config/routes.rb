@@ -3,7 +3,7 @@ Ronde::Application.routes.draw do
   devise_scope :user do 
     get "/logout", :to => "devise/sessions#destroy" # Add a custom sign in route for user sign in
     get "/register", :to => "devise/registrations#new" # Add a Custom Route for Registrations
-    get "/profile/edit", :to => "devise/registrations#edit"
+    get "/user/:id/profile/edit", :to => "devise/registrations#edit"
     get "/profile/password", :to => "devise/passwords#edit"
   end
 

@@ -8,10 +8,9 @@
 					=current_user.first_name
 					=current_user.last_name
 					%br
-					%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
+					%a#edit_profile{'href' => "#account-view-modal",'data-toggle' => 'modal'} edit profile
 				.table
 					.btn-group-vertical
-
 						%a.btn.btn-primary.btn-small{'href' => '#new-event-modal', 'data-toggle' => 'modal'} new event
 						%a.btn.btn-primary.btn-small{:href => '/events/show' } all events
 						.btn.btn-primary.btn-small messages
@@ -19,6 +18,9 @@
 						.btn.btn-primary.btn-small find friends
 		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
 
-	#new-event-modal{'class' => 'modal hide fade'}
-		= render 'form'
+#new-event-modal{'class' => 'modal hide fade'}
+	= render 'form'
+#account-view-modal{'class' => 'modal hide fade'}
+	= render 'account'
+
 

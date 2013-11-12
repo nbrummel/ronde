@@ -208,7 +208,6 @@ GEM
     simplecov (0.4.2)
       simplecov-html (~> 0.4.4)
     simplecov-html (0.4.5)
-
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -266,11 +265,7 @@ DEPENDENCIES
   rspec-rails
   ruby_parser
   sass-rails (~> 3.2.3)
-<<<<<<< HEAD
-  simple_form
-=======
   simplecov
->>>>>>> e571b6effe5f945db15d1cf94c4df2d51b59a658
   sqlite3
   therubyracer
   twitter-bootstrap-rails

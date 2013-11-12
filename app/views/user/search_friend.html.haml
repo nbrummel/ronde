@@ -6,6 +6,7 @@
     %table#search_results
       -if @possible_friends.empty?
         = flash[:search_result_msg]
+        - :to => '/'
       -else
         %thead
           %tr
@@ -14,7 +15,7 @@
         %tbody
           - @possible_friends.each do |friend|
             %tr
-              %td= friend.first_name + ' ' + friend.last_name
+              %td= flash[friend.first_name + ' ' + friend.last_name]
               -if Friendship.already_sent_friend_request(@user, friend)
                 %td= 'Pending'
               -elsif !Friendship.already_friends(@user, friend)

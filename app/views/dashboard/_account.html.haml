@@ -1,0 +1,21 @@
+- user = current_user
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+.modal-body
+	
+	%h2.title{:style => "color:#ff6633;padding-left:50px;margin-right:auto;"}
+		Profile Page
+	%body
+		%br
+		Name:
+		=user.first_name.capitalize+ " " + user.last_name.capitalize
+		%br
+		Phone Number:
+		=user.phone_number
+		%br
+		Email:
+		=user.email
+		%br
+		%br
+	%a.btn.btn-primary.btn-small{:href => "/", :'data-dismiss' => 'modal'} Back
+	%a.btn.btn-primary.btn-large{:href => "/user/#{current_user.id}/profile/edit"} Edit Profile
