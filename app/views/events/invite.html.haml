@@ -1,0 +1,14 @@
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+%body
+	%center
+		= flash[:message]
+	.container
+		.panel.panel-default
+			- for friend in current_user.accepted_friends
+				- unless @event.invited_users.include?(friend)
+					.panel-body
+						= check_box_tag "friend_#{friend.id}", friend.id, @event.invited_users.include?(friend)
+						= "#{friend.first_name} #{friend.last_name}"
+
+		%a.btn.btn-large.btn-danger.pull-right Invite

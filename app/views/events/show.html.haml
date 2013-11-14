@@ -1,9 +1,38 @@
 = stylesheet_link_tag 'bootstrap'
 = javascript_include_tag 'application'
 %body
+	%center
+		= flash[:message]
+	%h1.title event
+
 	.container
-		%h1.title rondé
-		=flash[:message]
-		-@events.each do |event|
-			=event.name
-			%br
+		.panel.panel-default
+			.panel.panel-heading
+				%h4 Name
+			.panel-body
+				= "#{@event.name}"
+			.panel.panel-heading
+				%h4 Description
+			.panel-body
+				= "#{@event.description}"
+			.panel.panel-heading
+				%h4 Location
+			.panel-body
+				= "#{@event.location}"
+			.panel.panel-heading
+				%h4 Date
+			.panel-body
+				= "#{@event.start.strftime("%m/%d/%y")}"
+			.panel.panel-heading
+				%h4 Time
+			.panel-body
+				= "#{@event.start.strftime("%l:%M%p")} - #{@event.end.strftime("%l:%M%p")}"
+			.panel.panel-heading
+				%h4 Event Type
+			.panel-body
+				= "#{@event.event_type.capitalize}"
+			.panel.panel-heading
+				%h4 Creator
+			.panel-body
+				= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"	
+		%a.btn.btn-large.btn-danger.pull-right{:href => "/events/#{@event.id}/invite"} Invite Friends
