@@ -11,7 +11,7 @@
 					%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
 				.table
 					.btn-group-vertical
-						%a.btn.btn-primary.btn-small{:href => '/events/new' , :id => 'new_event'} new event
+						%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/event/new" , :id => 'new_event'} new event
 						%a.btn.btn-primary.btn-small{:href => '/events/show/all' } all events
 						%a.btn.btn-primary.btn-small{:href => '#'} invitations
 						%a.btn.btn-primary.btn-small{:href => '#'} recent events

@@ -8,6 +8,7 @@ Ronde::Application.routes.draw do
   # end
 
   resources :friendships
+  resources :events
 
   # routes for devise
   devise_for :users, :controllers => { :omniauth_callbacks =>  "omniauth_callbacks" }#, :path_names => {:edit => "profile/edit", :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
