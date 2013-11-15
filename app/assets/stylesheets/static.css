@@ -1,5 +1,5 @@
 @font-face {
-  @font-family:"eight_one";
+  font-family:"eight_one";
   src: url("eight_one.ttf") format("truetype");
 }
 
@@ -21,7 +21,6 @@ a:hover{
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   padding: 10px 10px;
   height:75px;
@@ -38,7 +37,6 @@ a:hover{
   background-color: #ff6633;
   *background-color: #ff6633;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   *margin-left: .3em;
 }
