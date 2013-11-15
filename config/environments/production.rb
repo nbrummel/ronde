@@ -23,6 +23,9 @@ Ronde::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # precompile assets for heroku
+  config.assets.precompile += %w( application.js application.css bootstrap.js bootstrap.css static.js static.css )
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

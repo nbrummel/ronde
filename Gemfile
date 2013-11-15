@@ -4,7 +4,7 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'devise'
 gem 'haml-rails', '=0.3.4'
 gem 'omniauth'
@@ -20,6 +20,9 @@ gem 'less-rails'
 gem 'simplecov', :require => false, :group => :test
 gem "factory_girl_rails", "~> 4.0"
 
+group :development do 
+  gem 'sqlite3'
+end
 
 group :test do
   gem 'cucumber-rails'
@@ -28,6 +31,7 @@ group :test do
   gem 'jasmine-jquery-rails'
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'sqlite3'
 end
 
 group :production do
