@@ -51,6 +51,20 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 	end
 
+	def send_invites
+		@user = current_user
+		@friends_and_events = params[:friends]
+		unless @friends_and_events.nil? 
+			@friends_and_events.each do |friend_event|
+				@event = Event.find(friend_event.last)
+				@friend = User.find(friend_event.first)
+				Invitation.invite(current_user, @friend, @event)
+			end
+			flash[:message] = "Invitations sent!"
+		end
+		redirect_to user_dashboard_path
+	end
+
 	def show
 		if params[:id]
 			@event = Event.find(params[:id])
@@ -62,6 +76,9 @@ class EventsController < ApplicationController
 		else
 			redirect_to user_dashboard_path
 		end
+	end
+
+	def show_all
 	end
 
 	def destroy

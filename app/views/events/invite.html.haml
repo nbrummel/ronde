@@ -5,10 +5,18 @@
 		= flash[:message]
 	.container
 		.panel.panel-default
-			- for friend in current_user.accepted_friends
-				- unless @event.invited_users.include?(friend)
-					.panel-body
-						= check_box_tag "friend_#{friend.id}", friend.id, @event.invited_users.include?(friend)
-						= "#{friend.first_name} #{friend.last_name}"
-
-		%a.btn.btn-large.btn-danger.pull-right Invite
+			= form_tag :controller => "events", :action => "send_invites", :method => :post, :id => "#{@event.id}" do
+				- for friend in current_user.accepted_friends
+					- if not @event.invited_users.include?(friend)
+						.panel-body
+							%h4
+								= check_box_tag "friends[#{friend.id}]", @event.id, @event.invited_users.include?(friend), :id => "invited_user_#{friend.id}"
+								= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+					- else
+						.panel-body
+							%h4{:style => "color:#ff6633"}
+								= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+			%div.pull-right
+				%br
+				%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
+				= submit_tag "Invite", :id => "invited_users_submit", :class =>	'btn btn btn-danger'

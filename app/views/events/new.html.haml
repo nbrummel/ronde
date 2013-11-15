@@ -2,8 +2,6 @@
 = javascript_include_tag 'application'
 %body	
 	.container
-		= flash[:message]
-		= flash[:error]
 		%h2.title Create New Event 
 		= form_for(Event.new, html: { class: 'form-vertical' }) do |f|
 			%fieldset

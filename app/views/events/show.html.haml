@@ -1,10 +1,7 @@
 = stylesheet_link_tag 'bootstrap'
 = javascript_include_tag 'application'
 %body
-	%center
-		= flash[:message]
 	%h1.title event
-
 	.container
 		.panel.panel-default
 			.panel.panel-heading
@@ -35,4 +32,12 @@
 				%h4 Creator
 			.panel-body
 				= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"	
+			.panel.panel-heading
+				%h4 Folks Attending
+			.panel-body
+				= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"
+				- for friend in @event.attending_users
+					= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+					%br
+
 		%a.btn.btn-large.btn-danger.pull-right{:href => "/events/#{@event.id}/invite"} Invite Friends
