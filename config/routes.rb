@@ -1,11 +1,11 @@
 Ronde::Application.routes.draw do
 
-  # devise_scope :user do 
+  devise_scope :user do 
   #   get "/logout", :to => "devise/sessions#destroy" # Add a custom sign in route for user sign in
   #   get "/register", :to => "devise/registrations#new" # Add a Custom Route for Registrations
-  #   get "/profile/edit", :to => "devise/registrations#edit"
-  #   get "/profile/password", :to => "devise/passwords#edit"
-  # end
+    get "/user/:id/account/edit", :to => "devise/registrations#edit"
+  #  get "/profile/password", :to => "devise/passwords#edit"
+  end
 
   resources :friendships
   resources :events
@@ -32,7 +32,7 @@ Ronde::Application.routes.draw do
   get "/dashboard", :to => "dashboard#index", :as => 'user_dashboard'
 
   # routes for users
-  get "/user/:id/profile", :to => "profile#index", :as => 'user_profile'
+  get "/user/:id/account", :to => "user#account", :as => 'user_account'
   get "/user/:id/friends", :to => "user#friends", :as => 'user_friends'
   post "/user/:id/search_friend", :to => "user#search_friend"
   post "/user/:id/add_friend/:friend_id", :to => "user#add_friend"
