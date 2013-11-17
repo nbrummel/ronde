@@ -21,7 +21,7 @@
 									%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
 									%ul.dropdown-menu{"role" => "menu"}
 										%li
-											%a{:href => "/profile"} 
+											%a{:href => "/user/#{current_user.id}/account"} 
 												account
 											%a{:href => "/users/sign_out", :id => 'logout'} 
 												sign out

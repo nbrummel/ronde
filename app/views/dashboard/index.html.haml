@@ -8,7 +8,7 @@
 					=current_user.first_name
 					=current_user.last_name
 					%br
-					%a#edit_profile{:href => "/user/#{current_user.id}/profile"} edit profile
+					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit account
 				.table
 					.btn-group-vertical
 						%a.btn.btn-primary.btn-small{:href => '/events/new' , :id => 'new_event'} new event
