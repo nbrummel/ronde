@@ -6,9 +6,7 @@ class EventsController < ApplicationController
 	end
 
 	def check_login
-		if not current_user
-			redirect_to "/static/home"
-		end
+		redirect_to "/static/home" unless current_user
 	end
 
 	def index
@@ -16,14 +14,11 @@ class EventsController < ApplicationController
 	end
 
 	def new
+		@event = Event.new
 	end
 
 	def create
-		if current_user
-			@event, @flag = Event.new_event(params[:event], current_user)
-		else
-			redirect_to "/"
-		end
+		@event, @flag = Event.new_event(params[:event], current_user)
 		if @flag.empty?
 			flash[:message] = "Event successfully created."
 			redirect_to "/events/#{@event.id}"
@@ -40,7 +35,8 @@ class EventsController < ApplicationController
 			# elsif @flag['start']
 			# 	flash[:error] = "The start time can't be before the current time"
 			end
-			render '/events/new'
+			@event = Event.new(params[:event])
+			render 'new', event: 'new'
 		end
 	end
 
@@ -71,7 +67,7 @@ class EventsController < ApplicationController
 		else
 			redirect_to user_dashboard_path
 		end
-		if @event.created_by == current_user or @event.invited_users.include?(current_user) or @event.attending_users.indlude?(current_user)
+		if @event.created_by == current_user or @event.invited_users.include?(current_user) or @event.attending_users.include?(current_user)
 			@event
 		else
 			redirect_to user_dashboard_path
@@ -79,6 +75,7 @@ class EventsController < ApplicationController
 	end
 
 	def show_all
+		@events = Event.find_all_by_created_by_id(current_user.id) + current_user.all_events
 	end
 
 	def destroy

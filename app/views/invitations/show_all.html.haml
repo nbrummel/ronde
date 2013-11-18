@@ -1,0 +1,18 @@
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+%body
+	%center
+		%h2{:style => 'font-family:eight_one;'}
+			invitations
+	.container
+		- for invitation in @invitations
+			.ul.list-group
+				- unless invitation.invited_user == current_user and invitation.status == 'confirmed'
+					%a.li.list-group-item{:href => "/events/#{invitation.event.id}"}
+						= "#{invitation.event.name} by #{invitation.event.created_by.first_name.capitalize} #{invitation.event.created_by.last_name.capitalize}" 
+						 
+						%a.btn.btn-default{:href => "/invitations/#{invitation.id}/decline"} decline
+						%a.btn.btn-danger{:href => "/invitations/#{invitation.id}/accept"} accept
+
+	%br
+	%br

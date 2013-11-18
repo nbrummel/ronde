@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   # Associations
   has_many :invitations
   belongs_to :created_by, :class_name => 'User'
-  has_many :attending_users, :through => :invitations, :source => :user, :conditions => "status = 'confirmed'"
+  has_many :attending_users, :through => :invitations, :source => :invited_user, :conditions => "status = 'confirmed'"
   has_many :invited_users, :through => :invitations, :source => :invited_user, :conditions => "status = 'invited'"
 
   validates_presence_of :description, :location, :name, :start, :created_by
