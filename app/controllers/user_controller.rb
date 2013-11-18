@@ -1,4 +1,12 @@
 class UserController < ApplicationController
+	before_filter :check_login
+
+	def check_login
+		if not current_user
+			redirect_to "/static/home"
+		end
+	end
+
 	def friends
 		@user = User.find_by_id(params[:id])
 		@friends = @user.accepted_friends
@@ -13,7 +21,12 @@ class UserController < ApplicationController
 	def search_friend
 		@user = User.find_by_id(params[:id])
 		if params[:searched_friend] != ""
-			@possible_friends = User.find_all_by_email(params[:searched_friend])
+			# @possible_friends = User.find_all_by_email(params[:searched_friend])
+			@possible_friends = (User.where("email LIKE ?", "%#{params[:searched_friend]}%") + 
+								User.where("first_name LIKE ?", "%#{params[:searched_friend]}%") + 
+								User.where("last_name LIKE ?", "%#{params[:searched_friend]}%") + 
+								User.where("phone_number LIKE ?", "%#{params[:searched_friend]}%")).uniq
+			@possible_friends.delete(current_user)
 			if @possible_friends.empty?
 				flash[:search_result_msg] = "Sorry, no users matching #{params[:searched_friend]} have been found."
 			end

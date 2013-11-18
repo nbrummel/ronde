@@ -3,7 +3,7 @@
 %body	
 	.container
 		%h2.title Create New Event 
-		= form_for(Event.new, html: { class: 'form-vertical' }) do |f|
+		= form_for(@event, html: { class: 'form-vertical' }) do |f|
 			%fieldset
 				.field.control-group
 					= f.label :name

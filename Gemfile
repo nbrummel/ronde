@@ -4,7 +4,6 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-# gem 'sqlite3'
 gem 'devise'
 gem 'haml-rails', '=0.3.4'
 gem 'omniauth'
@@ -14,7 +13,6 @@ gem 'capybara'
 gem 'database_cleaner'
 gem 'ruby_parser'
 gem 'hpricot'
-gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'simplecov', :require => false, :group => :test

@@ -8,6 +8,8 @@ Ronde::Application.routes.draw do
   end
 
   resources :friendships
+  resources :events
+  resources :invitations
 
   # routes for devise
   devise_for :users, :controllers => { :omniauth_callbacks =>  "omniauth_callbacks" }#, :path_names => {:edit => "profile/edit", :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
@@ -18,6 +20,11 @@ Ronde::Application.routes.draw do
   get "/events/:id/invite", :to => "events#invite"
   get "/events/show/all", :to => "events#show_all"
   post "/events/:id/send_invites", :to => "events#send_invites"
+
+  # routes for invitations
+  get '/invitations/show/all', :to => "invitations#show_all"
+  get 'invitations/:id/accept', :to => 'invitations#accept'
+  get 'invitations/:id/decline', :to => 'invitations#decline'
 
 
   # routes for static pages
