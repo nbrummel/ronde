@@ -18,13 +18,13 @@ Ronde::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
 
   # precompile assets for heroku
-  config.assets.precompile += %w(application.js bootstrap.js bootstrap.css static.css )
+  # config.assets.precompile += %w(application.js bootstrap.js bootstrap.css static.css )
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
