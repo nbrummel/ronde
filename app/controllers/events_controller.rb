@@ -70,7 +70,7 @@ class EventsController < ApplicationController
 	end
 
 	def show_all
-		@events = current_user.all_events
+		@events = current_user.all_events.uniq
 	end
 
 	def destroy
