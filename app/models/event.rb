@@ -15,6 +15,10 @@ class Event < ActiveRecord::Base
     self.public ||= false
   end
 
+  def new
+    @event = Event.new
+    @event.created_by = user
+  end
   def self.new_event(details, user)
     @event = Event.new
     @event.created_by = user
