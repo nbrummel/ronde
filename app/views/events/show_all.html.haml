@@ -6,8 +6,8 @@
 			all events
 	.container
 		- for event in @events
-			.ul.list-group
+			.ol.list-group
 				%a.li.list-group-item{:href => "/events/#{event.id}"}
-					= event.name.capitalize
+					= event.name.capitalize 
 	%br
 	%br

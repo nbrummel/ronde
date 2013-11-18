@@ -31,10 +31,8 @@ class EventsController < ApplicationController
 			# elsif @flag['start']
 			# 	flash[:error] = "The start time can't be before the current time"
 			end
-			@event = Event.new(params[:event])
 			render 'new', event: 'new'
 		end
-		render '/events/new'
 	end
 
 	def update

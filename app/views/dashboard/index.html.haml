@@ -5,8 +5,8 @@
 		%center
 			.pull-left
 				%p{:style => "font-weight:bold;color:#dd6633;"}
-					=current_user.first_name
-					=current_user.last_name
+					=current_user.first_name.capitalize
+					=current_user.last_name.capitalize
 					%br
 					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
 				.table

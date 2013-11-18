@@ -5,6 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+food = Category.create! name: "Food"
+drink = Category.create! name: "Drink"
+studying = Category.create! name: "Studying"
+
 users = [{:email => 'nnn@gmail.com', :password => 'foobaraa', :password_confirmation => 'foobaraa', :first_name => 'nn', :last_name => 'yy'},
 		{:email => 'a@gmail.com', :password => 'foobaraa', :password_confirmation => 'foobaraa', :first_name => 'an', :last_name => 'ay'},
 		{:email => 'b@gmail.com', :password => 'foobaraa', :password_confirmation => 'foobaraa', :first_name => 'bn', :last_name => 'by'},
