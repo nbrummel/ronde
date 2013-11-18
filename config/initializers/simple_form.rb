@@ -50,12 +50,12 @@ SimpleForm.setup do |config|
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
-  #   :inline => input + label
+  #    :inline => input + label
   #   :nested => label > input
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'btn.btn-primary.btn-small'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -86,7 +86,7 @@ SimpleForm.setup do |config|
   # You can wrap each item in a collection of radio/check boxes with a tag,
   # defaulting to :span. Please note that when using :boolean_style = :nested,
   # SimpleForm will force this option to be a label.
-  # config.item_wrapper_tag = :span
+  config.item_wrapper_tag = :span
 
   # You can define a class to use in all item wrappers. Defaulting to none.
   # config.item_wrapper_class = nil
@@ -129,7 +129,7 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # Default size for text inputs.
-  # config.default_input_size = 50
+  config.default_input_size = 30
 
   # When false, do not use translations for labels.
   # config.translate_labels = true

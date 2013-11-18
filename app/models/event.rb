@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_many :attending_users, :through => :invitations, :source => :invited_user, :conditions => "status = 'confirmed'"
   has_many :invited_users, :through => :invitations, :source => :invited_user, :conditions => "status = 'invited'"
 
-  validates_presence_of :description, :location, :name, :start, :created_by, :day
+  validates_presence_of :description, :location, :name, :start, :created_by, :day, :event_type
   attr_accessible :description, :end, :location, :name, :public, :start, :created_by, :event_type, :user_id, :day
   EVENT_OPTIONS = %w[food drink other]
   after_initialize :init
