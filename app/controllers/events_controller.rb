@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 		@event, @flag = Event.new_event(params[:event], current_user)
 		if @flag.empty?
 			flash[:message] = "Event successfully created."
-			redirect_to "/events/#{@event.id}"
+			redirect_to "/events/#{@event.id}" and return
 		else
 			if @flag['name']
 				flash[:error] = "Name can't be blank"
@@ -34,7 +34,6 @@ class EventsController < ApplicationController
 			@event = Event.new(params[:event])
 			render 'new', event: 'new'
 		end
-		render '/events/new'
 	end
 
 	def update
