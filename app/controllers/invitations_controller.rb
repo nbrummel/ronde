@@ -16,5 +16,10 @@ class InvitationsController < ApplicationController
 	end
 
 	def decline
+		@invitation = Invitation.find(params[:id])
+		if @invitation
+			Invitation.destroy(@invitation.id)
+		end
+		redirect_to '/invitation/show/all'
 	end
 end
