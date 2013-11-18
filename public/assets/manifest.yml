@@ -9,8 +9,6 @@ application.js: application-742b521913a120e2f348e1e08cb7ebe9.js
 application/index.js: application-742b521913a120e2f348e1e08cb7ebe9.js
 bootstrap.js: bootstrap-98354c2718c0cc85b6c213e6f5211cc8.js
 bootstrap/index.js: bootstrap-98354c2718c0cc85b6c213e6f5211cc8.js
-static.js: static-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
-static/index.js: static-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
 application.css: application-1b13569e9620782f423d4cd3ce931750.css
 application/index.css: application-1b13569e9620782f423d4cd3ce931750.css
 bootstrap.css: bootstrap-c42ad1a947b6db8ca256401120c879da.css

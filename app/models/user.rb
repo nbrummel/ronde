@@ -39,7 +39,8 @@ class User < ActiveRecord::Base
   # list all of the events ive ever confirmed
   def joined_events
     events = []
-    invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
+    # invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
+    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed')
     invites.each { |invite| events << invite.event unless invite.event == events.last}
     events
   end
