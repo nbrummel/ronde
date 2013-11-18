@@ -1,0 +1,28 @@
+//account.html.haml
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+- user = current_user
+%center
+	- if flash[:alert]
+		=flash[:alert]
+	- elsif flash[:warning]
+		=flash[:warning]
+	=yield
+%body
+	.container{:style => "padding-left 50px"}
+		%h3{:style => "font-weight:bold;color:#dd6633;"}
+			Profile Page
+		%table
+			%br
+				Name:
+				=user.first_name.capitalize+ " " + user.last_name.capitalize
+			%br
+				Phone Number:
+				=user.phone_number
+			%br
+				Email:
+				=user.email
+			%br	
+		%a.btn.btn-primary.btn-small{:href => "/"} back
+		%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
+

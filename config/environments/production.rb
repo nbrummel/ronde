@@ -11,7 +11,7 @@ Ronde::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
-  config.assets.initialize_on_precompile = false
+  # config.assets.initialize_on_precompile = false
   config.action_mailer.default_url_options = { :host => 'http://ronde.herokuapp.com' }
 
   # Compress JavaScripts and CSS
@@ -22,6 +22,9 @@ Ronde::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+  # precompile assets for heroku
+  config.assets.precompile += %w(application.js bootstrap.js bootstrap.css static.css )
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

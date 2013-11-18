@@ -30,16 +30,24 @@ And /I fill in the start time/ do
 	select('45', :from => 'event_start_5i')
 end
 
+And /I leave the "(.*)" field blank/ do |field|
+	# do nothing
+end
+
 And /I select the event type/ do
 	select('Other', :from => 'event_event_type')
 end
 
 Then /I should be on the new events page/ do
-	current_path.should == '/events/new'
+	current_path.should == '/user/1/event/new'
 end
 
 Then /I should be on the all events page/ do
-	current_path.should == '/events/show'
+	current_path.should == '/events/show/all'
+end
+
+Then /I should be on the page for that event/ do
+	current_path.should == '/events/1'
 end
 
 

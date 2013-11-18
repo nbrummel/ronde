@@ -1,0 +1,27 @@
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'
+%body
+	%center
+		= flash[:message]
+	.container
+		%center
+			%h2{:style => 'font-family:eight_one;'} invite friends	
+		= form_for(:invitation, :url => {:controller => 'events', :action => 'send_invites'}) do |f|
+			.ul.list-group
+				- i = 0
+				- for friend in current_user.accepted_friends
+					- if not @event.invited_users.include?(friend)
+						.li.list-group-item
+							- i += 1
+							= check_box_tag "friends[#{friend.id}]", @event.id, @event.invited_users.include?(friend), :id => "invited_user_#{friend.id}"
+							= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+					- else
+						.li.list-group-item{:style => "color:#ff6633"}
+							= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+
+			- if i > 0
+				%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
+				= submit_tag "Invite", :id => "invited_users_submit", :class =>	'btn btn btn-danger'
+			- else
+				%p 
+					all friends have been invited

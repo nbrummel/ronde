@@ -5,10 +5,13 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+<<<<<<< HEAD
 group :development do
   gem 'sqlite3'
 end
 
+=======
+>>>>>>> master
 gem 'devise'
 gem 'haml-rails', '=0.3.4'
 gem 'omniauth'
@@ -18,11 +21,16 @@ gem 'capybara'
 gem 'database_cleaner'
 gem 'ruby_parser'
 gem 'hpricot'
-gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 
 gem 'simplecov', :require => false, :group => :test
+gem "factory_girl_rails", "~> 4.0"
+gem 'simple_form'
+
+group :development do 
+  gem 'sqlite3'
+end
 
 
 group :test do
@@ -33,6 +41,7 @@ group :test do
   gem 'jasmine-jquery-rails'
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'sqlite3'
 end
 
 group :production do

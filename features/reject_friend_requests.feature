@@ -11,8 +11,8 @@ Scenario: Reject a friend request from a list of pending friends
 	Given "SondeFirst" has sent a friend request to "RondeFirst"
 	And I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the dashboard for user with id 1
-	When I press "Friend Requests"
+	When I follow "friends"
 	Then I should see "SondeFirst"
-	When I press "Reject Friend"
-	Then I should see "You have rejected SondeFirst as a friend."
+	When I press "x"
+	Then I should see "You have no friend requests."
 	And I should not see "SondeFirst"

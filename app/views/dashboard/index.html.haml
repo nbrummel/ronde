@@ -3,24 +3,18 @@
 %body
 	.container
 		%center
-			.panel.panel-default.pull-left
+			.pull-left
 				%p{:style => "font-weight:bold;color:#dd6633;"}
-					=current_user.first_name
-					=current_user.last_name
+					=current_user.first_name.capitalize
+					=current_user.last_name.capitalize
 					%br
-					%a#edit_profile{'href' => "#account-view-modal",'data-toggle' => 'modal'} edit profile
+					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
 				.table
 					.btn-group-vertical
-						%a.btn.btn-primary.btn-small{'href' => '#new-event-modal', 'data-toggle' => 'modal'} new event
-						%a.btn.btn-primary.btn-small{:href => '/events/show' } all events
-						.btn.btn-primary.btn-small messages
-						.btn.btn-primary.btn-small recent events
-						.btn.btn-primary.btn-small find friends
+						%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/event/new" , :id => 'new_event'} new event
+						%a.btn.btn-primary.btn-small{:href => '/events/show/all' } all events
+						%a.btn.btn-primary.btn-small{:href => '/invitations/show/all'} invitations
+						%a.btn.btn-primary.btn-small{:href => '#'} recent events
+						%a.btn.btn-primary.btn-small{:href => '#' } find friends
 		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
-
-#new-event-modal{'class' => 'modal hide fade'}
-	= render 'form'
-#account-view-modal{'class' => 'modal hide fade'}
-	= render 'account'
-
 
