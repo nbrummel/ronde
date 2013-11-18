@@ -1,9 +1,5 @@
 class EventsController < ApplicationController
-	before_filter :set_timezone, :check_login
-
-	def set_timezone
-		Time.zone
-	end
+	before_filter  :check_login
 
 	def check_login
 		redirect_to "/static/home" unless current_user
@@ -38,6 +34,7 @@ class EventsController < ApplicationController
 			@event = Event.new(params[:event])
 			render 'new', event: 'new'
 		end
+		render '/events/new'
 	end
 
 	def update
