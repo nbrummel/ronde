@@ -585,7 +585,7 @@ Cucumber Features:
   :created_at: 2013-11-17 19:51:56.723296319 -08:00
 RSpec:
   :original_result:
-    /home/saasbook/Desktop/CS169/ronde/app/models/user.rb:
+    /home/saasbook/Documents/ronde/app/models/user.rb:
     - 1
     - 
     - 
@@ -627,6 +627,7 @@ RSpec:
     - 
     - 1
     - 0
+    - 
     - 0
     - 0
     - 0
@@ -663,14 +664,20 @@ RSpec:
     - 
     - 0
     - 0
+    - 
     - 
     - 
     - 
     - 
     - 
+    - 
+    - 0
     - 
     - 
+    - 1
+    - 0
     - 0
+    - 0
     - 
     - 
     - 1
@@ -682,29 +689,31 @@ RSpec:
     - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/application_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/application_controller.rb:
     - 1
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/application_helper.rb:
+    /home/saasbook/Documents/ronde/app/helpers/application_helper.rb:
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/dashboard_helper.rb:
+    - 
+    /home/saasbook/Documents/ronde/app/helpers/dashboard_helper.rb:
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/friendships_helper.rb:
+    /home/saasbook/Documents/ronde/app/helpers/friendships_helper.rb:
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/profile_helper.rb:
+    /home/saasbook/Documents/ronde/app/helpers/profile_helper.rb:
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/static_helper.rb:
+    /home/saasbook/Documents/ronde/app/helpers/static_helper.rb:
     - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/user_helper.rb:
+    /home/saasbook/Documents/ronde/app/helpers/user_helper.rb:
     - 1
+    - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/dashboard_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/dashboard_controller.rb:
     - 1
     - 1
     - 0
@@ -713,7 +722,7 @@ RSpec:
     - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/events_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/events_controller.rb:
     - 1
     - 1
     - 
@@ -726,33 +735,63 @@ RSpec:
     - 
     - 
     - 1
+    - 0
     - 
     - 
     - 1
+    - 0
     - 0
     - 0
+    - 0
     - 
     - 0
     - 0
+    - 
     - 0
     - 
     - 0
+    - 
     - 0
     - 
+    - 
+    - 
+    - 
     - 0
+    - 
+    - 
     - 
+    - 1
+    - 
+    - 
+    - 1
     - 0
+    - 
     - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
     - 0
+    - 0
+    - 0
     - 
+    - 0
     - 
+    - 0
     - 
     - 
+    - 1
     - 0
+    - 0
     - 
+    - 0
     - 
+    - 0
+    - 0
     - 
-    - 1
+    - 0
+    - 
     - 
     - 
     - 1
@@ -762,13 +801,16 @@ RSpec:
     - 1
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/event.rb:
+    /home/saasbook/Documents/ronde/app/models/event.rb:
     - 1
     - 
     - 
+    - 1
+    - 1
     - 1
     - 1
     - 1
+    - 1
     - 
     - 1
     - 1
@@ -776,31 +818,36 @@ RSpec:
     - 1
     - 
     - 1
-    - 5
+    - 0
     - 
+    - 
+    - 1
+    - 0
+    - 0
     - 
     - 1
-    - 5
-    - 5
-    - 5
-    - 5
-    - 4
-    - 4
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
     - 
-    - 5
+    - 0
     - 
     - 
     - 
     - 1
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/friendships_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/friendships_controller.rb:
     - 1
     - 
     - 
@@ -890,25 +937,51 @@ RSpec:
     - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/friendship.rb:
+    /home/saasbook/Documents/ronde/app/models/friendship.rb:
     - 1
     - 1
     - 1
+    - 1
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
     - 1
+    - 0
+    - 0
+    - 0
+    - 0
     - 
+    - 
+    - 
     - 1
+    - 0
+    - 0
     - 0
     - 0
+    - 
+    - 
+    - 1
     - 0
     - 0
     - 
     - 
+    - 1
+    - 0
+    - 0
     - 
     - 
     - 1
     - 0
     - 0
     - 0
+    - 
     - 0
     - 
     - 
@@ -917,17 +990,27 @@ RSpec:
     - 0
     - 0
     - 0
+    - 
     - 0
+    - 
+    - 
     - 
+    /home/saasbook/Documents/ronde/app/controllers/invitations_controller.rb:
+    - 1
+    - 1
     - 
     - 1
     - 0
+    - 
+    - 
+    - 1
     - 0
     - 
     - 
     - 1
     - 0
     - 0
+    - 0
     - 
     - 
     - 1
@@ -936,19 +1019,40 @@ RSpec:
     - 0
     - 
     - 0
+    - 
+    - 
+    /home/saasbook/Documents/ronde/app/models/invitation.rb:
+    - 1
+    - 1
     - 
     - 
+    - 1
+    - 1
+    - 1
     - 
     - 1
     - 0
     - 0
     - 0
+    - 
+    - 
     - 
+    - 
+    - 1
     - 0
+    - 0
+    - 0
+    - 
     - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/omniauth_callbacks_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/omniauth_callbacks_controller.rb:
     - 1
     - 
     - 1
@@ -973,14 +1077,14 @@ RSpec:
     - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/profile_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/profile_controller.rb:
     - 1
     - 1
     - 
     - 
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/static_controller.rb:
+    /home/saasbook/Documents/ronde/app/controllers/static_controller.rb:
     - 1
     - 1
     - 
@@ -1001,13 +1105,21 @@ RSpec:
     - 0
     - 0
     - 0
+    - 
     - 
     - 
     - 
     - 
+    /home/saasbook/Documents/ronde/app/controllers/user_controller.rb:
+    - 1
+    - 1
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/user_controller.rb:
     - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
     - 1
     - 0
     - 0
@@ -1020,7 +1132,12 @@ RSpec:
     - 
     - 
     - 1
+    - 0
     - 0
+    - 
+    - 0
+    - 
+    - 
     - 0
     - 0
     - 0
@@ -1058,35 +1175,54 @@ RSpec:
     - 0
     - 
     - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/invitation.rb:
+    /home/saasbook/Documents/ronde/app/inputs/datepicker_input.rb:
     - 1
     - 1
+    - 
+    - 0
     - 
     - 
+    /home/saasbook/Documents/ronde/app/inputs/hour_input.rb:
     - 1
     - 1
+    - 0
+    - 
+    - 
     - 1
+    - 
     - 
     - 1
     - 0
     - 0
     - 0
-    - 
-    - 
+    - 0
+    - 0
     - 
     - 
-    - 1
     - 0
     - 0
     - 0
     - 
     - 
     - 
-    - 1
-    - 0
     - 0
+    - 
+    - 
+    - 1
     - 0
     - 0
     - 
+    - 
+    /home/saasbook/Documents/ronde/app/models/categorization.rb:
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    /home/saasbook/Documents/ronde/app/models/category.rb:
+    - 1
+    - 1
+    - 1
+    - 1
     - 
-  :created_at: 2013-11-11 09:06:19.812625018 -08:00
+  :created_at: 2013-11-18 21:37:06.422725618 -08:00

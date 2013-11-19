@@ -28,7 +28,11 @@ end
 
 
 group :test do
+
   gem 'sqlite3'
+
+  gem 'ZenTest'
+
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'jasmine'

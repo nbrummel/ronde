@@ -2,19 +2,23 @@
 = javascript_include_tag 'application'
 %body
 	.container
-		%center
-			.pull-left
-				%p{:style => "font-weight:bold;color:#dd6633;"}
-					=current_user.first_name.capitalize
-					=current_user.last_name.capitalize
-					%br
-					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
-				.table
-					.btn-group-vertical
-						%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/event/new" , :id => 'new_event'} new event
-						%a.btn.btn-primary.btn-small{:href => '/events/show/all' } all events
-						%a.btn.btn-primary.btn-small{:href => '/invitations/show/all'} invitations
-						%a.btn.btn-primary.btn-small{:href => '#'} recent events
-						%a.btn.btn-primary.btn-small{:href => '#' } find friends
-		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
+		.pull-left
+			.container.span3
+				%center
+					.pull-left
+						%p{:style => "font-weight:bold;color:#dd6633;"}
+							=current_user.first_name.capitalize
+							=current_user.last_name.capitalize
+							%br
+							%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit account
+						.table
+							.btn-group-vertical
+								%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/event/new" , :id => 'new_event'} new event
+								%a.btn.btn-primary.btn-small{:href => '/events/show/all' } all events
+								%a.btn.btn-primary.btn-small{:href => '/invitations/show/all'} invitations
+								%a.btn.btn-primary.btn-small{:href => '#'} recent events
+								%a.btn.btn-primary.btn-small{:href => '#' } find friends
+				.span1{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
+				.container
+					= render 'event'
 

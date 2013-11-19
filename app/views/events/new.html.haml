@@ -10,7 +10,7 @@
 		%br			
 		= simple_form_for(@event, html: { class: 'form-vertical' }) do |f|
 			= f.error_notification
-			= f.input :description, :placeholder => "Give your friends some more details and convince them to come", :wrapper_html => { :class => 'span6' }
+			= f.input :description, :placeholder => "Give your friends some more details and convince them to come", :row => 3, :wrapper_html => { :class => 'span3'}
 			= f.input :name, :placeholder => current_user.first_name.capitalize + "'s event!"
 			= f.input :location, :placeholder => "Where is it?"
 			= f.input :event_type, :collection => ['Food','Drink','Other']

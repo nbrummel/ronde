@@ -1,60 +1,35 @@
-//index.html.haml
-%html
-	- user = current_user
-	%title
-		dashboard
-		= stylesheet_link_tag 'profile'
-		= javascript_include_tag 'application'
-		= csrf_meta_tags
-	%head
-	.container
-		.navbar.navbar-fixed-top
-			.navbar-inner
-				.container
-					%a.brand{:href => "/"} rondé
-					%ul.nav.pull-right
-						=	form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
-							= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
-						%li
-							%a{:href => "/"} home
-						%li
-							%a{:href => "/user/#{current_user.id}/friends"} friends
-						%li.dropdown
-							%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
-							%ul.dropdown-menu{"role" => "menu"}
-								%li
-									%a{:href => "/profile"} 
-										account
-									%a{:href => "/users/sign_out"} 
-										sign out
-		%center
-			%h1
-				Profile Page
-	%body
-		%center
-			%h3
-				Name:
-				=user.first_name.capitalize+ " " + user.last_name.capitalize
-			%h3
-				Phone Number:
-				=user.phone_number
-			%h3
-				Email:
-				=user.email
-			%h3 
-				Groups:
-			%h3
-				Friends:
-				-user.accepted_friends.each do |friend|
-					%p 
-						=friend.first_name.capitalize + " " + friend.last_name.capitalize
+= stylesheet_link_tag 'bootstrap'
+= javascript_include_tag 'application'	
+- user = current_user	
+%body
+	%h1
+		Profile Page
+	%center
+		= image_tag avatar_url(user)
+		%h3
+			Name:
+			=user.first_name.capitalize+ " " + user.last_name.capitalize
+		%h3
+			Phone Number:
+			=user.phone_number
+		%h3
+			Email:
+			=user.email
+		%h3 
+			Groups:
+		%h3
+			Friends:
+			-user.accepted_friends.each do |friend|
+				%p 
+					=friend.first_name.capitalize + " " + friend.last_name.capitalize
 
-		%center
-			%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
-			%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"
-			%th{:class => "button"}= link_to 'home', '/dashboard', :class => "button", :id => "logout_button"
-			- if flash[:alert]
-				=flash[:alert]
-			- elsif flash[:warning]
-				=flash[:warning]
-			=yield
+
+	%center
+		%th{:class => "button"}= link_to 'Edit', '/profile/edit', :class => "button", :id => "edit_profile_button"
+		%th{:class => "button"}= link_to 'Logout', '/logout', :class => "button", :id => "logout_button"
+		%th{:class => "button"}= link_to 'home', '/dashboard', :class => "button", :id => "logout_button"
+		- if flash[:alert]
+			=flash[:alert]
+		- elsif flash[:warning]
+			=flash[:warning]
+		=yield
