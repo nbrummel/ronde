@@ -86,6 +86,12 @@ class User < ActiveRecord::Base
     user
 	end
 
+  def avatar_url(current_user)
+    userEmail = current_user.email.downcase
+    gravatar_id = Digest::MD5.hexdigest(userEmail)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
+  end
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

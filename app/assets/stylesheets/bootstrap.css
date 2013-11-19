@@ -1019,7 +1019,7 @@ select {
 }
 select[multiple],
 select[size] {
-  height: auto;
+  height:70px;
 }
 select:focus,
 input[type="file"]:focus,
@@ -1042,7 +1042,7 @@ input[type="checkbox"]:focus {
 }
 .uneditable-textarea {
   width: auto;
-  height: auto;
+  height:70px;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
@@ -1179,6 +1179,7 @@ input.span3,
 textarea.span3,
 .uneditable-input.span3 {
   width: 206px;
+  height: 70px;
 }
 input.span2,
 textarea.span2,

@@ -24,6 +24,7 @@ group :development do
 end
 
 group :test do
+  gem 'ZenTest'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'jasmine'
