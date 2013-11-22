@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   # list all of the events Ive been invited to ever
   def invited_events
     events = []
-    invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "invited"', self.id])
+    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'invited')
     invites.each { |invite| events << invite.event}
     events
   end
