@@ -44,6 +44,9 @@ class EventsController < ApplicationController
 
 	def invite
 		@event = Event.find(params[:id])
+		unless @event.attending_users.include?(current_user) or @event.created_by == current_user
+			render 'show'
+		end
 	end
 
 	def send_invites

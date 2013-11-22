@@ -33,16 +33,16 @@ class User < ActiveRecord::Base
 
   # list all of the events i have ever created or joined               
   def all_events
-    [Event.find(:all, :conditions => ["created_by_id = ?", self.id]), self.joined_events].flatten.sort_by &:start
+    @user = self
+    (Event.where('created_by_id = ?', @user.id) + @user.joined_events).uniq
   end
 
   # list all of the events ive ever confirmed
   def joined_events
     events = []
-    # invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
-    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed').sort_by 
+    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed')
     invites.each { |invite| events << invite.event unless invite.event == events.last}
-    events.sort_by &:start
+    events
   end
 
   # list all of the events Ive been invited to ever

@@ -23,6 +23,6 @@ class InvitationsController < ApplicationController
 		if @invitation
 			Invitation.destroy(@invitation.id)
 		end
-		redirect_to '/invitation/show/all'
+		redirect_to '/invitations/show/all'
 	end
 end

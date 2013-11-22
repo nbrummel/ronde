@@ -37,14 +37,23 @@
 				.panel.panel-heading
 					%h5 Friends Attending
 				.panel-body
-					%a{:href => "/user/#{@event.created_by.id}/search_friend"} 
-						= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"
+					- if @event.created_by == current_user
+						= "Me"
+					-else
+						%a{:href => "/user/#{@event.created_by.id}/search_friend"} 
+							= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"
 					- for friend in @event.attending_users
-						%a{:href => "/user/#{friend.id}/search_friend"} 
-							= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+						-if friend == current_user
+							= "Me"
+						-else
+							%a{:href => "/user/#{friend.id}/search_friend"} 
+								= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
 						%br
 			.div.pull-right
-				%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
-				%a.btn.btn-danger{:href => "/events/#{@event.id}/invite"} Invite Friends
+				-if @event.attending_users.include?(current_user) or @event.created_by == current_user
+					%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
+					%a.btn.btn-danger{:href => "/events/#{@event.id}/invite"} Invite Friends
+				-elsif @event.invited_users.include?(current_user)
+					%a.btn.btn-default{:href => "/invitations/show/all"} Invitations
 	%br
 	%br

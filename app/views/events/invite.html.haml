@@ -12,7 +12,7 @@
 					.ul.list-group
 						- i = 0
 						- for friend in current_user.accepted_friends
-							- if not @event.invited_users.include?(friend)
+							- if not @event.invited_users.include?(friend) and not @event.created_by == friend and not @event.attending_users.include?(friend)
 								.li.list-group-item
 									- i += 1
 									= check_box_tag "friends[#{friend.id}]", @event.id, @event.invited_users.include?(friend), :id => "invited_user_#{friend.id}"
