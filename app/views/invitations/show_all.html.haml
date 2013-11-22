@@ -3,8 +3,12 @@
 %body
 	.container
 		.pull-left{:style => "position:relative; left:32%;"}
-			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:20%;"}
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:25%;"}
 				invitations
+			.span4{:style => "position:relative; left:1%;"}
+				= form_tag "/user/#{current_user.id}/search_invites", :class => "search", :action => :search_events, :method => :post do
+					= text_field_tag "searched_invitation", nil, :class => "search-query span4", :placeholder => "Search Invitations"
+			%br
 			.span4
 				.tabbable
 					%ul.nav.nav-tabs

@@ -15,6 +15,9 @@ class InvitationsController < ApplicationController
 		redirect_to "/events/#{@invitation.event.id}"
 	end
 
+	def search
+	end
+
 	def decline
 		@invitation = Invitation.find(params[:id])
 		if @invitation

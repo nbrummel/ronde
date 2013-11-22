@@ -28,8 +28,7 @@ class Event < ActiveRecord::Base
       @event.save!
     end
     return @event, @flag
-  end
-
+  end 
 
   def self.validate(details)
     flag = {}

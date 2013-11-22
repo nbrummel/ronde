@@ -20,11 +20,13 @@ Ronde::Application.routes.draw do
   get "/events/:id/invite", :to => "events#invite"
   get "/events/show/all", :to => "events#show_all"
   post "/events/:id/send_invites", :to => "events#send_invites"
+  post "/user/:id/search_events", :to => "events#search"
 
   # routes for invitations
   get '/invitations/show/all', :to => "invitations#show_all"
   get 'invitations/:id/accept', :to => 'invitations#accept'
   get 'invitations/:id/decline', :to => 'invitations#decline'
+  post '/user/:id/search_invites', :to => 'invitations#search'
 
 
   # routes for static pages
