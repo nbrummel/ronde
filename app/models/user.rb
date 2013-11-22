@@ -40,9 +40,9 @@ class User < ActiveRecord::Base
   def joined_events
     events = []
     # invites = Invitation.find(:all, :conditions => ['invited_user_id = ? AND status = "confirmed"', self.id])
-    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed')
+    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed').sort_by 
     invites.each { |invite| events << invite.event unless invite.event == events.last}
-    events
+    events.sort_by &:start
   end
 
   # list all of the events Ive been invited to ever
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     events = []
     invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'invited')
     invites.each { |invite| events << invite.event}
-    events
+    events.sort_by &:start
   end
 
   # Handles User creation for facebook login. Gets called from controller.
