@@ -1,13 +1,41 @@
 = stylesheet_link_tag 'bootstrap'
 = javascript_include_tag 'application'
 %body
-	%center
-		%h2{:style => 'font-family:eight_one;'}
-			all events
 	.container
-		- for event in @events
-			.ul.list-group
-				%a.li.list-group-item{:href => "/events/#{event.id}"}
-					= event.name.capitalize
+		.pull-left{:style => "position:relative; left:28%;"}
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:32%;"}
+				events
+			.span5
+				.tabbable
+					%ul.nav.nav-tabs
+						%li.active{:style => "font-size:20px;"}
+							= link_to "all", "#all_events", "data-toggle" => "tab"
+						%li{:style => "font-size:20px;"}
+							= link_to "invited", "#invited_events", "data-toggle" => "tab"
+						%li{:style => "font-size:20px;"}
+							= link_to "joined", "#joined_events", "data-toggle" => "tab"
+						%li{:style => "font-size:20px;"}
+							= link_to "created", "#created_events", "data-toggle" => "tab"
+					.tab-content
+						.tab-pane.active{:id => "all_events"}
+							- for event in @events
+								.ul.list-group
+									%a.li.list-group-item{:href => "/events/#{event.id}"}
+										= event.name.capitalize
+						.tab-pane{:id => "invited_events"}
+							- for event in current_user.invited_events
+								.ul.list-group
+									%a.li.list-group-item{:href => "/events/#{event.id}"}
+										= event.name.capitalize
+						.tab-pane{:id => "joined_events"}
+							- for event in current_user.joined_events
+								.ul.list-group
+									%a.li.list-group-item{:href => "/events/#{event.id}"}
+										= event.name.capitalize
+						.tab-pane{:id => "created_events"}
+							- for event in current_user.my_events
+								.ul.list-group
+									%a.li.list-group-item{:href => "/events/#{event.id}"}
+										= event.name.capitalize
 	%br
 	%br

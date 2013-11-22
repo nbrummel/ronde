@@ -1,18 +1,33 @@
 = stylesheet_link_tag 'bootstrap'
 = javascript_include_tag 'application'
 %body
-	%center
-		%h2{:style => 'font-family:eight_one;'}
-			invitations
 	.container
-		- for invitation in @invitations
-			.ul.list-group
-				- unless invitation.invited_user == current_user and invitation.status == 'confirmed'
-					%a.li.list-group-item{:href => "/events/#{invitation.event.id}"}
-						= "#{invitation.event.name} by #{invitation.event.created_by.first_name.capitalize} #{invitation.event.created_by.last_name.capitalize}" 
+		.pull-left{:style => "position:relative; left:32%;"}
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:20%;"}
+				invitations
+			.span4
+				.tabbable
+					%ul.nav.nav-tabs
+						%li.active{:style => "font-size:24px;"}
+							= link_to "pending", "#pending_invites", "data-toggle" => "tab"
+						%li{:style => "font-size:24px;"}
+							= link_to "confirmed", "#confirmed_invites", "data-toggle" => "tab"
+					.tab-content
+						.tab-pane.active{:id => "pending_invites"}
+							- for invitation in @invitations
+								.ul.list-group
+									- unless invitation.invited_user == current_user and invitation.status == 'confirmed'
+										%a.li.list-group-item{:href => "/events/#{invitation.event.id}"}
+											= "#{invitation.event.name} by #{invitation.event.created_by.first_name.capitalize} #{invitation.event.created_by.last_name.capitalize}" 
 						 
-						%a.btn.btn-default{:href => "/invitations/#{invitation.id}/decline"} decline
-						%a.btn.btn-danger{:href => "/invitations/#{invitation.id}/accept"} accept
+											%a.btn.btn-default{:href => "/invitations/#{invitation.id}/decline"} decline
+											%a.btn.btn-danger{:href => "/invitations/#{invitation.id}/accept"} accept
 
+						.tab-pane{:id => "confirmed_invites"}
+							- for invitation in @invitations
+								.ul.list-group
+									- if invitation.invited_user == current_user and invitation.status == 'confirmed'
+										%a.li.list-group-item{:href => "/events/#{invitation.event.id}"}
+											= "#{invitation.event.name} by #{invitation.event.created_by.first_name.capitalize} #{invitation.event.created_by.last_name.capitalize}"
 	%br
 	%br
