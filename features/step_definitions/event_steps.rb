@@ -2,28 +2,41 @@ Given /I am on the ronde dashboard/ do
 	visit '/dashboard'
 end
 
-Given /I am logged in as RondeFirst/ do
+Given /I have signed up as (.*)/ do |user|
 	visit '/users/sign_up'
-	fill_in('user_email', :with => 'ronde@gmail.com')
-	fill_in('user_first_name', :with => 'RondeFirst')
-	fill_in('user_last_name', :with => 'RondeLast')
-	fill_in('user_email', :with => 'ronde@gmail.com')
+	fill_in('user_first_name', :with => "#{user}First")
+	fill_in('user_last_name', :with => "#{user}Last")
+	fill_in('user_email', :with => "#{user}First@example.com")
 	fill_in('user_phone_number', :with => '5105105101')
 	fill_in('user_password', :with => 'RondePassword')
 	fill_in('user_password_confirmation', :with => 'RondePassword')
 	click_button 'Sign up'
 end
 
-Given /I am logged in as SondeFirst/ do
-	visit '/users/sign_up'
-	fill_in('user_email', :with => 'sonde@gmail.com')
-	fill_in('user_first_name', :with => 'SondeFirst')
-	fill_in('user_last_name', :with => 'SondeLast')
-	fill_in('user_email', :with => 'sonde@gmail.com')
-	fill_in('user_phone_number', :with => '5105105102')
-	fill_in('user_password', :with => 'SondePassword')
-	fill_in('user_password_confirmation', :with => 'SondePassword')
-	click_button 'Sign up'
+Given /I am logged in as (.*)/ do |user|
+	visit '/users/sign_in'
+	fill_in('user_email', :with => "#{user}@example.com")
+	fill_in('user_password', :with => 'RondePassword')
+	click_button 'Sign in'
+end
+
+Given /I have signed out/ do
+	visit '/users/sign_out'
+end
+
+Given /I am on the page for the event called "(.*)"/ do |event|
+	@event = Event.where('name LIKE ?', event).first
+	visit "/events/#{@event.id}"
+end
+
+Given /I have created an event called "(.*)" as "(.*)"/ do |event_name, user_name|
+	@user = User.where('first_name = ?', user_name.gsub!(/\A"|"\Z/, '')).first
+	visit "/user/1/event/new"
+	fill_in('event_name', :with => event_name)
+	fill_in('event_description', :with => 'blah blah blah')
+	fill_in('event_location', :with => 'right here')
+	select('Other', :from => "event_event_type")
+	click_button "Next"
 end
 
 And /I fill in the start time/ do
@@ -48,6 +61,12 @@ end
 
 Then /I should be on the page for that event/ do
 	current_path.should == '/events/1'
+end
+
+And /I choose (.*)/ do |user|
+	userfirst = user
+	userlast = user.gsub('First', 'Last')
+	check('friends[1]')
 end
 
 

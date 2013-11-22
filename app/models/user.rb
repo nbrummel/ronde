@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
     events.sort_by &:start
   end
 
+  def sent_invitations
+    Invitation.where('user_id = ? AND status = ?', self.id, 'invited')
+  end
+
   # Handles User creation for facebook login. Gets called from controller.
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:email => auth.info.email).first

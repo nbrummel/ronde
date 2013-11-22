@@ -4,46 +4,47 @@
 	.container
 		%center
 			%h2{:style => 'font-family:eight_one; font-weight:normal;'} Event
-		.panel.panel-default
-			.panel.panel-heading
-				%h5 Name
-			.panel-body
-				= "#{@event.name}"
-			.panel.panel-heading
-				%h5 Description
-			.panel-body
-				= "#{@event.description}"
-			.panel.panel-heading
-				%h5 Location
-			.panel-body
-				= "#{@event.location}"
-			.panel.panel-heading
-				%h5 Date
-			.panel-body
-				= "#{@event.start.strftime("%m/%d/%y")}"
-			.panel.panel-heading
-				%h5 Time
-			.panel-body
-				= "#{@event.start.strftime("%l:%M%p")} - #{@event.end.strftime("%l:%M%p")}"
-			.panel.panel-heading
-				%h5 Event Type
-			.panel-body
-				= "#{@event.event_type.capitalize}"
-			.panel.panel-heading
-				%h5 Creator
-			.panel-body
-				= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"	
-			.panel.panel-heading
-				%h5 Friends Attending
-			.panel-body
-				%a{:href => "/user/#{@event.created_by.id}/search_friend"} 
-					= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"
-				- for friend in @event.attending_users
-					%a{:href => "/user/#{friend.id}/search_friend"} 
-						= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
-					%br
-		.div.pull-right
-			%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
-			%a.btn.btn-danger{:href => "/events/#{@event.id}/invite"} Invite Friends
+		.span8{:style => 'position:relative; left:15%;'}
+			.panel.panel-default
+				.panel.panel-heading
+					%h5 Name
+				.panel-body
+					= "#{@event.name}"
+				.panel.panel-heading
+					%h5 Description
+				.panel-body
+					= "#{@event.description}"
+				.panel.panel-heading
+					%h5 Location
+				.panel-body
+					= "#{@event.location}"
+				.panel.panel-heading
+					%h5 Date
+				.panel-body
+					= "#{@event.start.strftime("%m/%d/%y")}"
+				.panel.panel-heading
+					%h5 Time
+				.panel-body
+					= "#{@event.start.strftime("%l:%M%p")} - #{@event.end.strftime("%l:%M%p")}"
+				.panel.panel-heading
+					%h5 Event Type
+				.panel-body
+					= "#{@event.event_type.capitalize}"
+				.panel.panel-heading
+					%h5 Creator
+				.panel-body
+					= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"	
+				.panel.panel-heading
+					%h5 Friends Attending
+				.panel-body
+					%a{:href => "/user/#{@event.created_by.id}/search_friend"} 
+						= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"
+					- for friend in @event.attending_users
+						%a{:href => "/user/#{friend.id}/search_friend"} 
+							= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
+						%br
+			.div.pull-right
+				%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
+				%a.btn.btn-danger{:href => "/events/#{@event.id}/invite"} Invite Friends
 	%br
 	%br
