@@ -1,11 +1,13 @@
 @font-face {
   font-family:"eight_one";
+  font-weight:normal;
   src: url("eight_one.ttf") format("truetype");
 }
 
 h1.title {
   color: #FF6633;
   font-family:"eight_one", arial;
+  font-weight:normal;
   font-size: 500%;
   text-align: center;
 }

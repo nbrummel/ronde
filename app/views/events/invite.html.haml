@@ -5,7 +5,7 @@
 		= flash[:message]
 	.container
 		%center
-			%h2{:style => 'font-family:eight_one;'} invite friends	
+			%h2{:style => 'font-family:eight_one; font-weight:normal'} invite friends	
 		= form_for(:invitation, :url => {:controller => 'events', :action => 'send_invites'}) do |f|
 			.ul.list-group
 				- i = 0
