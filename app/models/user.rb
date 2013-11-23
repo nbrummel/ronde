@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   # Handles User creation for facebook login. Gets called from controller.
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:email => auth.info.email).first
-    user ||= User.where(:email => auth.uid).first
+    user ||= User.where(:email => "#{auth.uid}@facebook.com").first
     unless user
       user = User.new(
         first_name: auth.extra.raw_info.first_name,
