@@ -13,4 +13,7 @@
 						%a.btn.btn-primary.btn-small{:href => '/events/show/all', :id => 'all_events' } all events
 						%a.btn.btn-primary.btn-small{:href => '/invitations/show/all', :id => "invitations"} invitations
 						%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/friends", :id => "find_friends" } find friends
+					- if (pending_invites = current_user.invited_events.length) > 0
+						%span.badge{:style => "position:relative; left:5%; top:-24px;padding:2px 2px 2px 2px"}
+							= pending_invites
 		%div{:style => "width:1px;background-color:#e5e5e5;height:100%;float:left;margin-left:2%;"}
