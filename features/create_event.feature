@@ -26,7 +26,7 @@ Scenario: Creating a new Event
 	And I fill in the start time
 	And I select the event type
 	And I fill in "Description" with "Beat the Shehawks"
-	And I press "Next"
+	And I press "Create"
 	Then I should be on the page for that event
 	And I should see "49ers Party"
 
@@ -36,7 +36,7 @@ Scenario: Invalid Name
 	And I click the "new_event" link
 	Then I should be on the new events page
 	And I leave the "Name" field blank
-	And I press "Next"
+	And I press "Create"
 	Then I should see "Name can't be blank"
 
 Scenario: Invalid Description
@@ -46,7 +46,7 @@ Scenario: Invalid Description
 	Then I should be on the new events page
 	When I fill in "Name" with "49ers Party"
 	And I leave the "Description" field blank
-	And I press "Next"
+	And I press "Create"
 	Then I should see "Description can't be blank"
 
 Scenario: Invalid Location
@@ -58,7 +58,7 @@ Scenario: Invalid Location
 	And I fill in "Description" with "Beat the Shehawks"
 	And I select the event type
 	And I leave the "Location" field blank
-	And I press "Next"
+	And I press "Create"
 	Then I should see "Location can't be blank"
 
 #Scenario: Invalid Event Type

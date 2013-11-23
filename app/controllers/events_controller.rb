@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_filter  :check_login
+	before_filter :check_login
 
 	def check_login
 		redirect_to "/static/home" unless current_user
