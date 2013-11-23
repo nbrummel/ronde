@@ -2211,7 +2211,8 @@ ul.icons-ul > li .icon-li {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-}{:style => "font-family:eight_one; font-size:36px;"}
+}
+
 /* more sprites.less reset */
 .icon-white,
 .nav-pills > .active > a > [class^="icon-"],
