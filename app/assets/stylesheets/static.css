@@ -13,13 +13,13 @@ h1.title {
 }
 
 a{ 
-  color:#ffffff;
-}
-a:hover{
   color:#ff6633;
 }
+a:hover{
+  color:#ffcc99;
+}
 
-.btn {
+.button {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
@@ -43,26 +43,26 @@ a:hover{
   *margin-left: .3em;
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active,
-.btn.active,
-.btn.disabled,
-.btn[disabled] {
+.button:hover,
+.button:focus,
+.button:active,
+.button.active,
+.button.disabled,
+.button[disabled] {
   color: #ff6633;
   background-color: #ffcc99;
   *background-color: #ffcc99;
   text-color:#ff6633;
 }
-.btn:active,
-.btn.active {
+.button:active,
+.button.active {
   background-color: #ffffff \9;
 }
-.btn:first-child {
+.button:first-child {
   *margin-left: 0;
 }
-.btn:hover,
-.btn:focus {
+.button:hover,
+.button:focus {
   color: #ff6633;
   text-decoration: #ffffff;
   background-position: 0 -15px;
@@ -71,7 +71,7 @@ a:hover{
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
-.btn:focus {
+.button:focus {
   outline: thin dotted #ff6633;
   outline: 8px auto -webkit-focus-ring-color;
   outline-offset: -2px;

@@ -1,34 +1,62 @@
-%html
+%body
 	= stylesheet_link_tag 'static'
-	%head
-	%body
-		%br
-		%h1.title rondé
-		%br
-		%br
+	%br
+	%h1.title rondé
+	%br
+	%br
 
-	%center
-		%table
-			%th{:style => "padding:10px;"}
-				%a{:href => '/users/sign_in'}
-					.btn sign in
-					
-			%th{:style => "padding:10px;"}
-				%a{:href => '/users/sign_up'}
-					.btn sign up
+%center
+	%table#show-session-links
+		%th
+			%a{:href => '#session-links', :style => 'font-weight:normal;'} show all
+	%table#session-links
+		%th{:style => "padding:10px;"}
+			%a.button#sign-in{:href => '#sign-in'} sign in
+		%th{:style => "padding:10px;"}
+			%a.button#sign-up{:href => '#sign-up'} sign up
 
+	%br
+	%br
+	.well.span4#sign-in-box{:style => 'position:relative; left:35%;'}
+		%h2{:style => 'font-family:eight_one;'}
+			= 'sign in'
+		= form_for( "user", :url => '/users/sign_in', :method => 'post') do |f|
+			= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
+			%br
+			= f.password_field :password, :placeholder => 'password'
+			%br
+			= f.submit 'sign in' 
 
-		.container
-			.navbar.navbar-fixed-bottom{:style => "padding-left:240px;"}
-				.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
-					%ul.nav
-						%li
-							%a{:href => "/static/home", :id => 'home',:style => "color:#ff6633;"} Home
-						%li
-							%a{:href => "/static/about", :id => 'about',  :style => "color:#ff6633;"} About
-						%li
-							%a{:href => "/static/terms_of_use", :id => 'terms of use',  :style => "color:#ff6633;"} Terms of Use
-						%li
-							%a{:href => "/static/contact", :id => 'contact', :style => "color:#ff6633;"} Contact
+	.well.span4#sign-up-box{:style => 'position:relative; left:35%;'}
+		%h2{:style => 'font-family:eight_one;'}
+			= 'sign up'
+		= form_for( "user", :url => '/users', :method => 'post') do |f|
+			= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
+			%br
+			= f.text_field :first_name, :placeholder => 'first name'
+			%br
+			= f.text_field :last_name, :placeholder => 'last name'
+			%br
+			= f.text_field :phone_number, :placeholder => 'phone number'
+			%br
+			= f.password_field :password, :placeholder => 'password'
+			%br
+			= f.password_field :password_confirmation, :placeholder => 'confirm password'
+			%br
+			= f.submit 'sign up'
+
+	.container{:style => "position:relative; margin-top:38%;"}
+		.navbar{:style => "padding-left:240px;"}
+			.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
+				%ul.nav
+					%li
+						%a{:href => "/static/home", :id => 'home',:style => "color:#ff6633;"} Home
+					%li
+						%a{:href => "/static/about", :id => 'about',  :style => "color:#ff6633;"} About
+					%li
+						%a{:href => "/static/terms_of_use", :id => 'terms of use',  :style => "color:#ff6633;"} Terms of Use
+					%li
+						%a{:href => "/static/contact", :id => 'contact', :style => "color:#ff6633;"} Contact
+
 
 
