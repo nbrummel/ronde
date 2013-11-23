@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
         uid: auth.uid,
         email: auth.info.email,
         password:Devise.friendly_token[8,20])
-      user.email ||= ''
+      user.email ||= "#{auth.uid}@facebook.com"
       user.save!
     end
     user
