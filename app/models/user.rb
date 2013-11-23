@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:email => auth.info.email).first
     unless user
-      user = User.create!(
+      user = User.new(
         first_name: auth.extra.raw_info.first_name,
 			  last_name: auth.extra.raw_info.last_name,
 				phone_number: auth.extra.raw_info.sms.to_s,
@@ -69,6 +69,8 @@ class User < ActiveRecord::Base
         uid: auth.uid,
         email: auth.info.email,
         password:Devise.friendly_token[8,20])
+      user.email ||= ''
+      user.save!
     end
     user
   end
