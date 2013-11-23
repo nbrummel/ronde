@@ -7,7 +7,9 @@ class Invitation < ActiveRecord::Base
   belongs_to :invited_user, :class_name => "User"
 
   def self.invite(user, invited_user, event)
-    unless user == invited_user or Invitation.find_by_user_id_and_invited_user_id_and_event_id(user.id, invited_user.id, event.id)
+    unless user == invited_user or 
+            Invitation.find_by_user_id_and_invited_user_id_and_event_id(user.id, invited_user.id, event.id) or 
+            event.created_by == invited_user
       transaction do
         create(:user_id => user.id, :invited_user_id => invited_user.id, :status => 'invited', :event_id => event.id)
       end

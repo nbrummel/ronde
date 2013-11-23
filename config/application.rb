@@ -68,6 +68,5 @@ module Ronde
     config.time_zone = 'Pacific Time (US & Canada)'
     config.active_record.default_timezone = :local
 
-    
   end
 end
