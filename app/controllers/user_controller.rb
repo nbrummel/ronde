@@ -26,7 +26,6 @@ class UserController < ApplicationController
 		end
 	end
 	def search_friend
-		@user = User.find_by_id(params[:id])
 		if params[:searched_friend] != ""
 			@possible_friends = (User.where("email LIKE ?", "%#{params[:searched_friend]}%") + 
 								User.where("first_name LIKE ?", "%#{params[:searched_friend]}%") + 
