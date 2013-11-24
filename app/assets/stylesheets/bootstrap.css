@@ -5690,9 +5690,10 @@ input[type="submit"].btn.btn-mini {
   padding:1px 20px 1px 10px;
   margin-top: 7px;
   margin-bottom: 7px;
+  height:25px;
 }
 .navbar-search .search-query {
-  padding: 12px 14px;
+  padding: 5px 14px 5px;
   overflow:hidden;
   margin-bottom: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -5700,6 +5701,7 @@ input[type="submit"].btn.btn-mini {
   border-color: #ffcc99;
   font-weight: normal;
   line-height: 1;
+  height:12px;
 }
 .navbar-static-top {
   position: static;

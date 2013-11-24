@@ -3,7 +3,7 @@
 		.pull-left{:style => "position:relative; left:28%;"}
 			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:36%;"}
 				events
-			.span5{:style => "position:relative; left:2%;"}
+			.span5{:style => "position:relative; right:2%;"}
 				= form_tag "/user/#{current_user.id}/search_events", :class => "search", :action => :search_events, :method => :post do
 					= text_field_tag "searched_event", nil, :class => "search-query span5", :placeholder => "Search Events"
 			%br
