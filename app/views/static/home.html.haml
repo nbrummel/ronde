@@ -1,77 +1,8 @@
 %body
 	= stylesheet_link_tag 'static'
-	%br
-	%h1.title rondé
-	%br
-	%br
 %center
-	.container
-		%table#show-session-links
-			%th
-				%a{:href => '#session-links', :style => 'font-weight:normal;'} show all
-		%table#session-links
-			%th{:style => "padding:10px;"}
-				%a.button#sign-in{:href => '#sign-in'} sign in
-			%th{:style => "padding:10px;"}
-				%a.button#sign-up{:href => '#sign-up'} sign up
-
-		%br
-		%br
-		.well.span4#sign-in-box{:style => 'position:relative; left:29%;'}
-			%h2{:style => 'font-family:eight_one;font-weight:normal;'}
-				= 'sign in'
-			= form_for( "user", :url => '/users/sign_in', :method => 'post') do |f|
-				= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
-				%br
-				= f.password_field :password, :placeholder => 'password'
-				%br
-				= f.submit 'sign in' 
-				%br
-				%br
-				%table{:style => 'position:relative; left:-2%;'}
-					%th
-						= link_to image_tag('/facebook-icon.png', :size => '20x20'), '/users/auth/facebook'
-					%th
-						= link_to image_tag('/google-icon.png', :size => '20x20'), '/users/auth/google'
-
-		.well.span4#sign-up-box{:style => 'position:relative; left:29%;'}
-			%h2{:style => 'font-family:eight_one;font-weight:normal;'}
-				= 'sign up'
-			= form_for( "user", :url => '/users', :method => 'post') do |f|
-				= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
-				%br
-				= f.text_field :first_name, :placeholder => 'first name'
-				%br
-				= f.text_field :last_name, :placeholder => 'last name'
-				%br
-				= f.text_field :phone_number, :placeholder => 'phone number'
-				%br
-				= f.password_field :password, :placeholder => 'password'
-				%br
-				= f.password_field :password_confirmation, :placeholder => 'confirm password'
-				%br
-				= f.submit 'sign up'
-				%br
-				%br
-				%table{:style => 'position:relative; left:-2%;'}
-					%th{:style => "width=100px;"}
-						= link_to image_tag('/facebook-icon.png', :size => '20x20'), '/users/auth/facebook'
-					%th{:style => "width=100px;"}
-						= link_to image_tag('/google-icon.png', :size => '20x20'), '/users/auth/google'
-					
-
-	.container{:style => "position:relative; margin-top:33%;"}
-		.navbar{:style => "padding-left:200px;"}
-			.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
-				%ul.nav
-					%li
-						%a{:href => "/static/home", :id => 'home',:style => "color:#ff6633;"} Home
-					%li
-						%a{:href => "/static/about", :id => 'about',  :style => "color:#ff6633;"} About
-					%li
-						%a{:href => "/static/terms_of_use", :id => 'terms of use',  :style => "color:#ff6633;"} Terms of Use
-					%li
-						%a{:href => "/static/contact", :id => 'contact', :style => "color:#ff6633;"} Contact
+	= render 'home_content'
+	= render 'footer'
 
 
 

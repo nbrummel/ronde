@@ -1,4 +1,5 @@
 %body	
+	= stylesheet_link_tag 'static'
 	%br
 	%h1.title rondé
 	%br
@@ -24,15 +25,4 @@
 				%p
 					%a.btn.btn-primary{:href => "/users/sign_up"} View details &raquo;
 		%hr/
-		.container
-			.navbar.navbar-fixed-bottom{:style => "padding-left:240px;"}
-				.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
-					%ul.nav
-						%li
-							%a{:href => "/static/home", :id => 'home',:style => "color:#ff6633;"} Home
-						%li
-							%a{:href => "/static/about", :id => 'about',  :style => "color:#ff6633;"} About
-						%li
-							%a{:href => "/static/terms_of_use", :id => 'terms of use',  :style => "color:#ff6633;"} Terms of Use
-						%li
-							%a{:href => "/static/contact", :id => 'contact', :style => "color:#ff6633;"} Contact
+	= render 'footer'
