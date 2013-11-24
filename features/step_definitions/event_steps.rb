@@ -13,7 +13,7 @@ Given /I have signed up as (.*)/ do |user|
 	click_button 'Sign up'
 end
 
-Given /I am logged in as (.*)/ do |user|
+Given /I am logged in as user (.*)/ do |user|
 	visit '/users/sign_in'
 	fill_in('user_email', :with => "#{user}@example.com")
 	fill_in('user_password', :with => 'RondePassword')
@@ -36,7 +36,7 @@ Given /I have created an event called "(.*)" as "(.*)"/ do |event_name, user_nam
 	fill_in('event_description', :with => 'blah blah blah')
 	fill_in('event_location', :with => 'right here')
 	select('Other', :from => "event_event_type")
-	click_button "Next"
+	click_button "Create"
 end
 
 And /I fill in the start time/ do
@@ -52,7 +52,7 @@ And /I select the event type/ do
 end
 
 Then /I should be on the new events page/ do
-	current_path.should == '/user/1/event/new'
+	current_path.should == '/events/new'
 end
 
 Then /I should be on the all events page/ do

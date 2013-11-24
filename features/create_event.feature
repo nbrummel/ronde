@@ -16,7 +16,7 @@ Feature: Events
 		Given I have signed out
 
 Scenario: Creating a new Event
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	Then I should see "new event"
 	And I click the "new_event" link
@@ -31,7 +31,7 @@ Scenario: Creating a new Event
 	And I should see "49ers Party"
 
 Scenario: Invalid Name
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	And I click the "new_event" link
 	Then I should be on the new events page
@@ -40,7 +40,7 @@ Scenario: Invalid Name
 	Then I should see "Name can't be blank"
 
 Scenario: Invalid Description
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	And I click the "new_event" link
 	Then I should be on the new events page
@@ -50,7 +50,7 @@ Scenario: Invalid Description
 	Then I should see "Description can't be blank"
 
 Scenario: Invalid Location
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	And I click the "new_event" link
 	Then I should be on the new events page
@@ -62,7 +62,7 @@ Scenario: Invalid Location
 	Then I should see "Location can't be blank"
 
 #Scenario: Invalid Event Type
-#	Given I am logged in as RondeFirst
+#	Given I am logged in as user RondeFirst
 #	Given I am on the ronde dashboard
 #	And I click the "new_event" link
 #	Then I should be on the new events page
@@ -74,7 +74,7 @@ Scenario: Invalid Location
 
 
 Scenario: Created Events
-	Given I am logged in as RondeFirst
+	Given I am logged in as user RondeFirst
 	Then I should see "RondeFirst"
 	Given I have created an event called "Blorg" as "RondeFirst"
 	Given I am on the ronde dashboard
@@ -83,10 +83,10 @@ Scenario: Created Events
 	Then I should see "Blorg"
 
 Scenario: Invite Friend to an Event
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given "SondeFirst" has sent a friend request to "RondeFirst"
 	Given I have signed out
-	Given I am logged in as RondeFirst
+	Given I am logged in as user RondeFirst
 	And I am on the ronde dashboard
 	Then I should see "friends"
 	When I follow "friends"
@@ -102,27 +102,27 @@ Scenario: Invite Friend to an Event
 	Then I am on the ronde dashboard
 
 Scenario: Joined Events
-	Given I am logged in as RondeFirst
+	Given I am logged in as user RondeFirst
 	Given I have created an event called "Blorg" as "RondeFirst"
 	Given I have signed out
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	And I follow "all_events"
 	And I follow "joined"
 	Then I should see all of the events I have joined
 
 Scenario: Invited Events
-	Given I am logged in as RondeFirst
+	Given I am logged in as user RondeFirst
 	Given I have created an event called "Blorg" as "RondeFirst"
 	Given I have signed out
-	Given I am logged in as SondeFirst
+	Given I am logged in as user SondeFirst
 	Given I am on the ronde dashboard
 	And I follow "all_events"
 	And I follow "invited"
 	Then I should see all of the events I have been invited to
 
 Scenario: Invited Events
-	Given I am logged in as RondeFirst
+	Given I am logged in as user RondeFirst
 	Given I am on the ronde dashboard
 	Then I should see "invitations"
 	And I follow "invitations"

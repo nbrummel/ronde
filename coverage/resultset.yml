@@ -32,29 +32,29 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
+    - 3
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 3
+    - 3
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 6
+    - 6
+    - 6
+    - 6
     - 
     - 
     - 
     - 1
-    - 21
-    - 21
-    - 21
-    - 21
+    - 39
+    - 39
+    - 39
+    - 39
     - 
     - 
     - 1
@@ -131,7 +131,7 @@ Cucumber Features:
     /home/saasbook/heroku_deploy/ronde/app/controllers/dashboard_controller.rb:
     - 1
     - 1
-    - 21
+    - 36
     - 0
     - 
     - 
@@ -142,7 +142,7 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 8
+    - 27
     - 
     - 
     - 1
@@ -154,25 +154,25 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 8
+    - 8
+    - 5
+    - 5
+    - 
+    - 3
+    - 1
+    - 
+    - 1
+    - 
+    - 1
     - 
     - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 0
-    - 
-    - 0
     - 
     - 
     - 
     - 
-    - 0
-    - 0
+    - 3
+    - 3
     - 
     - 
     - 
@@ -183,41 +183,41 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 1
+    - 1
     - 0
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 
-    - 0
+    - 1
     - 
-    - 0
+    - 1
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 6
+    - 6
     - 
     - 0
     - 
-    - 0
-    - 0
+    - 6
+    - 6
     - 
     - 0
     - 
     - 
     - 
     - 1
-    - 0
+    - 3
     - 
     - 
     - 1
@@ -238,31 +238,31 @@ Cucumber Features:
     - 1
     - 
     - 1
+    - 30
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 1
+    - 8
+    - 8
+    - 8
+    - 8
+    - 5
+    - 5
+    - 
     - 8
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 8
+    - 8
+    - 8
+    - 8
+    - 8
+    - 8
     - 
     - 
     - 
@@ -372,28 +372,28 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 4
-    - 4
-    - 4
-    - 4
+    - 5
+    - 5
+    - 5
+    - 5
     - 
     - 
     - 
     - 1
-    - 8
-    - 8
-    - 8
-    - 8
+    - 10
+    - 10
+    - 10
+    - 10
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 3
+    - 3
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 6
+    - 6
     - 
     - 
     - 1
@@ -454,10 +454,10 @@ Cucumber Features:
     - 
     - 1
     - 
-    - 0
+    - 1
     - 
-    - 0
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 
@@ -523,12 +523,12 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 64
-    - 22
-    - 22
-    - 22
-    - 42
-    - 14
+    - 76
+    - 30
+    - 30
+    - 30
+    - 46
+    - 16
     - 
     - 
     - 
@@ -540,567 +540,60 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 3
-    - 3
-    - 1
+    - 19
+    - 19
+    - 5
     - 
     - 
     - 
     - 1
-    - 3
+    - 19
     - 0
     - 
     - 
+    - 
+    - 1
+    - 14
+    - 14
+    - 9
+    - 
+    - 14
+    - 14
+    - 8
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
     - 
     - 1
     - 2
     - 2
+    - 2
+    - 
+    - 1
+    - 1
+    - 1
     - 1
     - 
+    - 1
     - 2
     - 2
-    - 1
     - 
     - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-  :created_at: 2013-11-24 14:09:25.258146225 -08:00
-RSpec:
-  :original_result:
-    /home/saasbook/Desktop/CS169/ronde/app/models/user.rb:
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/application_controller.rb:
-    - 1
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/application_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/dashboard_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/friendships_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/profile_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/static_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/helpers/user_helper.rb:
-    - 1
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/dashboard_controller.rb:
-    - 1
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/events_controller.rb:
-    - 1
-    - 1
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 1
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/event.rb:
-    - 1
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 5
-    - 
-    - 
-    - 1
-    - 5
-    - 5
-    - 5
-    - 5
-    - 4
-    - 4
-    - 
-    - 5
-    - 
-    - 
-    - 
-    - 1
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
-    - 5
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/friendships_controller.rb:
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/friendship.rb:
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/omniauth_callbacks_controller.rb:
-    - 1
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/profile_controller.rb:
-    - 1
-    - 1
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/static_controller.rb:
-    - 1
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/controllers/user_controller.rb:
-    - 1
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    /home/saasbook/Desktop/CS169/ronde/app/models/invitation.rb:
-    - 1
-    - 1
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-  :created_at: 2013-11-11 09:06:19.812625018 -08:00
+  :created_at: 2013-11-24 14:23:02.571983469 -08:00
