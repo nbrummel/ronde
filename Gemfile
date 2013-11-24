@@ -18,6 +18,7 @@ gem 'less-rails'
 gem 'simplecov', :require => false, :group => :test
 gem "factory_girl_rails", "~> 4.0"
 gem 'simple_form'
+gem 'newrelic_rpm'
 
 group :development do 
   gem 'sqlite3'
