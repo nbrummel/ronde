@@ -17,7 +17,7 @@
 
 		%br
 		%br
-		.well.span4#sign-in-box{:style => 'position:relative; left:30%;'}
+		.well.span4#sign-in-box{:style => 'position:relative; left:29%;'}
 			%h2{:style => 'font-family:eight_one;'}
 				= 'sign in'
 			= form_for( "user", :url => '/users/sign_in', :method => 'post') do |f|
@@ -34,7 +34,7 @@
 					%th
 						= link_to image_tag('/google-icon.png', :size => '20x20'), '/users/auth/google'
 
-		.well.span4#sign-up-box{:style => 'position:relative; left:30%;'}
+		.well.span4#sign-up-box{:style => 'position:relative; left:29%;'}
 			%h2{:style => 'font-family:eight_one;'}
 				= 'sign up'
 			= form_for( "user", :url => '/users', :method => 'post') do |f|
@@ -53,10 +53,10 @@
 				= f.submit 'sign up'
 				%br
 				%br
-				%table{:style => 'position:relative; left:-1%;'}
-					%th
+				%table{:style => 'position:relative; left:-2%;'}
+					%th{:style => "width=100px;"}
 						= link_to image_tag('/facebook-icon.png', :size => '20x20'), '/users/auth/facebook'
-					%th
+					%th{:style => "width=100px;"}
 						= link_to image_tag('/google-icon.png', :size => '20x20'), '/users/auth/google'
 					
 
