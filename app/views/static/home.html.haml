@@ -18,7 +18,7 @@
 		%br
 		%br
 		.well.span4#sign-in-box{:style => 'position:relative; left:29%;'}
-			%h2{:style => 'font-family:eight_one;'}
+			%h2{:style => 'font-family:eight_one;font-weight:normal;'}
 				= 'sign in'
 			= form_for( "user", :url => '/users/sign_in', :method => 'post') do |f|
 				= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
@@ -35,7 +35,7 @@
 						= link_to image_tag('/google-icon.png', :size => '20x20'), '/users/auth/google'
 
 		.well.span4#sign-up-box{:style => 'position:relative; left:29%;'}
-			%h2{:style => 'font-family:eight_one;'}
+			%h2{:style => 'font-family:eight_one;font-weight:normal;'}
 				= 'sign up'
 			= form_for( "user", :url => '/users', :method => 'post') do |f|
 				= f.email_field :email, :autofocus => 'true', :placeholder => 'email'
