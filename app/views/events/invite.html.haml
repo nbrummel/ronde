@@ -5,10 +5,12 @@
 		.pull-left{:style => "position:relative; left:28%;"}
 			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:21%;"}
 				invite friends	
-			= form_for(:invitation, :url => {:controller => 'events', :action => 'send_invites'}) do |f|
+			= form_for(:invitation, :url => {:controller => 'events', :action => 'send_invites'}, :html => { :name => 'invite_form'} ) do |f|
 				.span5
 					.ul.list-group
 						- i = 0
+						%a#select-all{:href => '#',:style => 'position:relative; left:5px;'} select all
+
 						- for friend in current_user.accepted_friends
 							- if not @event.invited_users.include?(friend) and not @event.created_by == friend and not @event.attending_users.include?(friend)
 								.li.list-group-item
@@ -20,8 +22,9 @@
 									= "#{friend.first_name.capitalize} #{friend.last_name.capitalize}"
 
 					- if i > 0
-						%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
-						= submit_tag 'Invite', :id => "invited_users_submit", :class =>	'btn btn btn-danger'
+						.btn-group.pull-right
+							%a.btn.btn-default{:href => user_dashboard_path} cancel
+							= submit_tag 'Invite', :id => "invited_users_submit", :class =>	'btn btn-danger'
 					- else
 						%p 
 							all friends have been invited

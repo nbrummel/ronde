@@ -5,12 +5,12 @@ $(document).ready( function() {
 	$('#sign-in').click( function() {
 		$('#session-links').toggle();
 		$('#show-session-links').fadeIn(700);
-		$('#sign-in-box').fadeIn(300);
+		$('#sign-in-box').fadeIn(300, function(){$('input[id="user_email"]',this).focus();});
 	});
 	$('#sign-up').click( function() {
 		$('#session-links').toggle();
 		$('#show-session-links').fadeIn(700);;
-		$('#sign-up-box').fadeIn(300);
+		$('#sign-up-box').fadeIn(300, function(){$('input[id="user_email"]',this).focus();});
 	});
 	$('#show-session-links').click( function() {
 		$('#session-links').toggle(true);

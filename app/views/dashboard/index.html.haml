@@ -10,12 +10,17 @@
 				.table
 					.btn-group-vertical
 						%a.btn.btn-primary.btn-small{:href => "/events/new" , :id => 'new_event'} new event
-						%a.btn.btn-primary.btn-small{:href => '/events/show/all', :id => 'all_events' } all events
-						%a.btn.btn-primary.btn-small{:href => '/invitations/show/all', :id => "invitations"} invitations
+						%a.btn.btn-primary.btn-small{:href => '#', :id => 'recent_events' } recent events
+						%a.btn.btn-primary.btn-small{:href => '#', :id => "invitations"} invitations
 						%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/friends", :id => "find_friends" } find friends
+						%a.btn.btn-primary.btn-small{:href => '/events/show/all', :id => 'all_events' } all events
 					- if (pending_invites = current_user.invited_events.length) > 0
 						%span.badge{:style => "position:relative; left:5%; top:-24px;padding:2px 2px 2px 2px"}
 							= pending_invites
 		%div{:style => "width:1px;background-color:#e5e5e5;height:500px;float:left;margin-left:2%;"}
 			%br
 			%br
+		%div#all-events
+			= render 'events/all_events'
+		%div#all-invitations
+			= render 'invitations/all_invitations'

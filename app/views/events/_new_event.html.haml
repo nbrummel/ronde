@@ -1,0 +1,31 @@
+.container
+	%h2.title Create New Event 
+	= form_for(@event, html: { class: 'form-vertical' }) do |f|
+		%fieldset
+			.field.control-group
+				= f.label :name
+			.controls
+				.input-group
+				= f.text_field :name,:placeholder => "What should we do?"
+			.field.control-group
+			= f.label :description
+			.controls
+				.input-group
+					= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
+			.field.control-group
+				= f.label :location
+				.controls
+					.input-group
+						= f.text_field :location,:placeholder => "Where?"
+			.field.control-group
+			= f.label :event_type
+			.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
+			.field.control-group
+				= f.label :start
+				.controls.datetime
+					= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
+			.field.control-group
+				= f.label :end
+				.controls.datetime
+					= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
+			= f.submit value: 'Create', class: 'btn btn-large btn-success' 
