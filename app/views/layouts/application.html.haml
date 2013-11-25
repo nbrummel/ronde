@@ -14,6 +14,7 @@
 							%ul.nav.pull-right
 								= form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
 									= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
+									= submit_tag "Search"
 								%li
 									%a{:href => "/"} home
 								%li

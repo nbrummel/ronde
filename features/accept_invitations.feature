@@ -1,40 +1,41 @@
-# need to add
 Feature:
 	As a user
 	I want to be able to accept friend's invitations
 	So I can do stuff with friends
 
-Background:
+Background: I am visiting the website for the first time this session
 
-	Given the following users exist:
-	| email           | first_name | last_name | phone_number | password      |
-	| ronde@gmail.com | RondeFirst | Rondelast | 5105105101   | RondePassword |
-	| sonde@gmail.com | SondeFirst | SondeLast | 5105105102   | SondePassword |
+Given the following users exist:
+| email           | first_name | last_name | phone_number | password      |
+| ronde@gmail.com | RondeFirst | Rondelast | 5105105101   | RondePassword |
+| sonde@gmail.com | SondeFirst | SondeLast | 5105105102   | SondePassword |
 
-	Given "RondeFirst" and "SondeFirst" are friends
+Given "RondeFirst" and "SondeFirst" are friends
 
-	Given the following events exist:
-	| description		| location		| name 		| start		| created_by 	| day		|
-	| Tuesday Lunch 	| Chipotle		| lunch		| 12:00 PM 	| RondeFirst	| Tuesday 	|
-
-Scenario: Inviting friends to events
-	Given I am logged in as RondeFirst
+Scenario: Accept invitation through all events
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
+	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
+	And I have signed out
+	And I am logged in as "sonde@gmail.com" with password "SondePassword" 
 	And I am on the ronde dashboard
-	When I follow "all events"
-	Then I should see "Tuesday Lunch"
-	When I follow "Tuesday Lunch"
-	And I press "Invite Friends"
-	Then I should see "SondeFirst"
-	When I invite "SondeFirst"
-	Then I should see "Invitations sent!"
+	When I follow "all_events"
+	And I follow "invited"
+	Then I should see "Blorg"
+	When I follow "Blorg"
+	And I follow "Invitations"
+	Then I follow "accept"
+	When I am on the ronde dashboard
+	Then I follow "all_events"
+	Then I should see "Blorg"
 
-Scenario: Accepting invitations
-	Given "RondeFirst" invited "SondeFirst" to "Tuesday Lunch"
-	And I am logged in as SondeFirst
+Scenario: Accept invitation through invitations
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
+	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
+	And I have signed out
+	And I am logged in as "sonde@gmail.com" with password "SondePassword" 
 	And I am on the ronde dashboard
-	When I follow "invitations"
-	Then I should see "Tuesday Lunch by RondeFirst RondeLast"
-	When I press "accept"
-	And I press "Cancel"
-	When I follow "all events"
-	Then I should see "Tuesday Lunch"
+	And I follow "invitations"
+	Then I follow "accept"
+	When I am on the ronde dashboard
+	Then I follow "all_events"
+	Then I should see "Blorg"

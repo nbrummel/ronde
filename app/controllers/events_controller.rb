@@ -5,10 +5,6 @@ class EventsController < ApplicationController
 		redirect_to "/static/home" unless current_user
 	end
 
-	def index
-		redirect_to '/events/new'
-	end
-
 	def new
 		@event = Event.new
 	end

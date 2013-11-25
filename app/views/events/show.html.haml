@@ -50,7 +50,7 @@
 			.div.pull-right
 				-if @event.attending_users.include?(current_user) or @event.created_by == current_user
 					%a.btn.btn.btn-default{:href => user_dashboard_path} cancel
-					%a.btn.btn-danger{:href => "/events/#{@event.id}/invite"} Invite Friends
+					%a.btn.btn-danger{:href => "/events/#{@event.id}/invite", :id => "invite_friends"} Invite Friends
 				-elsif @event.invited_users.include?(current_user)
 					%a.btn.btn-default{:href => "/invitations/show/all"} Invitations
 	%br

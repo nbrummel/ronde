@@ -1,7 +1,7 @@
-Feature:
+Feature: Events
 	As a user
-	I want to be able to decline my friend's invitations
-	So friend's know I cannot attend
+	So I can meet with friends
+	I want to be able to invite my friends to events
 
 Background: I am visiting the website for the first time this session
 
@@ -12,7 +12,7 @@ Given the following users exist:
 
 Given "RondeFirst" and "SondeFirst" are friends
 
-Scenario: Decline invitation through all events
+Scenario: Invite friend to event through all_events
 	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
 	And I have signed out
@@ -21,21 +21,12 @@ Scenario: Decline invitation through all events
 	When I follow "all_events"
 	And I follow "invited"
 	Then I should see "Blorg"
-	When I follow "Blorg"
-	And I follow "Invitations"
-	Then I follow "decline"
-	When I am on the ronde dashboard
-	Then I follow "all_events"
-	Then I should not see "Blorg"
 
-Scenario: Decline invitation through invitations
+Scenario: Invite friend to event through invitations
 	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
 	And I have signed out
 	And I am logged in as "sonde@gmail.com" with password "SondePassword" 
 	And I am on the ronde dashboard
-	And I follow "invitations"
-	Then I follow "decline"
-	When I am on the ronde dashboard
-	Then I follow "all_events"
-	Then I should not see "Blorg"
+	When I follow "invitations"
+	Then I should see "Blorg"

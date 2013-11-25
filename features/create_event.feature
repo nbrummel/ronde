@@ -61,16 +61,17 @@ Scenario: Invalid Location
 	And I press "Create"
 	Then I should see "Location can't be blank"
 
-#Scenario: Invalid Event Type
-#	Given I am logged in as user RondeFirst
-#	Given I am on the ronde dashboard
-#	And I click the "new_event" link
-#	Then I should be on the new events page
-#	When I fill in "Name" with "49ers Party"
-#	And I fill in "Description" with "Beat the Shehawks"
-#	And I leave the "Event Type" field blank
-#	And I press "Next"
-#	Then I should see "Event type can't be blank"
+Scenario: Invalid Event Type
+	Given I am logged in as user RondeFirst
+	Given I am on the ronde dashboard
+	And I click the "new_event" link
+	Then I should be on the new events page
+	When I fill in "Name" with "49ers Party"
+	And I fill in "Description" with "Beat the Shehawks"
+	And I fill in "Location" with "Jason's house oh yeah!"
+	And I leave the "Event Type" field blank
+	And I press "Create"
+	Then I should see "Event type can't be blank"
 
 
 Scenario: Created Events
@@ -100,34 +101,3 @@ Scenario: Invite Friend to an Event
 	And I choose SondeFirst
 	And I click "Invite"
 	Then I am on the ronde dashboard
-
-Scenario: Joined Events
-	Given I am logged in as user RondeFirst
-	Given I have created an event called "Blorg" as "RondeFirst"
-	Given I have signed out
-	Given I am logged in as user SondeFirst
-	Given I am on the ronde dashboard
-	And I follow "all_events"
-	And I follow "joined"
-	Then I should see all of the events I have joined
-
-Scenario: Invited Events
-	Given I am logged in as user RondeFirst
-	Given I have created an event called "Blorg" as "RondeFirst"
-	Given I have signed out
-	Given I am logged in as user SondeFirst
-	Given I am on the ronde dashboard
-	And I follow "all_events"
-	And I follow "invited"
-	Then I should see all of the events I have been invited to
-
-Scenario: Invited Events
-	Given I am logged in as user RondeFirst
-	Given I am on the ronde dashboard
-	Then I should see "invitations"
-	And I follow "invitations"
-	Then I should see all of the events I have been invited to
-
-
-
-

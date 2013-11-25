@@ -1,6 +1,20 @@
 Given /I am on the ronde dashboard/ do
 	visit '/dashboard'
 end
+Given /I have created an event called "(.*)" as user "(.*)" to invite friend "(.*)"/ do |event_name, user_name, friend_name|
+	@user = User.where('first_name = ?', user_name.gsub!(/\A"|"\Z/, '')).first
+	@friend = User.find_by_id(2)
+	visit "/events/new"
+	fill_in "event[name]", :with => event_name
+	fill_in('event[description]', :with => 'event description')
+	fill_in('event[location]', :with => 'event location')
+	select('Other', :from => "event[event_type]")
+	click_button "Create"
+	@event = Event.where('name LIKE ?', event_name).first
+	visit "/events/#{@event.id}/invite"
+	check("invited_user_#{@friend.id}")
+	click_button "Invite"
+end
 
 Given /I have signed up as (.*)/ do |user|
 	visit '/users/sign_up'
