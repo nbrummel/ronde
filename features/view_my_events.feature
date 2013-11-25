@@ -21,5 +21,13 @@ Scenario: Viewing a created event
 	When I follow "all_events"
 	Then I should see "Blorg"
 
+Scenario: Viewing a created event in "Created" tab
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
+	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
+	And I am on the ronde dashboard
+	When I follow "all_events"
+	And I follow "created"
+	Then I should see "Blorg"
+
 
 
