@@ -9,6 +9,7 @@
 					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
 				.table
 					.btn-group-vertical
+						%a.btn.btn-primary.btn-small{:href => "#" , :id => 'feed'} feed
 						%a.btn.btn-primary.btn-small{:href => "#" , :id => 'new_event'} new event
 						%a.btn.btn-primary.btn-small{:href => '#', :id => 'recent_events' } recent events
 						%a.btn.btn-primary.btn-small{:href => '#', :id => "invitations"} invitations

@@ -25,10 +25,20 @@ class Event < ActiveRecord::Base
     @flag = validate(details)
     if @flag.empty?
       @event.attributes = details
+      @event.start ||= self.get_date('start', details)
+      @event.end ||= self.get_date('end', details)
       @event.save!
     end
     return @event, @flag
-  end 
+  end
+
+  def self.get_date(epoch, details)
+    start_time = details[epoch].split(' ')
+    ydm = start_time[2].split('-')
+    hm = start_time[0].split(':')
+    hm[0] = (hm[0].to_i + 12).to_s if start_time[1] == 'PM'
+    return Time.new(ydm[0].to_s, ydm[2].to_s, ydm[1].to_s, hm[0].to_s, hm[1].to_s)
+  end
 
   def self.validate(details)
     flag = {}

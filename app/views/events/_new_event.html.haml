@@ -19,19 +19,12 @@
 						%a#Other{:href => '#'} other
 				%br
 
-
-				= f.text_field :start, :placeholder => 'start time'
-				%br
+				.div
+					= f.text_field :start, :placeholder => 'start time'
 				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:30.4%;top:73%;',"role" => "menu"}
 					%li#time-list-start
-
-				= f.text_field :end, :placeholder => 'end time'
-				%br
+				%div
+					= f.text_field :end, :placeholder => 'end time'
 				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:30.3%;top:82%;',"role" => "menu"}
 					%li#time-list-end
-					
-				/ = f.datetime_select :start, :default => Time.now, :order =>[:hour, :minute], :discard_month => true, :discard_year => true, :ampm => true
-				/ %br
-				/ = f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
-				/ %br
 				= f.submit value: 'Create', class: 'btn btn-info' 
