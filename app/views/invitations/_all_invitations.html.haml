@@ -1,12 +1,12 @@
 .container
 	%center
-		.well.span7{:style => "position:relative; left:5%;background-color:#ffffff;"}
+		.well.span6{:style => "position:relative; left:0.6%;background-color:#ffffff;"}
 			%h1{:style => "font-family:eight_one; font-weight:normal;color:#ff6699;"} invites
-			.span4{:style => "position:relative; left:9%;"}
+			.span4{:style => "position:relative; left:3%;"}
 				= form_tag "/user/#{current_user.id}/search_invites", :class => "search", :action => :search_events, :method => :post do
 					= text_field_tag "searched_invitation", nil, :class => "search-query span5", :placeholder => "Search Invitations"
 			%br
-			.span5{:style => "position:relative; left:9%;"}
+			.span5{:style => "position:relative; left:4%;"}
 				.tabbable
 					%ul.nav.nav-tabs
 						%li.active{:style => "font-size:20px;"}

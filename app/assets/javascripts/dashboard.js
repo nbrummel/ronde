@@ -4,18 +4,21 @@ $(document).ready( function() {
 	$('#all-events').toggle(false);
 	$('#all-invitations').toggle(false);
 	$('#new-event').toggle(false);
+	$('#friend-requests').toggle(false);
 
 	// display just the feed
 	$('#feed').click( function() {
 		$('#all-invitations').toggle(false);
 		$('#new-event').toggle(false);
 		$('#all-events').toggle(false);
+		$('#friend-requests').toggle(false);
 	});
 
 	// Hide everything else, display only recent events.
 	$('#recent_events').click( function() {
 		$('#all-invitations').toggle(false);
 		$('#new-event').toggle(false);
+		$('#friend-requests').toggle(false);
 		$('#all-events').toggle();
 	});
 
@@ -23,13 +26,23 @@ $(document).ready( function() {
 	$('#invitations').click( function() {
 		$('#all-events').toggle(false);
 		$('#new-event').toggle(false);
+		$('#friend-requests').toggle(false);
 		$('#all-invitations').toggle();
+	});
+
+	$('#friend_requests').click( function() {
+		$('#all-events').toggle(false);
+		$('#new-event').toggle(false);
+		$('#all-invitations').toggle(false);
+		$('#friend-requests').toggle();
+
 	});
 
 	// Display the field for creating a new event
 	$('#new_event').click( function() {
 		$('#all-events').toggle(false);
 		$('#all-invitations').toggle(false);
+		$('#friend-requests').toggle(false);
 		$('#time-select-start').toggle(false);
 		$('#time-select-end').toggle(false);
 		$('#event-type-select').toggle(false);
@@ -122,6 +135,9 @@ $(document).ready( function() {
 					format = 'PM';
 					timeHour -= 12;
 				}
+				if (timeHour == '0'){
+						timeHour = '12';
+				}
 				
 				if(end == true){
 					link = $("<a href='#' id='" + "end-hour-" + timeHour + "-minute-" + timeMinute + "-format-" + format +  "-year-" + currentYear + "-day-" + currentDay + "-month-" + currentMonth + "'>" + timeHour+ ":" + timeMinute + " " + format + "</a>");
@@ -186,10 +202,13 @@ $(document).ready( function() {
 			start = start.split(' ');
 			hm = start[0].split(':');
 			if (start[1] == 'PM'){
-				hm[0] = parseInt(hm[0])+ 12;
+				hm[0] = parseInt(hm[0]) + 12;
+			}
+			else if(start[1] == 'AM' && hm[0] == 12){
+				hm[0] = 0;
 			}
 			ydm = start[2].split('-');
-			start = new Date(ydm[0],ydm[2],ydm[1],hm[0], hm[1],0,0);
+			start = new Date(ydm[0],ydm[2]-1,ydm[1],hm[0], hm[1],0,0);
 		}
 		else{
 			start = new Date($.now(1));

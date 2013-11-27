@@ -1,0 +1,37 @@
+.container
+	%center
+		.well.span6{:style => "position:relative; left:0.6%;background-color:#ffffff;"}
+			%h1{:style => "font-family:eight_one; font-weight:normal;color:#ff6699;"} friend requests
+			.span4{:style => "position:relative; left:3%;"}
+				= form_tag "/user/#{current_user.id}/search_invites", :class => "search", :action => :search_events, :method => :post do
+					= text_field_tag "searched_invitation", nil, :class => "search-query span5", :placeholder => "Search Friends"
+			%br
+			.span5{:style => "position:relative; left:4%;"}
+				.tabbable
+					%ul.nav.nav-tabs
+						%li.active{:style => "font-size:20px;"}
+							= link_to "pending", "#pending_friends", "data-toggle" => "tab"
+						%li{:style => "font-size:20px;"}
+							= link_to "sent", "#requested_friends", "data-toggle" => "tab"
+						%li{:style => "font-size:20px;"}
+							= link_to "friends", "#accepted_friends", "data-toggle" => "tab"
+					.tab-content
+						.tab-pane.active{:id => "pending_friends"}
+							- for request in current_user.pending_friends
+								.ul.list-group
+									%a.li.list-group-item{:href => "#"}
+										= "#{request.first_name.capitalize} #{request.last_name.capitalize}" 
+										= link_to 'decline', "/user/#{current_user.id}/accept_friend/#{request.id}", :method => 'post', :class => 'btn btn-default'
+										= link_to 'accept', "/user/#{current_user.id}/accept_friend/#{request.id}", :method => 'post', :class => 'btn btn-danger'
+
+						.tab-pane{:id => "requested_friends"}
+							- for request in current_user.requested_friends
+								.ul.list-group
+									%a.li.list-group-item{:href => ""}
+										= "#{request.first_name.capitalize} #{request.last_name.capitalize} #{request.id}"
+						.tab-pane{:id => "accepted_friends"}
+							- for friend in current_user.accepted_friends
+								.ul.list-group
+									%a.li.list-group-item{:href => ""}
+										= "#{friend.first_name.capitalize} #{friend.last_name.capitalize} #{friend.id}"
+										
