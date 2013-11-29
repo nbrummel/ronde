@@ -1,17 +1,30 @@
 $(document).ready( function() {
 
-	// Hide all invisible divs
+	var check_dashboard = function() {
+		if ( $('#feed').is(":hidden") && 
+			$('#all-invitations').is(":hidden")  &&
+			$('#all-events').is(":hidden") &&
+			$('#new-event').is(":hidden") &&
+			$('#friend-requests').is(":hidden")) {
+			$('#feed').toggle(true);
+		}
+	}
+
+	// Hide all divs except feed
 	$('#all-events').toggle(false);
 	$('#all-invitations').toggle(false);
 	$('#new-event').toggle(false);
 	$('#friend-requests').toggle(false);
+	$('#feed').toggle(true);
 
 	// display just the feed
-	$('#feed').click( function() {
+	$('#show-feed').click( function() {
 		$('#all-invitations').toggle(false);
 		$('#new-event').toggle(false);
 		$('#all-events').toggle(false);
 		$('#friend-requests').toggle(false);
+		// TODO: send AJAX request to refresh
+		$('#feed').toggle(true);
 	});
 
 	// Hide everything else, display only recent events.
@@ -19,7 +32,9 @@ $(document).ready( function() {
 		$('#all-invitations').toggle(false);
 		$('#new-event').toggle(false);
 		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
 		$('#all-events').toggle();
+		check_dashboard();
 	});
 
 	// Display only the invitations
@@ -27,14 +42,18 @@ $(document).ready( function() {
 		$('#all-events').toggle(false);
 		$('#new-event').toggle(false);
 		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
 		$('#all-invitations').toggle();
+		check_dashboard();
 	});
 
 	$('#friend_requests').click( function() {
 		$('#all-events').toggle(false);
 		$('#new-event').toggle(false);
 		$('#all-invitations').toggle(false);
+		$('#feed').toggle(false);
 		$('#friend-requests').toggle();
+		check_dashboard();
 
 	});
 
@@ -43,12 +62,14 @@ $(document).ready( function() {
 		$('#all-events').toggle(false);
 		$('#all-invitations').toggle(false);
 		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
 		$('#time-select-start').toggle(false);
 		$('#time-select-end').toggle(false);
 		$('#event-type-select').toggle(false);
 		$('#event_location').val('Current Location');
 		$('#event_location').attr('readonly',true);
 		$('#new-event').toggle();
+		check_dashboard();
 	});
 
 	// All functions below belong to creating a new event

@@ -1,0 +1,31 @@
+.container
+	.well.span9{:style => 'position:relative;right:3%;margin-top:-21%;'}
+		%br
+		%br
+
+		%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
+		%br
+		%br
+		- if @feed.length == 0
+			%center
+				= 'Nothing going on today..'
+				= link_to 'Create an Event!', '/events/new'
+			%br
+		- for user_event in @feed
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#dadada;"}
+				.div.span4
+					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
+				.div.span4.ul.list-group
+					%a.li.list-group-item{:href => "/events/#{user_event.last.id}"}
+						= "#{user_event.last.name}"
+				.div.span0
+					- if user_event.last.event_type == 'food'
+						= image_tag('/food.png', :size => '50x50')
+					- elsif user_event.last.event_type == 'drink'
+						= image_tag('/drink.png', :size => '50x50')
+					- else
+						= image_tag('/other.png', :size => '50x50')
+				.div.span1
+					%btn.btn-small
+						= ''
+					%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join

@@ -28,13 +28,17 @@ class User < ActiveRecord::Base
 
   # list all of the events i have ever created
   def my_events
-    Event.find(:all, :conditions => ["created_by_id = ?", self.id]).sort{ |a,b| b.start <=> a.start }
+    Event.where('created_by_id = ?', self.id)
+    # Event.find(:all, :conditions => ["created_by_id = ?", self.id]).sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events i have ever created or joined               
   def all_events
     @user = self
-    (Event.where('created_by_id = ?', @user.id) + @user.joined_events).uniq.sort{ |a,b| b.start <=> a.start }
+    events = []
+    Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed').each { |invite| events << invite.event }
+    Event.where('created_by_id = ?', self.id).each { |event| events << event }
+    events.uniq.sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events ive ever confirmed
