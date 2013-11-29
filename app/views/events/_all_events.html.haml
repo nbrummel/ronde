@@ -1,6 +1,6 @@
 .container
 	%center
-		.well.span6{:style => "position:relative; left:0.6%;background-color:#ffffff;"}
+		.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
 			%h1{:style => "font-family:eight_one; font-weight:normal;color:#ff6699"} recent
 			.span5{:style => "position:relative; left:3%;"}
 				= form_tag "/user/#{current_user.id}/search_events", :class => "search", :action => :search_events, :method => :post do
