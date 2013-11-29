@@ -10,6 +10,21 @@ $(document).ready( function() {
 		}
 	}
 
+	var getCurrentTime = function() {
+		time = new Date($.now());
+		hour = time.getHours();
+		format = 'AM'
+		if (hour > 12){
+			format = 'PM';
+			hour -= 12;
+		}
+		else if (hour == 12){
+			format = 'PM'
+			hour = 0;
+		}
+		return hour + ':' + roundMinutes(time.getMinutes()) + ' ' + format;
+	}
+
 	// Hide all divs except feed
 	$('#all-events').toggle(false);
 	$('#all-invitations').toggle(false);
@@ -111,7 +126,7 @@ $(document).ready( function() {
 		return mins
 	}
 
-	var generateTime = function(list, time, end) {
+	var generateTime = function(list, time, end, maxHours) {
 		var link;
 		var currentDay = time.getDate();
 		var currentMonth = time.getMonth()+1;
@@ -141,7 +156,7 @@ $(document).ready( function() {
 		}
 
 		count = endTime.getHours() - startTime.getHours();
-		count = Math.max(6,count);
+		count = Math.max(maxHours,count);
 		for(var j = 0; j < count; j++) {
 			for(var i = startTime.getMinutes(); i < 60; i+=30){
 				startTime = new Date(currentYear,currentMonth,currentDay,startTime.getHours(),i,0,0);
@@ -206,7 +221,7 @@ $(document).ready( function() {
 
 	$('#event_start').focusin( function() {
 		$('#time-select-start').toggle(true);
-		generateTime($('#time-list-start'), new Date($.now()), false);
+		generateTime($('#time-list-start'), new Date($.now()), false, 6);
 		generateLinks(false);
 	});
 
@@ -234,7 +249,7 @@ $(document).ready( function() {
 		else{
 			start = new Date($.now(1));
 		}
-		generateTime($('#time-list-end'), start, true);
+		generateTime($('#time-list-end'), start, true, 6);
 		generateLinks(true);
 	});
 
@@ -263,4 +278,21 @@ $(document).ready( function() {
 		$('#event-type-select').toggle(false);
 		$('#event_event_type').attr('readonly',true);
 	});
+
+	$('#time-now').click( function() {
+		$('#all-events').toggle(false);
+		$('#all-invitations').toggle(false);
+		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
+		$('#time-select-start').toggle(false);
+		$('#time-select-end').toggle(false);
+		$('#event-type-select').toggle(false);
+		$('#event_location').val('Current Location');
+		$('#event_location').attr('readonly',true);
+		$('#new-event').toggle();
+
+		$('#event_start').val(getCurrentTime());
+		check_dashboard();
+	})
+
 });

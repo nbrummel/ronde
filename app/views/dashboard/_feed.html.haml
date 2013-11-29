@@ -11,10 +11,10 @@
 				= 'Nothing going on today..'
 				= link_to 'Create an Event!', '/events/new'
 			%br
-		.span2{:style => 'color:#a3a3a3;'}
+		.span4{:style => 'color:#a3a3a3;'}
 			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
-		.span1{:style => 'color:#ff6633;'}
-			= "#{Time.now.strftime('%l:%M%p')}"
+			= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
+			
 		%br
 		%br
 		- for user_event in @feed
