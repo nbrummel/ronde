@@ -11,21 +11,30 @@
 				= 'Nothing going on today..'
 				= link_to 'Create an Event!', '/events/new'
 			%br
+		.span2{:style => 'color:#a3a3a3;'}
+			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
+		.span1{:style => 'color:#ff6633;'}
+			= "#{Time.now.strftime('%l:%M%p')}"
+		%br
+		%br
 		- for user_event in @feed
+			.span2{:style => 'color:#a3a3a3;'}
+				= "#{user_event.last.start.strftime("%m/%d/%y")}"
 			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#dadada;"}
 				.div.span4
 					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
+				.div.span2{:style => 'color:#ff6699;'}
+					= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
 				.div.span4.ul.list-group
 					%a.li.list-group-item{:href => "/events/#{user_event.last.id}"}
 						= "#{user_event.last.name}"
 				.div.span0
 					- if user_event.last.event_type == 'food'
-						= image_tag('/food.png', :size => '50x50')
+						= image_tag('/food.png', :size => '40x40')
 					- elsif user_event.last.event_type == 'drink'
-						= image_tag('/drink.png', :size => '50x50')
+						= image_tag('/drink.png', :size => '40x40')
 					- else
-						= image_tag('/other.png', :size => '50x50')
-				.div.span1
-					%btn.btn-small
-						= ''
+						= image_tag('/other.png', :size => '40x40')
+				.div.span2
+					%p
 					%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join

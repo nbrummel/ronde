@@ -17,7 +17,7 @@
 							= link_to "friends", "#accepted_friends", "data-toggle" => "tab"
 					.tab-content
 						.tab-pane.active{:id => "pending_friends"}
-							- for request in current_user.pending_friends
+							- for request in current_user.requested_friends
 								.ul.list-group
 									%a.li.list-group-item{:href => "#"}
 										= "#{request.first_name.capitalize} #{request.last_name.capitalize}" 
@@ -25,7 +25,7 @@
 										= link_to 'accept', "/user/#{current_user.id}/accept_friend/#{request.id}", :method => 'post', :class => 'btn btn-danger'
 
 						.tab-pane{:id => "requested_friends"}
-							- for request in current_user.requested_friends
+							- for request in current_user.pending_friends
 								.ul.list-group
 									%a.li.list-group-item{:href => ""}
 										= "#{request.first_name.capitalize} #{request.last_name.capitalize} #{request.id}"

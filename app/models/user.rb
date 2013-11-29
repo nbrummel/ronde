@@ -28,8 +28,7 @@ class User < ActiveRecord::Base
 
   # list all of the events i have ever created
   def my_events
-    Event.where('created_by_id = ?', self.id)
-    # Event.find(:all, :conditions => ["created_by_id = ?", self.id]).sort{ |a,b| b.start <=> a.start }
+    Event.where('created_by_id = ?', self.id).sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events i have ever created or joined               
