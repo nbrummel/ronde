@@ -29,11 +29,11 @@
 
 		%div#feed
 			= render 'dashboard/feed'
-		%div#new-event
+		%div#new-event{:style => 'display:none;'}
 			= render 'events/new_event'
-		%div#all-events
+		%div#all-events{:style => 'display:none;'}
 			= render 'events/all_events'
-		%div#all-invitations
+		%div#all-invitations{:style => 'display:none;'}
 			= render 'invitations/all_invitations'
-		%div#friend-requests
+		%div#friend-requests{:style => 'display:none;'}
 			= render 'user/friend_requests'
