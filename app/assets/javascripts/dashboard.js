@@ -11,10 +11,14 @@ $(document).ready( function() {
 	}
 
 	// Hide all divs except feed
-	$('#all-events').toggle(false);
-	$('#all-invitations').toggle(false);
-	$('#new-event').toggle(false);
-	$('#friend-requests').toggle(false);
+	$('#all-events').hide();
+	$('#all-invitations').hide();
+	$('#new-event').hide();
+	$('#friend-requests').hide();
+	// $('#all-events').toggle(false);
+	// $('#all-invitations').toggle(false);
+	// $('#new-event').toggle(false);
+	// $('#friend-requests').toggle(false);
 	$('#feed').toggle(true);
 
 	// display just the feed
