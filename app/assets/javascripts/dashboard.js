@@ -11,9 +11,14 @@ $(document).ready( function() {
 	}
 
 	var getCurrentTime = function() {
-		time = new Date($.now());
-		hour = time.getHours();
-		format = 'AM'
+		var time = new Date($.now());
+		var format = 'AM'
+		var hour = time.getHours();
+		var minutes = roundMinutes(time.getMinutes());
+		if (minutes = 'incr hour'){
+			hour += 1;
+			minutes = '00'
+		}
 		if (hour > 12){
 			format = 'PM';
 			hour -= 12;
@@ -22,7 +27,7 @@ $(document).ready( function() {
 			format = 'PM'
 			hour = 0;
 		}
-		return hour + ':' + roundMinutes(time.getMinutes()) + ' ' + format;
+		return hour + ':' + minutes + ' ' + format;
 	}
 
 	// Hide all divs except feed
