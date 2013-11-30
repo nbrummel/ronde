@@ -20,10 +20,13 @@
 
 				%div
 					= f.text_field :start, :placeholder => 'start time'
-				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.65%;top:73%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.65%;top:68.5%;',"role" => "menu"}
 					%li#time-list-start
 				%div
 					= f.text_field :end, :placeholder => 'end time'
-				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.65%;top:82%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.65%;top:77%;',"role" => "menu"}
 					%li#time-list-end
+				%label{:style => 'font-size:10px;'}
+					= check_box_tag "event[public]"
+					= 'Make public'
 				= f.submit value: 'Create', class: 'btn btn-info' 

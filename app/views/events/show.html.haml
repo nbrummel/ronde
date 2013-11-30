@@ -33,6 +33,10 @@
 				.panel-body
 					= "#{@event.created_by.first_name.capitalize} #{@event.created_by.last_name.capitalize}"	
 				.panel.panel-heading
+					%h5 Public
+				.panel-body
+					= @event.public ? "Public" : "Not public"
+				.panel.panel-heading
 					%h5 Friends Attending
 				.panel-body
 					- if @event.created_by == current_user

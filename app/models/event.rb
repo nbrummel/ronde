@@ -25,6 +25,9 @@ class Event < ActiveRecord::Base
     @flag = validate(details)
     if @flag.empty?
       @event.attributes = details
+      if details['public']
+        @event.public = true
+      end
       @event.start = self.get_date('start', details)
       @event.end = self.get_date('end', details)
       @event.save!
