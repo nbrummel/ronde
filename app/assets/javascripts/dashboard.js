@@ -13,8 +13,8 @@ $(document).ready( function() {
 	var getCurrentTime = function(round) {
 		var time = new Date($.now());
 		var format = 'AM'
-		var hour = time.getHours();
-		var minutes = time.getMinutes();
+		var hour = time.getHours().toString();
+		var minutes = time.getMinutes().toString();
 		if (round){
 			minutes = roundMinutes(minutes);
 		}
