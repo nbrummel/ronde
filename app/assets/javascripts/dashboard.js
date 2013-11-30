@@ -59,6 +59,17 @@ $(document).ready( function() {
 	$('#friend-requests').toggle(false);
 	var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
 	link.appendTo('#time');
+	$('.event-details').each(function() {
+		var newId = '#event_' + $(this).attr('id').split('_')[1];
+		$(newId).hide();
+
+		$(('#' + $(this).attr('id') + '_description')).click(function() {
+			$(newId).fadeToggle(200);
+			return false;
+		});
+
+	});
+
 	$('#feed').toggle(true);
 
 	// display just the feed

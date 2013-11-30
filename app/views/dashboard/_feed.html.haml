@@ -20,14 +20,18 @@
 		- for user_event in @feed
 			.span2{:style => 'color:#a3a3a3;'}
 				= "#{user_event.last.start.strftime("%m/%d/%y")}"
-			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#dadada;"}
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#efefef;"}
 				.div.span4
 					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
 				.div.span2{:style => 'color:#ff6699;'}
 					= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
 				.div.span4.ul.list-group
-					%a.li.list-group-item{:href => "/events/#{user_event.last.id}"}
+					%a.li.list-group-item{:href => '#', :id => "event_#{user_event.last.id}_description"}
 						= "#{user_event.last.name}"
+					.well{:style => 'width:260px;height:50px;', :class => 'event-details', :id => "event_#{user_event.last.id}"}
+						%p
+							= user_event.last.description
+
 				.div.span0
 					- if user_event.last.event_type == 'Food'
 						= image_tag('/food.png', :size => '40x40')
