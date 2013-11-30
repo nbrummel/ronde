@@ -18,7 +18,7 @@ $(document).ready( function() {
 		if (round){
 			minutes = roundMinutes(minutes);
 		}
-		else if (minutes.length == 1){
+		if (minutes.length == 1){
 			minutes = '0' + minutes;
 		}
 		if (minutes == 'incr hour'){
