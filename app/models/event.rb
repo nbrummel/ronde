@@ -25,8 +25,8 @@ class Event < ActiveRecord::Base
     @flag = validate(details)
     if @flag.empty?
       @event.attributes = details
-      @event.start ||= self.get_date('start', details)
-      @event.end ||= self.get_date('end', details)
+      @event.start = self.get_date('start', details)
+      @event.end = self.get_date('end', details)
       @event.save!
     end
     return @event, @flag
