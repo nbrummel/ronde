@@ -37,8 +37,7 @@ $(document).ready( function() {
 	}
 
 	var showFeed = function() {
-		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
-		$('#time-now').replaceWith(link);
+		$('#time-now').attr('value', getCurrentTime(false));
 		$('#feed').toggle(true);
 	}
 
@@ -57,10 +56,8 @@ $(document).ready( function() {
 		$('#new-event').toggle(false);
 		$('#all-events').toggle(false);
 		$('#friend-requests').toggle(false);
+		showFeed();
 		// TODO: send AJAX request to refresh
-		$('#feed').toggle(true);
-		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
-		$('#time-now').replaceWith(link);
 	});
 
 	// Hide everything else, display only recent events.
