@@ -11,9 +11,9 @@
 				= 'Nothing going on today..'
 				= link_to 'Create an Event!', '/events/new'
 			%br
-		.span4{:style => 'color:#a3a3a3;'}
+		.span4#time{:style => 'color:#a3a3a3;'}
 			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
-			= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
+			/= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
 			
 		%br
 		%br

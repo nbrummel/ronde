@@ -6,16 +6,22 @@ $(document).ready( function() {
 			$('#all-events').is(":hidden") &&
 			$('#new-event').is(":hidden") &&
 			$('#friend-requests').is(":hidden")) {
-			$('#feed').toggle(true);
+			showFeed();
 		}
 	}
 
-	var getCurrentTime = function() {
+	var getCurrentTime = function(round) {
 		var time = new Date($.now());
 		var format = 'AM'
 		var hour = time.getHours();
-		var minutes = roundMinutes(time.getMinutes());
-		if (minutes = 'incr hour'){
+		var minutes = time.getMinutes();
+		if (round){
+			minutes = roundMinutes(minutes);
+		}
+		else if (minutes.length == 1){
+			minutes = '0' + minutes;
+		}
+		if (minutes == 'incr hour'){
 			hour += 1;
 			minutes = '00'
 		}
@@ -30,11 +36,19 @@ $(document).ready( function() {
 		return hour + ':' + minutes + ' ' + format;
 	}
 
+	var showFeed = function() {
+		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
+		$('#time-now').replaceWith(link);
+		$('#feed').toggle(true);
+	}
+
 	// Hide all divs except feed
 	$('#all-events').toggle(false);
 	$('#all-invitations').toggle(false);
 	$('#new-event').toggle(false);
 	$('#friend-requests').toggle(false);
+	var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
+	link.appendTo('#time');
 	$('#feed').toggle(true);
 
 	// display just the feed
@@ -45,6 +59,8 @@ $(document).ready( function() {
 		$('#friend-requests').toggle(false);
 		// TODO: send AJAX request to refresh
 		$('#feed').toggle(true);
+		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
+		$('#time-now').replaceWith(link);
 	});
 
 	// Hide everything else, display only recent events.
@@ -296,7 +312,7 @@ $(document).ready( function() {
 		$('#event_location').attr('readonly',true);
 		$('#new-event').toggle();
 
-		$('#event_start').val(getCurrentTime());
+		$('#event_start').val(getCurrentTime(true));
 		check_dashboard();
 	})
 
