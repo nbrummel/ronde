@@ -36,6 +36,14 @@ $(document).ready( function() {
 		return hour + ':' + minutes + ' ' + format;
 	}
 
+	var getCurrentDate = function() {
+		var time = new Date($.now());
+		var currentDay = time.getDate();
+		var currentMonth = time.getMonth()+1;
+		var currentYear = time.getFullYear();
+		return currentYear + '-' + currentDay + '-' + currentMonth;
+	}
+
 	var showFeed = function() {
 		$('#time-now').attr('value', getCurrentTime(false));
 		$('#feed').toggle(true);
@@ -309,7 +317,7 @@ $(document).ready( function() {
 		$('#event_location').attr('readonly',true);
 		$('#new-event').toggle();
 
-		$('#event_start').val(getCurrentTime(true));
+		$('#event_start').val(getCurrentTime(true) + ' ' + getCurrentDate());
 		check_dashboard();
 	})
 
