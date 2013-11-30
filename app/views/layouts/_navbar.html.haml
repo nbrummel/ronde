@@ -15,11 +15,12 @@
 							%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
 							%ul.dropdown-menu{"role" => "menu"}
 								%li
-									%a{:href => "/user/#{current_user.id}/account"} 
+									%a{'href' => '#account', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-small'}
 										account
 									%a{:href => "/users/sign_out", :id => 'logout'} 
 										sign out
-
+	#account{:class => 'modal hide fade'}
+		= render 'user/account'									
 - else
 	.container
 		.navbar.navbar-fixed-top
@@ -31,3 +32,5 @@
 							%a{:href => "/users/sign_up", :id => 'Sign Up'} sign up
 						%li
 							%a{:href => "/users/sign_in", :id => 'Sign In'} sign in	
+
+
