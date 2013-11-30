@@ -1,7 +1,6 @@
 .container
 	%center
 		.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
-
 			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} quick rondé 
 			= form_for(@event, html: { class: 'form-vertical' }) do |f|
 				%div
@@ -26,4 +25,5 @@
 					= f.text_field :end, :placeholder => 'end time'
 				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.65%;top:82%;',"role" => "menu"}
 					%li#time-list-end
+				%a{:href => "/"} Cancel		
 				= f.submit value: 'Create', class: 'btn btn-info' 

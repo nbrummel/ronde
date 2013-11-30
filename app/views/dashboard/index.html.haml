@@ -9,8 +9,9 @@
 					%a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
 				.table
 					.btn-group-vertical
-						= link_to 'feed', '#', :id => 'show-feed', :class => 'btn btn-primary btn-small'
-						%a{'href' => '#new-event', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-small'}
+						
+						/= link_to 'feed', '#', :id => 'show-feed', :class => 'btn btn-primary btn-small'
+						%a{'href' => '#new-event','data-toggle' => 'modal', 'class' => 'btn btn-primary btn-small'}
 							new event
 						%a{'href' => '#all-invitations', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-small'}
 							invitations
@@ -28,12 +29,14 @@
 				- if (pending_requests = current_user.requested_friends.length) > 0
 					= link_to "#{pending_requests}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#dadada;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'
 				-else
-					= link_to "#{pending_requests}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#ffffff;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'		
+					= link_to "#{pending_requests}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#ffffff;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'	
+			.span8
+				= render 'feed'			
 		%div#feed
 			= render 'dashboard/feed'
-		#new-event{:class => 'modal hide fade'}
+		#new-event{'class' => 'modal hide fade', 'role' => "dialog"}
 			= render 'events/new_event'
-		#recent-events{:class => 'modal hide fade'}
+		#recent-events{:class => 'modal hide fade; backdrop: static;'}
 			= render 'events/all_events'
 		#all-invitations{:class => 'modal hide fade'}
 			= render 'invitations/all_invitations'

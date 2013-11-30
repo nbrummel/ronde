@@ -1,15 +1,16 @@
 //account.html.haml
 - user = current_user
-.container
-	.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
-		%center
-			%h1{:style => "font-family:eight_one; font-weight:normal;color:#ff6699"} Account Page
-		%p
-			= "Name: " + user.first_name.capitalize+ " " + user.last_name.capitalize
-		%p
-			= "Phone Number: " + user.phone_number
-		%p
-			= "Email: " + user.email
-		%p
-			%a.btn.btn-primary.btn-small{:href => "/"} back
-			%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
+.modal-body 
+	.container
+		.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
+			%center
+				%h1{:style => "font-family:eight_one; font-weight:normal;color:#ff6699"} Account Page
+			%p
+				= "Name: " + user.first_name.capitalize+ " " + user.last_name.capitalize
+			%p
+				= "Phone Number: " + user.phone_number
+			%p
+				= "Email: " + user.email
+			%p
+				%a.btn.btn-primary.btn-small{:href => "/"} back
+				%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account

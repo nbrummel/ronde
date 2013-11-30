@@ -104,12 +104,13 @@ $(document).ready( function() {
 		$('#all-invitations').toggle(false);
 		$('#friend-requests').toggle(false);
 		$('#feed').toggle(false);
-		$('#time-select-start').toggle(false);
-		$('#time-select-end').toggle(false);
+		// $('#time-select-start').toggle(false);
+		// $('#time-select-end').toggle(false);
 		$('#event-type-select').toggle(false);
 		$('#event_location').val('Current Location');
-		$('#event_location').attr('readonly',true);
-		$('#new-event').toggle();
+		$('#event_location').attr('readonly',false);
+		$('#new-event').toggle(true);
+
 		check_dashboard();
 	});
 
@@ -310,8 +311,8 @@ $(document).ready( function() {
 		$('#all-invitations').toggle(false);
 		$('#friend-requests').toggle(false);
 		$('#feed').toggle(false);
-		$('#time-select-start').toggle(false);
-		$('#time-select-end').toggle(false);
+		$('#time-select-start').toggle(true);
+		$('#time-select-end').toggle(true);
 		$('#event-type-select').toggle(false);
 		$('#event_location').val('Current Location');
 		$('#event_location').attr('readonly',true);

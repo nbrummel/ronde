@@ -6997,10 +6997,10 @@ input[type="submit"].btn.btn-mini {
   outline: none;
 }
 .modal.fade {
-  -webkit-transition: opacity .3s linear, top .3s ease-out;
-  -moz-transition: opacity .3s linear, top .3s ease-out;
-  -o-transition: opacity .3s linear, top .3s ease-out;
-  transition: opacity .3s linear, top .3s ease-out;
+  -webkit-transition: opacity .1s linear, top .1s ease-out;
+  -moz-transition: opacity .1s linear, top .1s ease-out;
+  -o-transition: opacity .1s linear, top .1s ease-out;
+  transition: opacity .1s linear, top .1s ease-out;
   top: -25%;
 }
 .modal.fade.in {
