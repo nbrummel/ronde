@@ -29,9 +29,9 @@
 					%a.li.list-group-item{:href => "/events/#{user_event.last.id}"}
 						= "#{user_event.last.name}"
 				.div.span0
-					- if user_event.last.event_type == 'food'
+					- if user_event.last.event_type == 'Food'
 						= image_tag('/food.png', :size => '40x40')
-					- elsif user_event.last.event_type == 'drink'
+					- elsif user_event.last.event_type == 'Drink'
 						= image_tag('/drink.png', :size => '40x40')
 					- else
 						= image_tag('/other.png', :size => '40x40')
