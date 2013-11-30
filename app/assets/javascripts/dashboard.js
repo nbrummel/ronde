@@ -33,6 +33,9 @@ $(document).ready( function() {
 			format = 'PM'
 			hour = 0;
 		}
+		if (hour == '0'){
+			hour = '12';
+		}
 		return hour + ':' + minutes + ' ' + format;
 	}
 
