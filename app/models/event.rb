@@ -28,8 +28,8 @@ class Event < ActiveRecord::Base
       if details['public']
         @event.public = true
       end
-      @event.start = self.get_date('start', details)
-      @event.end = self.get_date('end', details)
+      @event.start ||= self.get_date('start', details)
+      @event.end ||= self.get_date('end', details)
       @event.save!
     end
     return @event, @flag
