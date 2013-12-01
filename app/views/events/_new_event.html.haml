@@ -12,7 +12,7 @@
 					= f.text_field :location,:placeholder => "location"
 				%div
 					= f.text_field :event_type, :placeholder => 'event type'
-				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.65%;top:63%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.8%;top:60%;',"role" => "menu"}
 					%li
 						%a#Food{:href => '#'} food
 						%a#Drink{:href => '#'} drink
@@ -20,11 +20,11 @@
 
 				%div
 					= f.text_field :start, :placeholder => 'start time'
-				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.65%;top:68.5%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.8%;top:68.5%;',"role" => "menu"}
 					%li#time-list-start
 				%div
 					= f.text_field :end, :placeholder => 'end time'
-				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.65%;top:77%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.8%;top:77%;',"role" => "menu"}
 					%li#time-list-end
 				%label{:style => 'font-size:10px;'}
 					= check_box_tag "event[public]"
