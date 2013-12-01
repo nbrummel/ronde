@@ -1,32 +1,34 @@
+- @day = ""
 .container
 	.well.span9{:style => 'position:relative;right:3%;margin-top:-21%;'}
 		%br
 		%br
-
+		.span4#time{:style => 'color:#a3a3a3;'}
+			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
+			/= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
 		%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
 		%br
-		%br
+
 		- if @feed.length == 0
 			%center
 				= 'Nothing going on today..'
 				= link_to 'Create an Event!', '/events/new'
 			%br
-		.span4#time{:style => 'color:#a3a3a3;'}
-			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
-			/= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
-			
-		%br
-		%br
 		- for user_event in @feed
 			- new_id = rand(1000000)
-			.span2{:style => 'color:#a3a3a3;'}
-				= "#{user_event.last.start.strftime("%m/%d/%y")}"
-			%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
+			.span7{:style => 'color:#a3a3a3;'}
+				- if "#{user_event.last.start.strftime("%m/%d/%y")}" != @day
+					- @day = "#{user_event.last.start.strftime("%m/%d/%y")}" 
+					= @day 
+					%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}	
+				- else
+					%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}		
+			.div.span12.pull-left{:style => 'color:#ff6699;'}
+				%br
+				= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
 			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
 				.div.span4
 					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
-				.div.span2{:style => 'color:#ff6699;'}
-					= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
 				.div.span4.ul.list-group{:class => 'event-more-info'}
 					%a.li.list-group-item{:href => '#', :id => "event_#{new_id}_show"}
 						= "#{user_event.last.name}"
@@ -40,7 +42,7 @@
 					- elsif user_event.last.event_type == 'Drink'
 						= image_tag('/drink.png', :size => '40x40')
 					- else
-						= image_tag('/other.png', :size => '40x40')
+						= image_tag('/other.png', :size => '40x40')		
 				.div.span2
 					%p
 					%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join
