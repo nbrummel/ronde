@@ -18,17 +18,19 @@
 		%br
 		%br
 		- for user_event in @feed
+			- new_id = rand(1000000)
 			.span2{:style => 'color:#a3a3a3;'}
 				= "#{user_event.last.start.strftime("%m/%d/%y")}"
-			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#efefef;"}
+			%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
 				.div.span4
 					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
 				.div.span2{:style => 'color:#ff6699;'}
 					= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
-				.div.span4.ul.list-group
-					%a.li.list-group-item{:href => '#', :id => "event_#{user_event.last.id}_description"}
+				.div.span4.ul.list-group{:class => 'event-more-info'}
+					%a.li.list-group-item{:href => '#', :id => "event_#{new_id}_show"}
 						= "#{user_event.last.name}"
-					.well{:style => 'width:260px;height:50px;', :class => 'event-details', :id => "event_#{user_event.last.id}"}
+					.well{:id => "event_#{new_id}"}
 						%p
 							= user_event.last.description
 

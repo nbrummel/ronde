@@ -22,16 +22,16 @@ $(document).ready( function() {
 			minutes = '0' + minutes;
 		}
 		if (minutes == 'incr hour'){
-			hour += 1;
+			hour = (parseInt(hour) + 1).toString();
 			minutes = '00'
 		}
 		if (hour > 12){
 			format = 'PM';
-			hour -= 12;
+			hour = (parseInt(hour) - 12).toString();
 		}
 		else if (hour == 12){
 			format = 'PM'
-			hour = 0;
+			hour = '0';
 		}
 		if (hour == '0'){
 			hour = '12';
@@ -52,109 +52,25 @@ $(document).ready( function() {
 		$('#feed').toggle(true);
 	}
 
-	// Hide all divs except feed
-	$('#all-events').toggle(false);
-	$('#all-invitations').toggle(false);
-	$('#new-event').toggle(false);
-	$('#friend-requests').toggle(false);
-	var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
-	link.appendTo('#time');
-	$('.event-details').each(function() {
-		var newId = '#event_' + $(this).attr('id').split('_')[1];
-		$(newId).hide();
+	var initialize = function() {
+		// Hide all divs except feed
+		$('#all-events').toggle(false);
+		$('#all-invitations').toggle(false);
+		$('#new-event').toggle(false);
+		$('#friend-requests').toggle(false);
+		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
+		link.appendTo('#time');
 
-		$(('#' + $(this).attr('id') + '_description')).click(function() {
-			$(newId).fadeToggle(200);
-			return false;
+		$('.event-more-info').children().filter(":odd").each(function() {
+			$('#' + $(this).attr('id')).hide(0);
+			$('#' + $(this).attr('id') + '_show').click(function() {
+				var newId = $(this).attr('id').split('_').slice(0,2);
+				$('#' + newId[0] + '_' + newId[1]).toggle();
+				return false;
+			});
 		});
-
-	});
-
-	$('#feed').toggle(true);
-
-	// display just the feed
-	$('#show-feed').click( function() {
-		$('#all-invitations').toggle(false);
-		$('#new-event').toggle(false);
-		$('#all-events').toggle(false);
-		$('#friend-requests').toggle(false);
-		showFeed();
-		// TODO: send AJAX request to refresh
-	});
-
-	// Hide everything else, display only recent events.
-	$('#recent_events').click( function() {
-		$('#all-invitations').toggle(false);
-		$('#new-event').toggle(false);
-		$('#friend-requests').toggle(false);
-		$('#feed').toggle(false);
-		$('#all-events').toggle();
-		check_dashboard();
-	});
-
-	// Display only the invitations
-	$('#invitations').click( function() {
-		$('#all-events').toggle(false);
-		$('#new-event').toggle(false);
-		$('#friend-requests').toggle(false);
-		$('#feed').toggle(false);
-		$('#all-invitations').toggle();
-		check_dashboard();
-	});
-
-	$('#friend_requests').click( function() {
-		$('#all-events').toggle(false);
-		$('#new-event').toggle(false);
-		$('#all-invitations').toggle(false);
-		$('#feed').toggle(false);
-		$('#friend-requests').toggle();
-		check_dashboard();
-
-	});
-
-	// Display the field for creating a new event
-	$('#new_event').click( function() {
-		$('#all-events').toggle(false);
-		$('#all-invitations').toggle(false);
-		$('#friend-requests').toggle(false);
-		$('#feed').toggle(false);
-		$('#time-select-start').toggle(false);
-		$('#time-select-end').toggle(false);
-		$('#event-type-select').toggle(false);
-		$('#event_location').val('Current Location');
-		$('#event_location').attr('readonly',true);
-		$('#new-event').toggle();
-		check_dashboard();
-	});
-
-	// All functions below belong to creating a new event
-	$('#event_event_type').focusin( function() {
-		// $('#time-select-start').toggle(false);
-		// $('#time-select-end').toggle(false);
-		$('#event-select-type').toggle(true);
-	});
-
-	$('#event_event_type').focusout( function() {
-		// $('#time-select-end').toggle(false);
-		// $('#time-select-start').toggle(false);
-		window.setTimeout(function() { $('#event-select-type').toggle(false) }, 150);
-	});
-
-	// var roundMinutes = function(mins){
-	// 	if (mins > 0 && mins < 15){
-	// 		return '15';
-	// 	}
-	// 	else if (mins > 15 && mins < 30){
-	// 		return '30';
-	// 	}
-	// 	else if (mins > 30 && mins < 45){
-	// 		return '45';
-	// 	}
-	// 	else if (mins > 45 && mins < 60){
-	// 		return 'incr hour';
-	// 	}
-	// 	return mins
-	// }
+		$('#feed').toggle(true);
+	}
 
 	var roundMinutes = function(mins){
 		if (mins > 0 && mins < 30){
@@ -258,6 +174,91 @@ $(document).ready( function() {
 		}
 		return false;
 	}
+
+	initialize();
+	// display just the feed
+	$('#show-feed').click( function() {
+		$('#all-invitations').toggle(false);
+		$('#new-event').toggle(false);
+		$('#all-events').toggle(false);
+		$('#friend-requests').toggle(false);
+		showFeed();
+		// TODO: send AJAX request to refresh
+	});
+
+	// Hide everything else, display only recent events.
+	$('#recent_events').click( function() {
+		$('#all-invitations').toggle(false);
+		$('#new-event').toggle(false);
+		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
+		$('#all-events').toggle();
+		check_dashboard();
+	});
+
+	// Display only the invitations
+	$('#invitations').click( function() {
+		$('#all-events').toggle(false);
+		$('#new-event').toggle(false);
+		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
+		$('#all-invitations').toggle();
+		check_dashboard();
+	});
+
+	$('#friend_requests').click( function() {
+		$('#all-events').toggle(false);
+		$('#new-event').toggle(false);
+		$('#all-invitations').toggle(false);
+		$('#feed').toggle(false);
+		$('#friend-requests').toggle();
+		check_dashboard();
+
+	});
+
+	// Display the field for creating a new event
+	$('#new_event').click( function() {
+		$('#all-events').toggle(false);
+		$('#all-invitations').toggle(false);
+		$('#friend-requests').toggle(false);
+		$('#feed').toggle(false);
+		$('#time-select-start').toggle(false);
+		$('#time-select-end').toggle(false);
+		$('#event-type-select').toggle(false);
+		$('#event_location').val('Current Location');
+		$('#event_location').attr('readonly',true);
+		$('#new-event').toggle();
+		check_dashboard();
+	});
+
+	// All functions below belong to creating a new event
+	$('#event_event_type').focusin( function() {
+		// $('#time-select-start').toggle(false);
+		// $('#time-select-end').toggle(false);
+		$('#event-select-type').toggle(true);
+	});
+
+	$('#event_event_type').focusout( function() {
+		// $('#time-select-end').toggle(false);
+		// $('#time-select-start').toggle(false);
+		window.setTimeout(function() { $('#event-select-type').toggle(false) }, 150);
+	});
+
+	// var roundMinutes = function(mins){
+	// 	if (mins > 0 && mins < 15){
+	// 		return '15';
+	// 	}
+	// 	else if (mins > 15 && mins < 30){
+	// 		return '30';
+	// 	}
+	// 	else if (mins > 30 && mins < 45){
+	// 		return '45';
+	// 	}
+	// 	else if (mins > 45 && mins < 60){
+	// 		return 'incr hour';
+	// 	}
+	// 	return mins
+	// }
 
 	$('#event_start').focusin( function() {
 		$('#time-select-start').toggle(true);
