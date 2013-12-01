@@ -1,7 +1,7 @@
 ---
 Cucumber Features:
   :original_result:
-    /home/saasbook/ronde/app/models/user.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/models/user.rb:
     - 1
     - 
     - 
@@ -32,194 +32,194 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 8
+    - 10
     - 
     - 
     - 
     - 1
-    - 8
-    - 8
+    - 10
+    - 10
     - 
     - 
     - 
     - 1
-    - 16
-    - 16
     - 20
+    - 20
+    - 24
+    - 20
+    - 
+    - 
+    - 
+    - 1
+    - 63
+    - 63
+    - 72
+    - 63
+    - 
+    - 
+    - 1
+    - 7
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 1
+    - 50
+    - 50
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/application_controller.rb:
+    - 1
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/application_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/dashboard_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/friendships_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/profile_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/static_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/helpers/user_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/dashboard_controller.rb:
+    - 1
+    - 1
+    - 53
+    - 0
+    - 
+    - 
+    - 
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/events_controller.rb:
+    - 1
+    - 1
+    - 
+    - 1
+    - 74
+    - 
+    - 
+    - 1
+    - 15
+    - 
+    - 
+    - 1
+    - 15
+    - 15
+    - 11
+    - 11
+    - 
+    - 4
+    - 1
+    - 
+    - 1
+    - 
+    - 1
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - 
+    - 4
+    - 4
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 9
+    - 9
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 9
+    - 9
+    - 9
+    - 9
+    - 9
+    - 9
+    - 9
+    - 
+    - 9
+    - 
+    - 9
+    - 
+    - 
+    - 1
+    - 16
     - 16
     - 
-    - 
-    - 
-    - 1
-    - 55
-    - 55
-    - 64
-    - 55
-    - 
-    - 
-    - 1
-    - 7
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
     - 0
     - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 0
+    - 16
+    - 16
     - 
     - 0
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 50
-    - 50
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/ronde/app/controllers/application_controller.rb:
-    - 1
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/application_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/dashboard_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/friendships_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/profile_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/static_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/helpers/user_helper.rb:
-    - 1
-    - 
-    /home/saasbook/ronde/app/controllers/dashboard_controller.rb:
-    - 1
-    - 1
-    - 47
-    - 0
-    - 
-    - 
-    - 
-    - 
-    /home/saasbook/ronde/app/controllers/events_controller.rb:
-    - 1
-    - 1
-    - 
-    - 1
-    - 62
-    - 
-    - 
-    - 1
-    - 13
-    - 
-    - 
-    - 1
-    - 13
-    - 13
-    - 9
-    - 9
-    - 
-    - 4
-    - 1
-    - 
-    - 1
-    - 
-    - 1
-    - 
-    - 1
-    - 
-    - 
-    - 
-    - 
-    - 4
-    - 4
-    - 
+    - 10
     - 
     - 
     - 1
     - 
     - 
-    - 1
-    - 
-    - 
-    - 1
-    - 7
-    - 7
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 7
-    - 7
-    - 7
-    - 7
-    - 7
-    - 7
-    - 7
-    - 
-    - 7
-    - 
-    - 7
-    - 
-    - 
-    - 1
-    - 14
-    - 14
-    - 
-    - 0
-    - 
-    - 14
-    - 14
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 8
-    - 
-    - 
-    - 1
-    - 
-    - 
-    /home/saasbook/ronde/app/models/event.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/models/event.rb:
     - 1
     - 
     - 
@@ -234,7 +234,7 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 87
+    - 103
     - 
     - 
     - 1
@@ -242,14 +242,129 @@ Cucumber Features:
     - 0
     - 
     - 1
-    - 13
-    - 13
-    - 13
-    - 13
-    - 9
-    - 9
+    - 15
+    - 15
+    - 15
+    - 15
+    - 11
+    - 11
     - 
-    - 13
+    - 15
+    - 
+    - 
+    - 1
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 
+    - 
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/friendships_controller.rb:
+    - 1
+    - 
+    - 
+    - 1
+    - 
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/models/friendship.rb:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 18
+    - 18
+    - 18
+    - 18
+    - 
+    - 
     - 
     - 
     - 1
@@ -257,12 +372,45 @@ Cucumber Features:
     - 13
     - 13
     - 13
-    - 13
-    - 13
     - 
     - 
     - 
-    /home/saasbook/ronde/app/controllers/invitations_controller.rb:
+    - 1
+    - 26
+    - 26
+    - 26
+    - 26
+    - 
+    - 
+    - 1
+    - 3
+    - 3
+    - 
+    - 
+    - 1
+    - 6
+    - 6
+    - 
+    - 
+    - 1
+    - 3
+    - 3
+    - 0
+    - 
+    - 3
+    - 
+    - 
+    - 
+    - 1
+    - 3
+    - 3
+    - 0
+    - 
+    - 3
+    - 
+    - 
+    - 
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/invitations_controller.rb:
     - 1
     - 1
     - 
@@ -291,7 +439,7 @@ Cucumber Features:
     - 2
     - 
     - 
-    /home/saasbook/ronde/app/models/invitation.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/models/invitation.rb:
     - 1
     - 1
     - 
@@ -302,18 +450,11 @@ Cucumber Features:
     - 
     - 1
     - 
-    - 7
+    - 9
     - 
-    - 7
-    - 7
+    - 9
+    - 9
     - 
-    - 
-    - 
-    - 
-    - 1
-    - 2
-    - 2
-    - 2
     - 
     - 
     - 
@@ -321,10 +462,17 @@ Cucumber Features:
     - 2
     - 2
     - 2
+    - 
+    - 
+    - 
+    - 1
+    - 2
+    - 2
+    - 2
     - 2
     - 
     - 
-    /home/saasbook/ronde/app/controllers/omniauth_callbacks_controller.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/omniauth_callbacks_controller.rb:
     - 1
     - 
     - 1
@@ -349,18 +497,15 @@ Cucumber Features:
     - 
     - 
     - 
-    /home/saasbook/ronde/app/controllers/profile_controller.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/profile_controller.rb:
     - 1
     - 1
     - 
     - 
     - 
     - 
-    /home/saasbook/ronde/app/controllers/static_controller.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/static_controller.rb:
     - 1
-    - 1
-    - 
-    - 
     - 1
     - 
     - 
@@ -371,10 +516,13 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 83
-    - 39
-    - 39
-    - 39
+    - 
+    - 
+    - 1
+    - 87
+    - 43
+    - 43
+    - 43
     - 44
     - 12
     - 
@@ -382,96 +530,32 @@ Cucumber Features:
     - 
     - 
     - 
-    /home/saasbook/ronde/app/controllers/user_controller.rb:
+    /home/saasbook/Projects/Ronde/ronde/app/controllers/user_controller.rb:
     - 1
     - 1
     - 1
     - 
     - 1
-    - 23
-    - 23
+    - 27
+    - 27
     - 6
     - 
     - 
     - 
     - 1
-    - 24
+    - 28
     - 1
     - 
     - 
     - 
     - 1
-    - 16
-    - 16
-    - 11
+    - 18
+    - 18
+    - 13
     - 
-    - 16
-    - 16
-    - 10
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 2
-    - 2
-    - 2
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 2
-    - 2
-    - 
-    - 
-    /home/saasbook/ronde/app/models/friendship.rb:
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 1
-    - 16
-    - 16
-    - 16
-    - 16
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 11
-    - 11
-    - 11
-    - 11
-    - 
-    - 
-    - 
-    - 1
-    - 22
-    - 22
-    - 22
-    - 22
+    - 18
+    - 18
+    - 12
     - 
     - 
     - 1
@@ -479,27 +563,38 @@ Cucumber Features:
     - 3
     - 
     - 
-    - 1
-    - 6
-    - 6
-    - 
-    - 
-    - 1
-    - 1
-    - 1
+    - 3
+    - 3
+    - 3
     - 0
     - 
-    - 1
     - 
-    - 
-    - 
-    - 1
-    - 1
-    - 1
     - 0
     - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 2
+    - 2
+    - 2
+    - 
+    - 1
+    - 1
+    - 1
     - 1
     - 
     - 
+    - 1
+    - 2
+    - 2
     - 
-  :created_at: 2013-11-24 18:36:07.736400038 -08:00
+    - 
+    - 1
+    - 6
+    - 
+    - 
+  :created_at: 2013-11-24 22:40:58.900227757 -08:00

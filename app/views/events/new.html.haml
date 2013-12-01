@@ -1,32 +1,33 @@
 %body	
-	.container
-		%h2.title Create New Event 
-		= form_for(@event, html: { class: 'form-vertical' }) do |f|
-			%fieldset
-				.field.control-group
-					= f.label :name
-				.controls
-					.input-group
-					= f.text_field :name,:placeholder => "What should we do?"
-				.field.control-group
-				= f.label :description
-				.controls
-					.input-group
-						= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
-				.field.control-group
-					= f.label :location
-					.controls
-						.input-group
-							= f.text_field :location,:placeholder => "Where?"
-				.field.control-group
-				= f.label :event_type
-				.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
-				.field.control-group
-					= f.label :start
-					.controls.datetime
-						= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
-				.field.control-group
-					= f.label :end
-					.controls.datetime
-						= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
-				= f.submit value: 'Create', class: 'btn btn-large btn-success' 
+	%center
+		.well.span7{:style => "position:relative; left:29%;"}
+			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} new rondé 
+			= form_for(@event, html: { class: 'form-vertical' }) do |f|
+				= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
+				%br
+				= f.text_area :description, rows: 3, :placeholder => "give your friends some more details and convince them to come "
+				%br
+				= f.text_field :location,:placeholder => "location"
+				%br
+
+				= f.text_field :event_type, :placeholder => 'event type'
+				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:30.4%;top:63%;',"role" => "menu"}
+					%li
+						%a#Food{:href => '#'} food
+						%a#Drink{:href => '#'} drink
+						%a#Other{:href => '#'} other
+				%br
+
+
+				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:30.4%;top:73%;',"role" => "menu"}
+					%li#time-list-start
+
+				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:30.3%;top:82%;',"role" => "menu"}
+					%li#time-list-end
+					
+				= f.datetime_select :start, :default => Time.now, :order =>[:hour, :minute], :discard_month => true, :discard_year => true, :ampm => true, :minute_step => 15
+				%br
+					To
+				= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
+				%br
+				= f.submit value: 'Create', class: 'btn btn-info' 

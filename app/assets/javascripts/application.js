@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require static
+//= require event
+//= require dashboard
 //= require bootstrap
 
 

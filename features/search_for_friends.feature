@@ -13,19 +13,17 @@ Given the following users exist:
 | sonde@gmail.com | SondeFirst | SondeLast | 5105105102   | SondePassword |
 
 Scenario: Search by first name
-	Given I am logged in as RondeFirst
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the ronde dashboard
-	And I search for "SondeFirst"
+	When I follow "friends"
+	And I fill in "searched_friend" with "SondeFirst"
+	And I press "Search"
 	Then I should see "SondeFirst SondeLast"
-	When send "SondeFirst" a friend request
-	And I click "friends"
-	Then I should see "SondeFirst SondeLast" as a pending friend
 
 Scenario: Search by last name
-	Given I am logged in as RondeFirst
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the ronde dashboard
-	And I search for "SondeFirst"
+	When I follow "friends"
+	And I fill in "searched_friend" with "SondeLast"
+	And I press "Search"
 	Then I should see "SondeFirst SondeLast"
-	When send "SondeFirst" a friend request
-	And I click "friends"
-	Then I should see "SondeFirst SondeLast" as a pending friend

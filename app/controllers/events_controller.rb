@@ -73,7 +73,7 @@ class EventsController < ApplicationController
 	end
 
 	def show_all
-		@events = current_user.all_events.uniq
+		@events = current_user.all_events.uniq.sort{ |a,b| b.start <=> a.start }
 	end
 
 	def destroy

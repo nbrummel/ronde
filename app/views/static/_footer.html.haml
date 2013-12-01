@@ -1,6 +1,6 @@
 .container{:style => "position:relative; margin-top:33%;"}
-	.navbar{:style => "padding-left:215px;"}
-		.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;"}
+	.navbar{:style => "padding-left:200px;"}
+		.nav-collapse{:style => "margin-left:auto;margin-right:auto;width:40em;font-size:12px;"}
 			%ul.nav
 				%li
 					%a{:href => "/static/home", :id => 'home',:style => "color:#ff6633;"} Home
@@ -10,3 +10,8 @@
 					%a{:href => "/static/terms_of_use", :id => 'terms of use',  :style => "color:#ff6633;"} Terms of Use
 				%li
 					%a{:href => "/static/contact", :id => 'contact', :style => "color:#ff6633;"} Contact
+.div{:style => 'position:relative; left:46%;font-size:12px;'}
+	.span{:style => 'color:#ff6633;'}
+		= 'ronde'
+	.span{:style => 'color:#a3a3a3;'} 
+		= '© 2014'

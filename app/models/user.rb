@@ -28,33 +28,34 @@ class User < ActiveRecord::Base
 
   # list all of the events i have ever created
   def my_events
-    Event.find(:all, :conditions => ["created_by_id = ?", self.id])
+    Event.where('created_by_id = ?', self.id).sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events i have ever created or joined               
   def all_events
     @user = self
-    (Event.where('created_by_id = ?', @user.id) + @user.joined_events).uniq
+    events = []
+    Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed').each { |invite| events << invite.event }
+    Event.where('created_by_id = ?', self.id).each { |event| events << event }
+    events.uniq.sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events ive ever confirmed
   def joined_events
     events = []
-    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed')
-    invites.each { |invite| events << invite.event unless invite.event == events.last}
-    events
+    Invitation.where('invited_user_id = ? AND status = ?', self.id, 'confirmed').each { |invite| events << invite.event }.uniq
+    events.sort{ |a,b| b.start <=> a.start }
   end
 
   # list all of the events Ive been invited to ever
   def invited_events
     events = []
-    invites = Invitation.where('invited_user_id = ? AND status = ?', self.id, 'invited')
-    invites.each { |invite| events << invite.event}
-    events.sort_by &:start
+    Invitation.where('invited_user_id = ? AND status = ?', self.id, 'invited').each { |invite| events << invite.event }.uniq
+    events.sort{ |a,b| b.start <=> a.start }
   end
 
   def sent_invitations
-    Invitation.where('user_id = ? AND status = ?', self.id, 'invited')
+    Invitation.where('user_id = ? AND status = ?', self.id, 'invited').sort{ |a,b| b.event.start <=> a.event.start }
   end
 
   # Handles User creation for facebook login. Gets called from controller.

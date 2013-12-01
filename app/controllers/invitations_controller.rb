@@ -6,7 +6,7 @@ class InvitationsController < ApplicationController
 	end
 
 	def show_all
-		@invitations = Invitation.find_all_by_invited_user_id(current_user.id).uniq
+		@invitations = Invitation.find_all_by_invited_user_id(current_user.id).uniq.sort{ |a,b| b.event.start <=> a.event.start }
 	end
 
 	def accept
