@@ -35,14 +35,14 @@
 					.well{:id => "event_#{new_id}"}
 						%p
 							= user_event.last.description
-
 				.div.span0
 					- if user_event.last.event_type == 'Food'
 						= image_tag('/food.png', :size => '40x40')
 					- elsif user_event.last.event_type == 'Drink'
 						= image_tag('/drink.png', :size => '40x40')
 					- else
-						= image_tag('/other.png', :size => '40x40')		
+						= image_tag('/other.png', :size => '40x40')				
 				.div.span2
 					%p
-					%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join
+					- if current_user.joined_events.include?(user_event.last)
+						%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join
