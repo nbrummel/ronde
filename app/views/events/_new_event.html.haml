@@ -1,8 +1,7 @@
 .container
 	%center
 		.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
-
-			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} quick rondé 
+			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} Quick Ronde 
 			= form_for(@event, html: { class: 'form-vertical' }) do |f|
 				%div
 					= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
@@ -17,7 +16,6 @@
 						%a#Food{:href => '#'} food
 						%a#Drink{:href => '#'} drink
 						%a#Other{:href => '#'} other
-
 				%div
 					= f.text_field :start, :placeholder => 'start time'
 				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.8%;top:68.5%;',"role" => "menu"}
@@ -29,4 +27,5 @@
 				%label{:style => 'font-size:10px;'}
 					= check_box_tag "event[public]"
 					= 'Make public'
+				%a{:class => 'btn btn-primary btn-small', :href => user_dashboard_path} Back	
 				= f.submit value: 'Create', class: 'btn btn-info' 
