@@ -5,8 +5,8 @@
 				.container
 					%a.brand{:href => "/"} rondé
 					%ul.nav.pull-right
-						= form_tag "/user/#{current_user.id}/search_friend", :class => "navbar-search", :action => :search_friend, :method => :post do
-							= text_field_tag "searched_friend", nil, :class => "search-query span6", :placeholder => "Search"
+						= form_tag "/user/#{current_user.id}/search", :class => "navbar-search", :action => :search, :method => :post do
+							= text_field_tag "search_param", nil, :class => "search-query span6", :placeholder => "Search"
 						%li
 							%a{:href => "/"} home
 						%li

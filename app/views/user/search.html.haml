@@ -1,0 +1,34 @@
+%body
+  .container
+    -if @possible_friends.empty? && @possible_events.empty?
+      = flash[:search_result_msg]
+    -else
+      -if !@possible_friends.empty?
+        %table#friends
+          %h1 Select friends to add
+          %thead 
+            %tr
+              %th
+              %th
+          %tbody
+            - @possible_friends.each do |friend|
+              %tr
+                %td= friend.first_name + ' ' + friend.last_name
+                -if Friendship.already_sent_friend_request(@user, friend)
+                  %td= 'Pending'
+                -elsif !Friendship.already_friends(@user, friend)
+                  %td= button_to '+', "/user/#{@user.id}/add_friend/#{friend.id}"
+                -else
+                  %td= '✓'
+      -if !@possible_events.empty?
+        %table#events
+          %h1 Select events to attend
+          %thead
+            %tr
+              %th
+          %tbody
+            .span5
+              - for event in @possible_events
+                .ul.list-group
+                  %a.li.list-group-item{:href => "/events/#{event.id}"}
+                    = event.name.capitalize
