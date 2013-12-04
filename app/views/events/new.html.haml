@@ -1,33 +1,31 @@
-%body	
+.container
 	%center
-		.well.span7{:style => "position:relative; left:29%;"}
-			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} new rondé 
+		.well.span12{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
+			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} Create A New Event 
 			= form_for(@event, html: { class: 'form-vertical' }) do |f|
-				= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
-				%br
-				= f.text_area :description, rows: 3, :placeholder => "give your friends some more details and convince them to come "
-				%br
-				= f.text_field :location,:placeholder => "location"
-				%br
-
-				= f.text_field :event_type, :placeholder => 'event type'
-				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:30.4%;top:63%;',"role" => "menu"}
+				%div
+					= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
+				%div
+					= f.text_area :description, rows: 3, :placeholder => "give your friends some more details and convince them to come "
+				%div
+					= f.text_field :location,:placeholder => "location"
+				%div
+					= f.text_field :event_type, :placeholder => 'event type'
+				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.8%;top:60%;',"role" => "menu"}
 					%li
 						%a#Food{:href => '#'} food
 						%a#Drink{:href => '#'} drink
 						%a#Other{:href => '#'} other
-				%br
-
-
-				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:30.4%;top:73%;',"role" => "menu"}
+				%div
+					= f.text_field :start, :placeholder => 'start time'
+				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.8%;top:68.5%;',"role" => "menu"}
 					%li#time-list-start
-
-				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:30.3%;top:82%;',"role" => "menu"}
+				%div
+					= f.text_field :end, :placeholder => 'end time'
+				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.8%;top:77%;',"role" => "menu"}
 					%li#time-list-end
-					
-				= f.datetime_select :start, :default => Time.now, :order =>[:hour, :minute], :discard_month => true, :discard_year => true, :ampm => true, :minute_step => 15
-				%br
-					To
-				= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
-				%br
+				%label{:style => 'font-size:10px;'}
+					= check_box_tag "event[public]"
+					= 'Make public'
+				%a{:class => 'btn btn-primary btn-small', :href => user_dashboard_path} Back	
 				= f.submit value: 'Create', class: 'btn btn-info' 
