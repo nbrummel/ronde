@@ -30,7 +30,7 @@ class UserController < ApplicationController
 		@possible_friends = search_friend(search_term)
 		@possible_events = search_event(search_term)
 		if @possible_friends.empty? && @possible_events.empty?
-			params[:search_result_msg] = "Sorry, no friends or events with that name were found."
+			flash[:search_result_msg] = "Sorry, no friends or events with that name were found."
 		end
 	end
 	def search_friend(search_term)
@@ -46,9 +46,9 @@ class UserController < ApplicationController
 		return possible_friends
 	end
 	def search_event(search_term)
+		possible_events = []
 		if search_term != ""
 			events = current_user.all_events
-			possible_events = []
 			events.each do |event|
 				if event.name =~ /#{search_term}/i
 					possible_events << event
