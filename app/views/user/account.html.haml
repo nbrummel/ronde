@@ -7,20 +7,34 @@
 		=flash[:warning]
 	=yield
 %body
-	.container{:style => "padding-left 50px"}
-		%h3{:style => "font-weight:bold;color:#dd6633;"}
-			Profile Page
-		%table
-			%br
-				Name:
-				=user.first_name.capitalize+ " " + user.last_name.capitalize
-			%br
-				Phone Number:
-				=user.phone_number
-			%br
-				Email:
-				=user.email
-			%br	
-		%a.btn.btn-primary.btn-small{:href => "/"} back
-		%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
+	.container
+		/ .pull-left{:style => "position:relative; left:28.3%;"}
+		.center
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:36%; color:#ff6699;"} account settings
+			.well{:style => "padding:15px;"}
+				%h4
+					.span1{:style => "color:#dd6633;"}
+						Name:
+					.span2{:style => "color:#000000; font-weight:normal;"}
+						=user.first_name.capitalize+ " " + user.last_name.capitalize
+				%br
+				%br
+				%br
+				%h4
+					.span1{:style => "color:#dd6633;"}
+						Email:
+					.span2{:style => "color:#000000; font-weight:normal;"}
+						=user.email
+				%br
+				%br
+				%br
+				%h4
+					.span1{:style => "color:#dd6633;"} 
+						Phone&nbspNumber:
+					.span2{:style => "color:#000000; font-weight:normal;"}
+						=user.phone_number
+				%br
+
+			%a.btn.btn-primary.btn-small{:href => "/"} back
+			%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
 
