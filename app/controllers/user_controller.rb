@@ -50,7 +50,7 @@ class UserController < ApplicationController
 		if search_term != ""
 			events = current_user.all_events
 			events.each do |event|
-				if event.name =~ /#{search_term}/i
+				if event.name =~ /#{search_term}/i || event.event_type == search_term
 					possible_events << event
 				end
 			end
