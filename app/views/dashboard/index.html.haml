@@ -15,17 +15,20 @@
 						= link_to 'friend requests', '#', :id => 'friend_requests', :class => 'btn btn-primary btn-small'
 						= link_to 'recent events', '#', :id => 'recent_events', :class => 'btn btn-primary btn-small'
 						= link_to 'all events', 'events/show/all', :id => 'all_events', :class => 'btn btn-primary btn-small'
-			%div.pull-left{:style => 'position:relative; right:6%;margin-top:10.9%;'}
+			%div.pull-left{:style => 'position:relative; right:5.2%;margin-top:10.8%;'}
 				- if (pending_invites = current_user.invited_events.length) > 0
-					= link_to "#{pending_invites}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#dadada;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'
+					%span.badge
+						= "#{pending_invites}"
 				-else
-					= link_to "#{pending_invites}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#ffffff;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'
-			%div.pull-left{:style => 'position:relative; right:9.05%;margin-top:13.5%;'}
+					%span.badge{:style => 'background-color:#ffffff;'}
+						= ""
+			%div.pull-left{:style => 'position:relative; right:7.9%;margin-top:13.6%;'}
 				- if (pending_requests = current_user.requested_friends.length) > 0
-					= link_to "#{pending_requests}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#dadada;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'
+					%span.badge
+						= "#{pending_requests}"
 				-else
-					= link_to "#{pending_requests}", "javascript:void(0);", :class => 'btn btn-primary btn-small', :style => 'background-color:#ffffff;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'
-
+					%span.badge{:style => 'background-color:#ffffff;'}
+						= ""
 		%div#feed
 			= render 'dashboard/feed'
 		%div#new-event{:style => 'display:none;'}

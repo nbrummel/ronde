@@ -1,6 +1,6 @@
 .container
 	%center
-		.well.span6{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
+		.well.span6{:style => "position:relative; right:3%;margin-top:-2%;background-color:#ffffff;"}
 			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} Quick Ronde 
 			= form_for(@event, html: { class: 'form-vertical' }) do |f|
 				%div
@@ -27,5 +27,6 @@
 				%label{:style => 'font-size:10px;'}
 					= check_box_tag "event[public]"
 					= 'Make public'
-				%a{:class => 'btn btn-primary btn-small', :href => user_dashboard_path} Back	
-				= f.submit value: 'Create', class: 'btn btn-info' 
+				.container{:style=> 'position:relative;right:53%;'}
+					%a{:href => user_dashboard_path} cancel
+					= f.submit value: 'Create', class: 'btn btn-info' 

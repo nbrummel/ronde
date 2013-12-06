@@ -34,8 +34,10 @@ Ronde::Application.routes.draw do
   get "static/contact"
 
   # routes for dashboard
-  get "/dashboard", :to => "dashboard#index", :as => 'user_dashboard'
+  get "/", :to => "dashboard#index", :as => 'user_dashboard'
+  # get "/dashboard", :to => "dashboard#index", :as => 'user_dashboard'
   get "create", :to => "events#create" 
+
   # routes for users
   get "/user/:id/account", :to => "user#account", :as => 'user_account'
   get "/user/:id/friends", :to => "user#friends", :as => 'user_friends'

@@ -1,15 +1,12 @@
 %body
   .container
-    .center
-      %h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:36%; color:#ff6699;"}
-        Edit #{resource_name.to_s.humanize}
-      .well
+    .well.span10{:style => 'position:relative;margin-top:-2%;'}
+      %h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:38%; color:#ff6699;"} Edit #{resource_name.to_s.humanize}
+      .container{:style => 'position:relative;left:36%;'}
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
           = devise_error_messages!
           %div{:style => "font-weight:bold"}
             = f.label :email
-            %br/
-
             = f.email_field :email, :autofocus => true
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
@@ -18,22 +15,23 @@
           %div{:style => "font-weight:bold"}
             = f.label :password
             %i{:style => "font-weight:normal"} (leave blank if you don't want to change it)
-            %br/
+            %br
             = f.password_field :password, :autocomplete => "off"
-          %br
           %div{:style => "font-weight:bold"}
             = f.label :password_confirmation
-            %br/
             = f.password_field :password_confirmation
           %br
           %div{:style => "font-weight:bold"}
             = f.label :current_password
-            %i{:style => "font-weight:normal"} (we need your current password to confirm your changes)
-            %br/
             = f.password_field :current_password
-          %div= f.submit "Update"
-      %h5
-        Unhappy? 
+          %div{:style => 'position:relative;left:8%;'}
+            = f.submit "Update", :class => 'btn btn-info'
+      %center
+        = link_to "Back", :back
         %br
-        #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
-      = link_to "Back", :back
+        %br
+        %br
+        = 'Unhappy?'
+        .br
+        = link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+= render '/static/footer'

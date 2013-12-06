@@ -8,33 +8,34 @@
 	=yield
 %body
 	.container
-		/ .pull-left{:style => "position:relative; left:28.3%;"}
-		.center
-			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:36%; color:#ff6699;"} account settings
-			.well{:style => "padding:15px;"}
-				%h4
+		.well.span10{:style => 'position:relative;margin-top:-2%;'}
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:34%; color:#ff6699;"} account details
+			.row{:style => "padding:15px;position:relative;left:42%;"}
+				.span2
+					%a{:href => "/user/#{current_user.id}/account/edit"} edit account
+				%br
+				.div{:style => 'width:100px;height100px;position:relative;left:1%;'}
+					%a{:href => "/user/#{current_user.id}/account/edit"}
+						= image_tag('/profile_pic.png', :style => 'border-radius:100%;')
+				.row
 					.span1{:style => "color:#dd6633;"}
-						Name:
-					.span2{:style => "color:#000000; font-weight:normal;"}
-						=user.first_name.capitalize+ " " + user.last_name.capitalize
-				%br
-				%br
-				%br
-				%h4
+						= 'name:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.first_name.capitalize+ " " + user.last_name.capitalize
+					%br
 					.span1{:style => "color:#dd6633;"}
-						Email:
-					.span2{:style => "color:#000000; font-weight:normal;"}
-						=user.email
-				%br
-				%br
-				%br
-				%h4
-					.span1{:style => "color:#dd6633;"} 
-						Phone&nbspNumber:
-					.span2{:style => "color:#000000; font-weight:normal;"}
-						=user.phone_number
-				%br
+						= 'email:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.email
+					%br
+					.span1{:style => "color:#dd6633;"}
+						= 'phone:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.phone_number
+					%br
+					.row.span2{:style => 'position;relative;'}
+						
 
 			%a.btn.btn-primary.btn-small{:href => "/"} back
-			%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
+			
 
