@@ -1,0 +1,65 @@
+- @day = ""
+.container
+	.well.span9{:style => 'position:relative;right:3%;margin-top:-21%;'}
+		%br
+		%br
+		.span4{:style => 'color:#a3a3a3;'}
+			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
+			= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
+		%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
+		%br
+		.span7{:style => 'color:#a3a3a3;'}
+			= "#{Time.now.strftime("%m/%d/%y")}"
+			%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}	
+			.div.span12.pull-left{:style => 'color:#ff6699;'}
+				%br
+				= "12:30PM - 1:00PM"
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
+				.div.span4
+					= link_to "Curly Howard", '#'
+				.div.span4.ul.list-group
+					%a.li.list-group-item
+						= "Food at Fred's"
+				.div.span0
+					= image_tag('/food.png', :size => '40x40')
+				/	- elsif user_event.last.event_type == 'Drink'
+				/		= image_tag('/drink.png', :size => '40x40')
+				/	- else
+				/		= image_tag('/other.png', :size => '40x40')				
+				.div.span2
+					%p
+					%a.btn.btn-default.btn-small{:href => "#" } join
+			%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}		
+			.div.span12.pull-left{:style => 'color:#ff6699;'}
+				%br
+				= "6:30PM - 7:30PM"
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
+				.div.span4
+					= link_to "Moe Howard", '#'
+				.div.span4.ul.list-group
+					%a.li.list-group-item
+						= "Moe's Workout"
+				.div.span0
+					= image_tag('/workout.png', :size => '40x40')
+				/	- elsif user_event.last.event_type == 'Drink'
+				/		= image_tag('/drink.png', :size => '40x40')
+				/	- else
+				/		= image_tag('/other.png', :size => '40x40')						
+		.span7{:style => 'color:#a3a3a3;'}
+			= "#{Time.now.strftime("%m/%d/%y")}"
+			%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}					
+			.div.span12.pull-left{:style => 'color:#ff6699;'}
+				%br
+				= "10:30PM - 1:00AM"
+			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
+				.div.span4
+					= link_to "Larry Fine", '#'
+				.div.span4.ul.list-group
+					%a.li.list-group-item
+						= "Nite out with Larry"
+				.div.span0
+					= image_tag('/drink.png', :size => '40x40')
+				/	- elsif user_event.last.event_type == 'Drink'
+				/		= image_tag('/drink.png', :size => '40x40')
+				/	- else
+				/		= image_tag('/other.png', :size => '40x40')					
