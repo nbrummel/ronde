@@ -1,5 +1,28 @@
-%script{src: "jquery.min.js", type: "text/javascript"}
-%script{src: "guiders.js", type: "text/javascript"}
+:javascript
+	$(window).load(function(){
+		$('#tour-start').modal('show');
+	});
+%head
+	.container
+		.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+					%a.brand{:href => "/"} rondé
+					%ul.nav.pull-right
+						= form_tag "/user/#{current_user.id}/search", :class => "navbar-search", :action => :search, :method => :post do
+							= text_field_tag "search_param", nil, :class => "search-query span6", :placeholder => "Search"
+						%li
+							%a{:href => "/"} home
+						%li
+							%a{:href => "/user/#{current_user.id}/friends"} friends
+						%li.dropdown
+							%a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} settings
+							%ul.dropdown-menu{"role" => "menu"}
+								%li
+									%a{:href => "/user/#{current_user.id}/account"} 
+										account
+									%a{:href => "/users/sign_out", :id => 'logout'} 
+										sign out
 %body
 	.container
 		%center
@@ -25,16 +48,103 @@
 			= render 'feed'
 	= render 'static/footer'
 
-	/ %div{:id => "guider1", :class => 'guider', 'data-attachTo: test', :position => 12}
-	/ 	%div{:class => 'guiders_content'}
-	/ 		%h1{:class => 'guiders_title'}
-	/ 			Test Test
-	/ 		%p{:class => 'guiders_description'}
-	/ 			Test Discription
-	/ 		%div{:class => 'guiders_button_container'}
-	/ 			%div
-	/ 				Close
-	/ 			%div
-	/ 				Next
-	/ 	%div{:class => 'guiders_arrow'}	
+#tour-start{:class => 'modal hide fade'}
+	.container
+		.span6
+			%center
+				%h1{:style => 'font-family:eight_one;font-weight:normal;color:#dd6633;'}
+					Welcome to Rondé.com
+		.span2{:style => 'padding-left: 3.2%'}
+			%a{'href' => "/", 'class' => 'btn btn-primary btn-small'}X			
+		%center
+			.span7
+				%p
+					Rondé is the easiest way to get together with friends. Whether you're going to lunch, heading to the gym, or grabbing a drink, find friends who have the same plans and join them for a great time. This tour will help you familiarize yourself with rondé.com.
+				.pull-right
+					%a{'href' => '#tour-search', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						next					
 
+#tour-search{:class => 'modal hide fade'}
+	.container.pull-left
+		.span6
+			%center
+				%h1{:style => 'font-family:eight_one;font-weight:normal;color:#dd6633;'}
+					The Search Bar
+		.span2{:style => 'padding-left: 3.2%'}
+			%a{'href' => "/", 'class' => 'btn btn-primary btn-small'}X			
+		%ul.nav
+			= form_tag "#", :class => "navbar-search", :action => :search, :method => :post do
+				= text_field_tag "search_param", nil, :class => "search-query span6", :placeholder => "Search"	
+		%center
+			.span7
+				%p
+					You can search for rondé users via their name or email.  Also, You may search for events.	
+				.pull-right
+					%a{'href' => 'tour', 'data-dismiss' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						back
+					%a{'href' => '#tour-notifications', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						next	
+
+#tour-notifications{:class => 'modal hide fade'}
+	.container.pull-left
+		.span6
+			%center
+				%h1{:style => 'font-family:eight_one;font-weight:normal;color:#dd6633;'}
+					Notifications			
+		.span2{:style => 'padding-left: 3.2%'}
+			%a{'href' => "/", 'class' => 'btn btn-primary btn-small'}X	
+	.container
+	
+		%div{:style => 'id: invitations_notification; padding-left: 15%; onclick: guiders.next()'}
+			Invitations
+			= link_to "2", "#", :class => 'btn btn-primary btn-small', :style => 'background-color:#cacaca;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'	
+			friend request
+			= link_to "1", "#", :class => 'btn btn-primary btn-small', :style => 'background-color:#cacaca;color:#ffffff;border-color:#ffffff;width:7px;height:18px;border-radius:30%;'	
+
+		%center
+			.span7
+				%br
+				%p
+					You will recieve notifications request as Rondé users invite you to an event or request to become your friend. The notification will look similar to the above examples.  The number will indicate how many notifications of each type you have.  
+				.pull-right
+					%a{'href' => 'tour', 'data-dismiss' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						back
+					%a{'href' => '#tour-feed', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						next	
+
+#tour-feed{:class => 'modal hide fade right'}
+	.container.pull-left
+		.span6
+			%center
+				%h1{:style => 'font-family:eight_one;font-weight:normal;color:#dd6633;'}
+					The Feed
+		.span2{:style => 'padding-left: 3.2%'}
+			%a{'href' => "/", 'class' => 'btn btn-primary btn-small'}X			
+		.container
+			.span7{:style => 'color:#a3a3a3;'}
+				= "#{Time.now.strftime("%m/%d/%y")}"
+				%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}	
+				.div.span12.pull-left{:style => 'color:#ff6699;'}
+					%br
+					= "12:30PM - 1:00PM"
+				.well.span5{:style => "position:relative; left:1%;background-color:#fffff;border-color:#ffffff;"}
+					.div.span3
+						= link_to "Curly Howard", '#'
+					.div.span4.ul.list-group
+						%a.li.list-group-item
+							= "Food at Fred's"
+					.div.span0
+						= image_tag('/food.png', :size => '40x40')			
+					.div.span1
+						%p
+						%a.btn.btn-default.btn-small{:href => "#" } join
+				
+		%center
+			.span7
+				%p{:style => 'padding-right: 2%'}
+					This is the rondé feed.  I will display events the your friends have invited you to or you are able to see.  If you have not joined the event then you will see the join button.  Upon clicking the join button you will automatically be registered as attending.  Consequently, if you have already joined the event the join buttion will not be appear. The event will have the name of who created it, the type of event, name of the event, and time of day it will be occuring.
+				.pull-right
+					%a{'href' => 'tour', 'data-dismiss' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						back
+					%a{'href' => '/', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-medium'}
+						finish
