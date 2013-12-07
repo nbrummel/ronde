@@ -18,8 +18,6 @@ class StaticController < ApplicationController
       redirect_to "/static/tour"
     elsif current_user
     	redirect_to :controller => 'dashboard', :action => 'index'
-    else 
-      	
     end
   end
 end

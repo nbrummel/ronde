@@ -11,14 +11,13 @@
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}
-          %br
           %div{:style => "font-weight:bold"}
-            = f.label :password
+            = f.label :new_password
             %i{:style => "font-weight:normal"} (leave blank if you don't want to change it)
             %br
             = f.password_field :password, :autocomplete => "off"
           %div{:style => "font-weight:bold"}
-            = f.label :password_confirmation
+            = f.label :new_password_confirmation
             = f.password_field :password_confirmation
           %br
           %div{:style => "font-weight:bold"}
