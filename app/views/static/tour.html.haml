@@ -112,7 +112,7 @@
 					%a{'href' => '#tour-feed', 'data-toggle' => 'modal', 'class' => 'btn btn-primary btn-medium'}
 						next	
 
-#tour-feed{:class => 'modal hide fade right'}
+#tour-feed{:class => 'modal hide fade '}
 	.container.pull-left
 		.span6
 			%center
@@ -128,8 +128,12 @@
 					%br
 					= "12:30PM - 1:00PM"
 				.well.span5{:style => "position:relative; left:1%;background-color:#fffff;border-color:#ffffff;"}
-					.div.span3
-						= link_to "Curly Howard", '#'
+					.container{:style => 'position:relative; right:15%;'}
+						.div.span3
+							= link_to "Curly Howard", '#'
+						.div{:style => 'width:60px;height:60px;position:relative;left:1.5%;'}
+						
+							= image_tag('/profile_pic.png', :style => 'border-radius:100%;')	
 					.div.span4.ul.list-group
 						%a.li.list-group-item
 							= "Food at Fred's"
