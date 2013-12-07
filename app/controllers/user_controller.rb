@@ -25,19 +25,37 @@ class UserController < ApplicationController
 			@friend_requests = false
 		end
 	end
-	def search_friend
-		if params[:searched_friend] != ""
-			@possible_friends = (User.where("email LIKE ?", "%#{params[:searched_friend]}%") + 
-								User.where("first_name LIKE ?", "%#{params[:searched_friend]}%") + 
-								User.where("last_name LIKE ?", "%#{params[:searched_friend]}%") + 
-								User.where("phone_number LIKE ?", "%#{params[:searched_friend]}%")).uniq
-			@possible_friends.delete(current_user)
-			if @possible_friends.empty?
-				flash[:search_result_msg] = "Sorry, no users matching #{params[:searched_friend]} have been found."
+	def search
+		search_term = params[:search_param]
+		if search_term != ""
+			@possible_friends = search_friend(search_term)
+			@possible_events = search_event(search_term)
+			if @possible_friends.empty? && @possible_events.empty?
+				flash[:search_result_msg] = "Sorry, no friends or events with that name were found."
 			end
 		else
-			redirect_to "/user/#{params[:id]}/friends"
+			redirect_to "/" # TODO: find where to redirect
 		end
+	end
+	def search_friend(search_term)
+		if search_term != ""
+			possible_friends = (User.where("email LIKE ?", "%#{search_term}%") + 
+								User.where("first_name LIKE ?", "%#{search_term}%") + 
+								User.where("last_name LIKE ?", "%#{search_term}%") + 
+								User.where("phone_number LIKE ?", "%#{search_term}%")).uniq
+			possible_friends.delete(current_user)
+		end
+		return possible_friends
+	end
+	def search_event(search_term)
+		possible_events = []
+		events = current_user.all_events
+		events.each do |event|
+			if event.name =~ /#{search_term}/i || event.event_type == search_term
+				possible_events << event
+			end
+		end
+		return possible_events
 	end
 	def add_friend
 		Friendship.request(@user, @friend)

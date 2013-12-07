@@ -1,28 +1,36 @@
-%body	
+%body
 	= stylesheet_link_tag 'static'
 	%br
 	%h1.title rondé
-	%br
+	%br 
 	.container
-		.hero-unit
-			%h4 rondé is the easiest way to get together with friends. Whether you're going to lunch, heading to the gym, or grabbing a drink, find friends who have the same plans and join them for a great time.
-			%p
-				%a.btn.btn-primary.btn-small{:href => '/users/sign_up'} Sign Up &raquo;
+		.div{:style => 'positive:relative;margin-top:-2%;background-image: url(/dinner.jpg);background-size:cover;color:#FFFFFF;font-size:24px;'}
+			.hero-unit{:style => 'background-color:transparent;height:300px;'}
+				%br
+				%br
+				%p
+				Rondé is the easiest way to get together with friends. Whether you're going to lunch, heading to the gym, or grabbing a drink, find friends who have the same plans and join them for a great time.
+				%br
+				%br
+				%p
+					%a.btn.btn-primary.btn-small{:href => '/users/sign_up'} Sign Up &raquo;
 		.row
 			.span4
 				%h2 Plans, now
-				%p No more waiting. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				%p No more companionless lunches! See what your friends are doing and join. If you can't find a time or place that best suits your needs, create your own event and have your friends ronde with you.
 				%p
 					%a.btn.btn-primary{:href => "/users/sign_up"} View details &raquo;
 			.span4
 				%h2 Be in the loop
-				%p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				%p Feeling left out seeing those pictures of your friends doing fun things? Ronde makes it quick and easy to invite friends, so now you can always be a part of the action.
+				%br
 				%p
 					%a.btn.btn-primary{:href => "/users/sign_up"} View details &raquo;
 			.span4
 				%h2 Share good times
-				%p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				%p We believe real memories are made when people get together and let the chemistry take over. Ronde makes it easy for people to join each other and let the good times roll. In real life. 
+				%br
 				%p
 					%a.btn.btn-primary{:href => "/users/sign_up"} View details &raquo;
-		%hr/
+			%hr/
 	= render 'footer'

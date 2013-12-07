@@ -3,9 +3,10 @@
 	.well.span9{:style => 'position:relative;right:3%;margin-top:-21%;'}
 		%br
 		%br
+		%br
+		%br
 		.span4#time{:style => 'color:#a3a3a3;'}
 			= "RIGHT NOW: #{Time.now.strftime("%m/%d/%y")}"
-			/= link_to "#{Time.now.strftime('%l:%M%p')}", '#', :id => "time-now"
 		%div{:style => 'width: 100%; height: 1px; background: #dadada; overflow: hidden;'}
 		%br
 
@@ -27,15 +28,20 @@
 				%br
 				= "#{user_event.last.start.strftime("%l:%M%p")} - #{user_event.last.end.strftime("%l:%M%p")}"
 			.well.span7{:style => "position:relative; left:5%;background-color:#fffff;border-color:#ffffff;"}
-				.div.span4
-					= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
-				.div.span4.ul.list-group{:class => 'event-more-info'}
+				.container{:style => 'position:relative; right:15%;'}
+					.div.span4
+						= link_to "#{user_event.first.first_name.capitalize} #{user_event.first.last_name.capitalize}", '#'
+					%br
+					.div{:style => 'width:60px;height:60px;position:relative;left:1.5%;'}
+						%a{:href => "/user/#{user_event.first.id}/account/"}
+							= image_tag('/profile_pic.png', :style => 'border-radius:100%;')
+				.div.span4.ul.list-group{:class => 'event-more-info', :style => 'position:relative;margin-top:-10%;'}
 					%a.li.list-group-item{:href => '#', :id => "event_#{new_id}_show"}
 						= "#{user_event.last.name}"
 					.well{:id => "event_#{new_id}"}
 						%p
 							= user_event.last.description
-				.div.span0
+				.div.span0{:style => 'position:relative;margin-top:-10%;'}
 					- if user_event.last.event_type == 'Food'
 						= image_tag('/food.png', :size => '40x40')
 					- elsif user_event.last.event_type == 'Drink'

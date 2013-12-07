@@ -7,20 +7,35 @@
 		=flash[:warning]
 	=yield
 %body
-	.container{:style => "padding-left 50px"}
-		%h3{:style => "font-weight:bold;color:#dd6633;"}
-			Profile Page
-		%table
-			%br
-				Name:
-				=user.first_name.capitalize+ " " + user.last_name.capitalize
-			%br
-				Phone Number:
-				=user.phone_number
-			%br
-				Email:
-				=user.email
-			%br	
-		%a.btn.btn-primary.btn-small{:href => "/"} back
-		%a.btn.btn-primary.btn-small{:href => "/user/#{current_user.id}/account/edit"} edit account
+	.container
+		.well.span10{:style => 'position:relative;margin-top:-2%;'}
+			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:34%; color:#ff6699;"} account details
+			.row{:style => "padding:15px;position:relative;left:42%;"}
+				.span2
+					%a{:href => "/user/#{current_user.id}/account/edit"} edit account
+				%br
+				.div{:style => 'width:100px;height100px;position:relative;left:1%;'}
+					%a{:href => "/user/#{current_user.id}/account/edit"}
+						= image_tag('/profile_pic.png', :style => 'border-radius:100%;')
+				.row
+					.span1{:style => "color:#dd6633;"}
+						= 'name:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.first_name.capitalize+ " " + user.last_name.capitalize
+					%br
+					.span1{:style => "color:#dd6633;"}
+						= 'email:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.email
+					%br
+					.span1{:style => "color:#dd6633;"}
+						= 'phone:'
+					.span3{:style => "color:#636363; font-weight:normal;"}
+						= user.phone_number
+					%br
+					.row.span2{:style => 'position;relative;'}
+						
+
+			%a.btn.btn-primary.btn-small{:href => "/"} back
+			
 
