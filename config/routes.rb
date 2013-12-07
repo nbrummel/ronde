@@ -34,8 +34,8 @@ Ronde::Application.routes.draw do
   get "static/contact"
 
   # routes for dashboard
-  get "/", :to => "dashboard#index", :as => 'user_dashboard'
-  # get "/dashboard", :to => "dashboard#index", :as => 'user_dashboard'
+  # get "/", :to => "dashboard#index", :as => 'user_dashboard'
+  get "/dashboard", :to => "dashboard#index"
   get "create", :to => "events#create" 
 
   # routes for users
@@ -47,7 +47,8 @@ Ronde::Application.routes.draw do
   post "user/:id/accept_friend/:friend_id", :to => "user#accept_friend"
   delete "/user/:id/remove_friend/:friend_id", :to => "user#remove_friend"
  	
-  root :to => 'static#home'
+  # root :to => 'static#home'
+  root :to => 'dashboard#index', :as => 'user_dashboard'
 
 end
 
