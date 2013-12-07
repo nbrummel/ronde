@@ -8,7 +8,9 @@ Given /I have created an event called "(.*)" as user "(.*)" to invite friend "(.
 	fill_in "event[name]", :with => event_name
 	fill_in('event[description]', :with => 'event description')
 	fill_in('event[location]', :with => 'event location')
-	select('Other', :from => "event[event_type]")
+	fill_in('event[event_type]', :with => 'other')
+ 	fill_in('event[start]', :with => '12:00 PM')
+ 	fill_in('event[end]', :with => '2:00 PM')
 	click_button "Create"
 	@event = Event.where('name LIKE ?', event_name).first
 	visit "/events/#{@event.id}/invite"
@@ -45,11 +47,13 @@ end
 
 Given /I have created an event called "(.*)" as "(.*)"/ do |event_name, user_name|
 	@user = User.where('first_name = ?', user_name.gsub!(/\A"|"\Z/, '')).first
-	visit "/user/1/event/new"
-	fill_in('event_name', :with => event_name)
-	fill_in('event_description', :with => 'blah blah blah')
-	fill_in('event_location', :with => 'right here')
-	select('Other', :from => "event_event_type")
+	visit "/events/new"
+	fill_in "event[name]", :with => event_name
+	fill_in('event[description]', :with => 'event description')
+	fill_in('event[location]', :with => 'event location')
+	fill_in('event[event_type]', :with => 'other')
+ 	fill_in('event[start]', :with => '12:00 PM')
+ 	fill_in('event[end]', :with => '2:00 PM')
 	click_button "Create"
 end
 

@@ -16,7 +16,7 @@ Scenario: Search by first name
 	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the ronde dashboard
 	When I follow "friends"
-	And I fill in "searched_friend" with "SondeFirst"
+	And I fill in "search_param" with "SondeFirst"
 	And I press "Search"
 	Then I should see "SondeFirst SondeLast"
 
@@ -24,6 +24,6 @@ Scenario: Search by last name
 	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I am on the ronde dashboard
 	When I follow "friends"
-	And I fill in "searched_friend" with "SondeLast"
+	And I fill in "search_param" with "SondeLast"
 	And I press "Search"
 	Then I should see "SondeFirst SondeLast"
