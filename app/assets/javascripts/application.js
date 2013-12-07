@@ -16,5 +16,7 @@
 //= require event
 //= require dashboard
 //= require bootstrap
+//= require amberjack
+//= require amberjack.pack
 
 
