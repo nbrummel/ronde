@@ -13,7 +13,7 @@ Given the following users exist:
 Given "RondeFirst" and "SondeFirst" are friends
 
 Scenario: See friends' created events
-	Given I am logged in as user "ronde@gmail.com" with password "RondePassword"
+	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
 	And I have created an event called "Basketball" as user "RondeFirst" to invite friend "SondeFirst"
 	And I search for "Basketball"
 	Then I should see "Basketball"

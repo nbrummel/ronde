@@ -17,7 +17,7 @@ Scenario: Signing in 1st time to see tour and 2nd time to see dashboard
   And I fill in "user_password_confirmation" with "yahtzee12"
   Then I click "Sign up"
   Then We should be on the tour page
-  Then I follow "home"
+  Then I am on the ronde dashboard
   And I should see "Joe"
   Then I follow "logout"
   And I should see "sign up"

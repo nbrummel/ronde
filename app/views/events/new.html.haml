@@ -1,31 +1,29 @@
-.container
-	%center
-		.well.span12{:style => "position:relative; right:2.1%;background-color:#ffffff;"}
-			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} Create A New Event 
-			= form_for(@event, html: { class: 'form-vertical' }) do |f|
-				%div
-					= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
-				%div
-					= f.text_area :description, rows: 3, :placeholder => "give your friends some more details and convince them to come "
-				%div
-					= f.text_field :location,:placeholder => "location"
-				%div
-					= f.text_field :event_type, :placeholder => 'event type'
-				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.8%;top:60%;',"role" => "menu"}
-					%li
-						%a#Food{:href => '#'} food
-						%a#Drink{:href => '#'} drink
-						%a#Other{:href => '#'} other
-				%div
-					= f.text_field :start, :placeholder => 'start time'
-				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.8%;top:68.5%;',"role" => "menu"}
-					%li#time-list-start
-				%div
-					= f.text_field :end, :placeholder => 'end time'
-				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.8%;top:77%;',"role" => "menu"}
-					%li#time-list-end
-				%label{:style => 'font-size:10px;'}
-					= check_box_tag "event[public]"
-					= 'Make public'
-				%a{:class => 'btn btn-primary btn-small', :href => user_dashboard_path} Back	
-				= f.submit value: 'Create', class: 'btn btn-info' 
+= form_for(Event.new, html: { class: 'form-vertical' }) do |f|
+	%fieldset
+		.field.control-group
+			= f.label :name
+		.controls
+			.input-group
+			= f.text_field :name,:placeholder => "What should we do?"
+		.field.control-group
+		= f.label :description
+		.controls
+			.input-group
+				= f.text_area :description, rows: 3, :placeholder => "Give your friends some more details and convince them to come "
+		.field.control-group
+			= f.label :location
+			.controls
+				.input-group
+					= f.text_field :location,:placeholder => "Where?"
+		.field.control-group
+		= f.label :event_type
+		.controls= f.collection_select :event_type, Event::EVENT_OPTIONS, :to_s, :humanize, prompt: true
+		.field.control-group
+			= f.label :start
+			.controls.datetime
+				= f.datetime_select :start, :default => Time.now, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step =>15
+		.field.control-group
+			= f.label :end
+			.controls.datetime
+				= f.datetime_select :end, :default => Time.now + 1.hour, :discard_month => true, :discard_year => true, :ampm => true ,  :minute_step => 15
+		= f.submit value: 'Create', class: 'btn btn-large btn-success' 

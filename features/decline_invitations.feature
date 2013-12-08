@@ -27,15 +27,3 @@ Scenario: Decline invitation through all events
 	When I am on the ronde dashboard
 	Then I follow "all_events"
 	Then I should not see "Blorg"
-
-Scenario: Decline invitation through invitations
-	Given I am logged in as "ronde@gmail.com" with password "RondePassword"
-	And I have created an event called "Blorg" as user "RondeFirst" to invite friend "SondeFirst"
-	And I have signed out
-	And I am logged in as "sonde@gmail.com" with password "SondePassword" 
-	And I am on the ronde dashboard
-	And I follow "invitations"
-	Then I follow "decline"
-	When I am on the ronde dashboard
-	Then I follow "all_events"
-	Then I should not see "Blorg"

@@ -14,7 +14,7 @@ Background: I am visiting the website for the first time this session
   	And I fill in "user_password_confirmation" with "yahtzee12"
   	Then I click "Sign up"
   	Then We should be on the tour page
-	Then I follow "home"
+	Then I am on the ronde dashboard
 	And I should see "Joe"
 	Then I follow "logout"
 	And I should see "sign up"
@@ -24,22 +24,3 @@ Background: I am visiting the website for the first time this session
 	When I fill in "yahtzee12" for "Password"
 	When I press "Sign in" 
 	Then I should see "Joe"
-
-Scenario: I can view my own profile and edit it
-	Then I should see "profile"
-	When I follow "edit profile"
-	Then I should see "Edit"
-	# Then I should see "Name:"
-	# Then I should see "Joe John"
-	# Then I should see "Phone Number: 8055555555"
-	# Then I should see "Email: joejohn@example.com"
-	# Then I should see "Friends:"
-	# Then I should see "Edit"
-	# Then I should see "sign out"
-	# Then I should see "home"
-	# When I follow "Edit"
-	# Then I should see "Edit User"
-	Then I should see "Password confirmation"
-	When I follow "Back"
-	# Then I should see "Profile Page"
-	Then I should see "profile"

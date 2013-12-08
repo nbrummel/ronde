@@ -1,36 +1,55 @@
 %body
-  .container
-    %h1.title rondé
-    =flash[:remove_friend_msg]
-    =flash[:accept_friend_msg]
-    =flash[:friend_request_msg]
-    %h2.title Friend Requests
-    -if @friend_requests
-      %table#friend_requests
-        %thead
-          %tr
-            %th 
-            %th
-            %th
-        %tbody
-          - @friend_requests.each do |pending_friend|
-            %tr
-              %td= pending_friend.first_name + ' ' + pending_friend.last_name
-              %td= button_to '✓', "/user/#{@user.id}/accept_friend/#{pending_friend.id}"
-              %td= button_to 'x', "/user/#{@user.id}/reject_friend/#{pending_friend.id}"
-    -else
-      = "You have no friend requests."
-    %h2.title Friends
-    -if @friends
-      %table#friends
-        %thead
-          %tr
-            %th
-            %th
-        %tbody
-          - @friends.each do |friend|
-            %tr
-              %td= friend.first_name + ' ' + friend.last_name
-              %td= button_to 'x', "/user/#{@user.id}/remove_friend/#{friend.id}", :confirm => "Are you sure you want to remove #{friend.first_name} #{friend.last_name} from your friends?", :method => :delete
-    -else 
-      = "You do not have any friends at this time. Add your friends to connect on rondé!"
+  %table{:style => "width: 50%"}
+    %tbody
+      %tr
+        %td
+          .container
+            %center{:style => 'position:relative;right:26.5%;'}
+              %p{:style => "font-weight:bold;color:#dd6633;"}
+                = current_user.first_name
+                = current_user.last_name
+                %br
+                %a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
+              .table
+                .btn-group-vertical
+                  = link_to 'feed', '#', :id => 'show-feed', :class => 'btn btn-primary btn-small'
+                  = link_to 'new event', '#', :id => 'new_event', :class => 'btn btn-primary btn-small'
+                  = link_to 'invitations', '#', :id => 'invitations', :class => 'btn btn-primary btn-small'
+                  = link_to 'friend requests', '#', :id => 'friend_requests', :class => 'btn btn-primary btn-small'
+                  = link_to 'recent events', '#', :id => 'recent_events', :class => 'btn btn-primary btn-small'
+                  = link_to 'all events', 'events/show/all', :id => 'all_events', :class => 'btn btn-primary btn-small'
+        %td
+          .container{:style => "position:relative;right: 60%; font-family:arial; color:#707070;"}
+            =flash[:remove_friend_msg]
+            =flash[:accept_friend_msg]
+            =flash[:friend_request_msg]
+            %h2{:style => "font-family:eight_one; font-weight:normal; position:relative; color:#ff6699;"} Friend Requests
+            -if @friend_requests
+              %table#friend_requests
+                %thead
+                  %tr
+                    %th 
+                    %th
+                    %th
+                %tbody
+                  - @friend_requests.each do |pending_friend|
+                    %tr
+                      %td= pending_friend.first_name + ' ' + pending_friend.last_name
+                      %td= button_to '✓', "/user/#{@user.id}/accept_friend/#{pending_friend.id}", :class => 'btn btn-default btn-small'
+                      %td= button_to 'x', "/user/#{@user.id}/reject_friend/#{pending_friend.id}", :class => 'btn btn-default btn-small'
+            -else
+              = "You have no friend requests."
+            %h2{:style => "font-family:eight_one; font-weight:normal; position:relative; color:#ff6699;"} Friends
+            -if @friends
+              %table#friends
+                %thead
+                  %tr
+                    %th
+                    %th
+                %tbody
+                  - @friends.each do |friend|
+                    %tr
+                      %td= friend.first_name + ' ' + friend.last_name
+                      %td= button_to 'x', "/user/#{@user.id}/remove_friend/#{friend.id}", :confirm => "Are you sure you want to remove #{friend.first_name} #{friend.last_name} from your friends?", :method => :delete, :class => 'btn btn-default btn-small'
+            -else 
+              = "You do not have any friends at this time. Add your friends to connect on rondé!"

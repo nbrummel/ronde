@@ -42,22 +42,13 @@
 						%p
 							= user_event.last.description
 				.div.span0{:style => 'position:relative;margin-top:-10%;'}
-					.span1
-						- if user_event.last.event_type == 'Food'
-							= image_tag('/food.png', :size => '40x40')
-						- elsif user_event.last.event_type == 'Drink'
-							= image_tag('/drink.png', :size => '40x40')
-						- else
-							= image_tag('/other.png', :size => '40x40')
-					.span1
-						- if user_event.last.attending_users.include?(current_user)
-						-else 
-							%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join
-
-						/ - user_joined_events = true
-						/ - Event.find(user_event.last.id).attending_users.all do |user|
-						/ 	- if current_user == user
-						/ 		- user_joined_events = false 
-
-						/ - if user_joined_events	
-									
+					- if user_event.last.event_type == 'Food'
+						= image_tag('/food.png', :size => '40x40')
+					- elsif user_event.last.event_type == 'Drink'
+						= image_tag('/drink.png', :size => '40x40')
+					- else
+						= image_tag('/other.png', :size => '40x40')				
+				.div.span2
+					%p
+					- if current_user.joined_events.include?(user_event.last)
+						%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join
