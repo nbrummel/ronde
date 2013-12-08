@@ -5,19 +5,6 @@
         %td
           .container
             %center{:style => 'position:relative;right:26.5%;'}
-              %p{:style => "font-weight:bold;color:#dd6633;"}
-                = current_user.first_name
-                = current_user.last_name
-                %br
-                %a#edit_profile{:href => "/user/#{current_user.id}/account/edit"} edit profile
-              .table
-                .btn-group-vertical
-                  = link_to 'feed', '#', :id => 'show-feed', :class => 'btn btn-primary btn-small'
-                  = link_to 'new event', '#', :id => 'new_event', :class => 'btn btn-primary btn-small'
-                  = link_to 'invitations', '#', :id => 'invitations', :class => 'btn btn-primary btn-small'
-                  = link_to 'friend requests', '#', :id => 'friend_requests', :class => 'btn btn-primary btn-small'
-                  = link_to 'recent events', '#', :id => 'recent_events', :class => 'btn btn-primary btn-small'
-                  = link_to 'all events', 'events/show/all', :id => 'all_events', :class => 'btn btn-primary btn-small'
         %td
           .container{:style => "position:relative;right: 60%; font-family:arial; color:#707070;"}
             -if @possible_friends.empty? && @possible_events.empty?
