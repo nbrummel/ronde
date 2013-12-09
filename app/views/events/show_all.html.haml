@@ -1,6 +1,6 @@
 %body
 	.container
-		.pull-left{:style => "position:relative; left:28.3%;"}
+		.pull-left{:style => "position:relative; left:26%;"}
 			%h1{:style => "font-family:eight_one; font-weight:normal; position:relative; left:36%;"} events
 
 			.span5{:style => "position:relative; right:2%;"}
@@ -39,7 +39,7 @@
 						.tab-pane{:id => "created_events"}
 							- for event in current_user.my_events
 								.ul.list-group
-									%a.li.list-group-item{:href => "/events/#{event.id}"}
+									%a.li.list-group-item#destroy-event{:href => "/events/#{event.id}"}
 										= event.name.capitalize
 	%br
 	%br

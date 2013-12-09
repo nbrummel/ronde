@@ -1,7 +1,7 @@
 .container
 	%center
 		.well.span6{:style => "position:relative; right:0.5%;margin-top:-2%;background-color:#ffffff;"}
-			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} Quick Ronde 
+			%h1{:style => 'font-family:eight_one;font-weight:normal;color:#ff6699;'} new Ronde 
 			= form_for(@event, html: { class: 'form-vertical' }) do |f|
 				%div
 					= f.text_field :name,:autofocus => 'true',:placeholder => "event name"
@@ -11,23 +11,21 @@
 					= f.text_field :location,:placeholder => "location"
 				%div
 					= f.text_field :event_type, :placeholder => 'event type'
-				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.8%;top:60%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#event-select-type{:style => 'position:absolute; left:27.6%;top:57%;',"role" => "menu"}
 					%li
 						%a#Food{:href => '#'} food
 						%a#Drink{:href => '#'} drink
 						%a#Other{:href => '#'} other
 				%div
 					= f.text_field :start, :placeholder => 'start time'
-				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.8%;top:68.5%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-start{:style => 'position:absolute; left:27.6%;top:65.5%;',"role" => "menu"}
 					%li#time-list-start
 				%div
 					= f.text_field :end, :placeholder => 'end time'
-				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.8%;top:77%;',"role" => "menu"}
+				%ul.span3.dropdown-menu#time-select-end{:style => 'position:absolute; left:27.6%;top:74%;',"role" => "menu"}
 					%li#time-list-end
 				%label{:style => 'font-size:10px;'}
 					= check_box_tag "event[public]"
 					= 'Make public'
-
-				.container{:style=> 'position:relative;right:53%;'}
-					%a{:href => user_dashboard_path} cancel
-					= f.submit value: 'Create', class: 'btn btn-info' 
+				= f.submit value: 'Create', class: 'btn btn-danger' 
+			%a{:href => user_dashboard_path} cancel

@@ -1219,7 +1219,8 @@ select[readonly],
 textarea[readonly] {
   /*cursor: not-allowed;*/
   cursor:default;
-  background-color: #eeeeee;
+  background-color: #ffcc99;
+  /*background-color: #eeeeee;*/
 }
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
@@ -5758,8 +5759,8 @@ input[type="button"].btn-block {
 .btn-danger.active,
 .btn-danger.disabled,
 .btn-danger[disabled] {
-  color: #ffffff;
-  background-color: #ee5522;
+  color: #ff6633;
+  background-color: #ffffff;
   *background-color: #a9302a;
 }
 .btn-danger:active,

@@ -16,7 +16,7 @@
 				%br
 				.div{:style => 'width:100px;height100px;position:relative;left:1%;'}
 					%a{:href => "/user/#{current_user.id}/account/edit"}
-						= image_tag('/profile_pic.png', :style => 'border-radius:100%;')
+						= image_tag(current_user.image, :style => 'border-radius:100%;width:100px;height:100px;')
 				.row
 					.span1{:style => "color:#dd6633;"}
 						= 'name:'

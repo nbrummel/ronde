@@ -34,7 +34,7 @@
 					%br
 					.div{:style => 'width:60px;height:60px;position:relative;left:1.5%;'}
 						%a{:href => "/user/#{user_event.first.id}/account/"}
-							= image_tag('/profile_pic.png', :style => 'border-radius:100%;')
+							= image_tag("#{user_event.first.image}", :style => 'border-radius:100%;width:60px;height:60px;')
 				.div.span4.ul.list-group{:class => 'event-more-info', :style => 'position:relative;margin-top:-10%;'}
 					%a.li.list-group-item{:href => '#', :id => "event_#{new_id}_show"}
 						= "#{user_event.last.name}"
@@ -50,5 +50,5 @@
 						= image_tag('/other.png', :size => '40x40')				
 				.div.span2
 					%p
-					- if current_user.joined_events.include?(user_event.last)
+					- unless current_user.joined_events.include?(user_event.last)
 						%a.btn.btn-default.btn-small{:href => "/events/#{user_event.last.id}" } join

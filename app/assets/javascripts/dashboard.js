@@ -58,6 +58,7 @@ $(document).ready( function() {
 		$('#all-invitations').toggle(false);
 		$('#new-event').toggle(false);
 		$('#friend-requests').toggle(false);
+		$('#event_end').attr('readonly',true)
 		var link = $('<a href="#" id="time-now">' + getCurrentTime(false) + '</a>' );
 		link.appendTo('#time');
 
@@ -115,6 +116,9 @@ $(document).ready( function() {
 		count = Math.max(maxHours,count);
 		for(var j = 0; j < count; j++) {
 			for(var i = startTime.getMinutes(); i < 60; i+=30){
+				if ( (startTime.getHours() % 24) < 12 && format == 'PM'){
+					currentDay += 1;
+				}
 				startTime = new Date(currentYear,currentMonth,currentDay,startTime.getHours(),i,0,0);
 				timeString = startTime.toString("yyyy:MM:dd:HH:mm").split(':');
 				timeHour = timeString[0].split(' ')[4];
@@ -131,7 +135,7 @@ $(document).ready( function() {
 						timeHour = '12';
 				}
 				
-				if(end == true){
+				if(end){
 					link = $("<a href='#' id='" + "end-hour-" + timeHour + "-minute-" + timeMinute + "-format-" + format +  "-year-" + currentYear + "-day-" + currentDay + "-month-" + currentMonth + "'>" + timeHour+ ":" + timeMinute + " " + format + "</a>");
 					link.appendTo(list);
 
@@ -262,7 +266,7 @@ $(document).ready( function() {
 
 	$('#event_start').focusin( function() {
 		$('#time-select-start').toggle(true);
-		generateTime($('#time-list-start'), new Date($.now()), false, 6);
+		generateTime($('#time-list-start'), new Date($.now()), false, 12);
 		generateLinks(false);
 	});
 
@@ -271,27 +275,29 @@ $(document).ready( function() {
 	});
 
 	$('#event_end').focusin( function() {
-		$('#time-select-end').toggle(true);
-		var start = $('#event_start').val();
-		var hm;
-		var ydm;
-		if (start){
-			start = start.split(' ');
-			hm = start[0].split(':');
-			if (start[1] == 'PM'){
-				hm[0] = parseInt(hm[0]) + 12;
+		if ($('#event_start').attr('readonly') == 'readonly'){
+			$('#time-select-end').toggle(true);
+			var start = $('#event_start').val();
+			var hm;
+			var ydm;
+			if (start){
+				start = start.split(' ');
+				hm = start[0].split(':');
+				if (start[1] == 'PM'){
+					hm[0] = parseInt(hm[0]) + 12;
+				}
+				else if(start[1] == 'AM' && hm[0] == 12){
+					hm[0] = 0;
+				}
+				ydm = start[2].split('-');
+				start = new Date(ydm[0],ydm[2]-1,ydm[1],hm[0], hm[1],0,0);
 			}
-			else if(start[1] == 'AM' && hm[0] == 12){
-				hm[0] = 0;
+			else{
+				start = new Date($.now(1));
 			}
-			ydm = start[2].split('-');
-			start = new Date(ydm[0],ydm[2]-1,ydm[1],hm[0], hm[1],0,0);
+			generateTime($('#time-list-end'), start, true, 6);
+			generateLinks(true);
 		}
-		else{
-			start = new Date($.now(1));
-		}
-		generateTime($('#time-list-end'), start, true, 6);
-		generateLinks(true);
 	});
 
 	$('#event_end').focusout( function() {
@@ -333,6 +339,7 @@ $(document).ready( function() {
 		$('#new-event').toggle();
 
 		$('#event_start').val(getCurrentTime(true) + ' ' + getCurrentDate());
+		$('#event_start').attr('readonly', true)
 		check_dashboard();
 	})
 
