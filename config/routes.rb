@@ -18,7 +18,7 @@ Ronde::Application.routes.draw do
   get "/user/:id/event/new", :to => "events#new", :as => 'user_event'
   get "/events/:id" , :to => "events#show"
   get "/events/:id/invite", :to => "events#invite"
-  get "/events/show/all", :to => "events#show_all", :as => 'events'
+  get "/events/show/all", :to => "events#show_all"
   post "/events/:id/send_invites", :to => "events#send_invites"
   get "events/:id/destroy", :to => "events#destroy"
 
